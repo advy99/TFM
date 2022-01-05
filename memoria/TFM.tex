@@ -1,0 +1,91 @@
+\documentclass[12pt, spanish]{article}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+
+% estilo personalizado
+\usepackage{src/estilo}
+
+
+\begin{document}
+
+% Página de titulo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+    \centering
+    \vspace*{-2cm}
+    \includegraphics[scale = 0.50]{ugr.png}\\[0.3 cm]
+    %\textsc{\LARGE Universidad de Granada}\\[2.0 cm]
+    \textsc{\large Trabajo Fin de Máster}\\[0.5 cm]
+    \textsc{\large Máster en Ciencia de Datos e Ingeniería de Computadores}\\[0 cm]
+    \rule{\linewidth}{0.2 mm} \\
+    { \Large \bfseries \thetitle}\\
+    \rule{\linewidth}{0.2 mm} \\[1 cm]
+
+    \begin{minipage}{\textwidth}
+		\begin{center}
+			\large
+			\emph{Autor:} \theauthor \hspace{0.5 cm}
+			\emph{DNI:} 77021623-M \vspace{0.2cm} \\
+			\emph{Director:} Óscar Cordón García \\
+			\emph{Director:} Sergio Damas Arroyo \\
+		\end{center}
+    \end{minipage}\\[0.5cm]
+	 \includegraphics[scale = 0.20]{logo_etsiit.png}\\[0.3 cm]
+    {\large \thedate}\\[0.5cm]
+	 \url{https://github.com/advy99/TFM/}
+    \doclicenseThis
+\end{titlepage}
+
+
+% resumen antes del indice
+
+\input{src/resumen.tex}
+
+\pagebreak
+
+% ponemos el estilo de página despues del resumen, firma y agradecimientos
+
+\pagestyle{fancy}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% indice
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% secciones
+
+\input{src/introduccion.tex}
+
+\input{src/estado_arte.tex}
+
+\input{src/propuesta.tex}
+
+\input{src/preprocesado_datos.tex}
+
+\input{src/programacion_genetica.tex}
+
+\input{src/gap.tex}
+
+\input{src/implementacion.tex}
+
+\input{src/resultados.tex}
+
+\input{src/analisis_resultados.tex}
+
+\input{src/conclusiones.tex}
+
+\input{src/trabajos_futuros.tex}
+
+
+\newpage
+
+\input{src/bibliografia.tex}
+
+\end{document}
