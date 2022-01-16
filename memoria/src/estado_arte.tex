@@ -84,6 +84,10 @@ En 1996, Edward Tunstel, investigador de la NASA y Mo Jamshidi, investigador de 
 	\label{fig:imagen_arbol_regla_robots}
 \end{figure}
 
+Más adelante, en el año 2000, investigadores del Centro Federal de Educación Tecnológica de Paraná, en Brasil, desarrollaron un trabajo \cite{trabajoChestPain} bastante similar al problema propuesto debido a la alta cantidad de clases y las pocas observaciones del problema disponibles. En este trabajo proponen un sistema basado en reglas de cara a predecir diagnósticos de doce tipos distintos de dolor torácico. De cara a obtener las reglas necesarias utilizan Programación Genética, lanzando para cada clase diez ejecuciones del algoritmo, manteniendo la mejor regla para cada clase como resultado, obteniendo un total de doce reglas. A pesar del bajo número de observaciones, consiguen unos resultados muy altos tanto de sensibilidad (probabilidad de detectar los verdaderos positivos) como de especificidad (probabilidad de detectar los verdaderos negativos), además de una simplicidad de las reglas (valor obtenido a partir del número máximo de nodos y el número de nodos de cada regla) muy cercanos a uno, mostrando la clara ventaja de sistemas basados en reglas para obtener modelos explicables.
+
+
+
 Otro de sus principales usos es regresión simbólica, ya que nos ofrece un algoritmo muy bueno para problemas en los que los resultados son variables, no se conoce a priori la forma que tendrá el resultado, además de todas las ventajas de los algoritmos evolutivos.
 
 La principal forma de conseguir que Programación Genética trabaje con regresión simbólica es modificar los cromosomas propuestos por John Koza, en lugar de ser programas de ordenador, generador por gramáticas, los cromosomas serán expresiones matemáticas, manteniendo siempre la forma de árbol. Esta modificación es tan simple por reemplazar la gramática por una gramática que genere expresiones matemáticas, con los operadores que se estimen oportunos.
