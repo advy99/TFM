@@ -60,8 +60,7 @@ Años más tarde, en 1995, Investigadores del departamento de Medicina Forense d
 
 \subsection{Sistemas basados en reglas}
 
-%  TODO : Redactar esta sección para explicar en que se ha utilizado principalmente sistemas basados en reglas,
-% cuando aparecieron, etc, etc
+
 
 \subsection{Programación Genética}
 
@@ -71,8 +70,6 @@ La forma en la que la Programación Genética expresa los cromosomas permite res
 
 Uno de los primeros trabajos fue de publicado por P. A. Whigham en 1995 \cite{PGgramaticas}, en el que se utiliza una gramática inicial libre del contexto para generar expresiones a utilizar en el algoritmo, y que durante el entrenamiento el algoritmo complete la gramática y la amplíe con nuevas reglas, siendo un claro ejemplo de aprendizaje incremental.
 
-% TODO: Modificar esta parte para comentar que se puede usar para aprender un sistema basado en reglas,
-% que es el objetivo del TFM
 Tras demostrar la potencia de Programación Genética para aprender estructuras gramaticales, una de sus principales aplicaciones fue sistemas basados en reglas, donde se utilizaban algoritmos evolutivos para aprender las reglas del sistema.
 
 En 1996, Edward Tunstel, investigador de la NASA y Mo Jamshidi, investigador de la Universidad de Nuevo México, publicaron un artículo \cite{PGcontrolRobots} en el que utilizaban sistemas basados en reglas difusas para un sistema de control de un robot en un entorno tridimensional, donde se utilizaba Programación Genética para el aprendizaje de las reglas del sistema, aprovechando la estructura de gramática de los individuos de la población. Utilizando tan solo poblaciones de entre diez y veinte reglas, escogiendo la regla con mejor ajuste, y con doce ejecuciones del algoritmo, obtuvieron doce reglas capaces de resolver el problema.
@@ -85,6 +82,8 @@ En 1996, Edward Tunstel, investigador de la NASA y Mo Jamshidi, investigador de 
 \end{figure}
 
 Más adelante, en el año 2000, investigadores del Centro Federal de Educación Tecnológica de Paraná, en Brasil, desarrollaron un trabajo \cite{trabajoChestPain} bastante similar al problema propuesto debido a la alta cantidad de clases y las pocas observaciones del problema disponibles. En este trabajo proponen un sistema basado en reglas de cara a predecir diagnósticos de doce tipos distintos de dolor torácico. De cara a obtener las reglas necesarias utilizan Programación Genética, lanzando para cada clase diez ejecuciones del algoritmo, manteniendo la mejor regla para cada clase como resultado, obteniendo un total de doce reglas. A pesar del bajo número de observaciones, consiguen unos resultados muy altos tanto de sensibilidad (probabilidad de detectar los verdaderos positivos) como de especificidad (probabilidad de detectar los verdaderos negativos), además de una simplicidad de las reglas (valor obtenido a partir del número máximo de nodos y el número de nodos de cada regla) muy cercanos a uno, mostrando la clara ventaja de sistemas basados en reglas para obtener modelos explicables.
+
+También en el año 2000, investigadores de la Universidad de Oviedo proponen \cite{GAPnichosFuzzyRules} ciertas mejoras a GA-P, una modificación de Programación Genética que se mencionará más adelante, de cara a aprender un sistema basado en reglas difusas. Proponen utilizar GA-P para aprender tanto las reglas que conformarán el sistema como las particiones difusas de las características del conjunto de datos. En este trabajo también se discute la importancia de que los operadores de cruce y de mutación conserven la forma de la gramática propuesta de cara a no generar reglas inválidas, cruzando tan solo los subárboles de mismo tipo en la forma BNF donde se define la gramática.
 
 Otro trabajo interesante es el publicado por Tsakonas et al en 2004 \cite{reglasDosDominiosMedicosComparacion} donde se proponen evaluar la potencia de Propagación Genética en dos problemas médicos, así como comparar los resultados con otros métodos como árboles C4.5. Para el primer problema se obtienen resultados con alrededor de un 70\% de acierto utilizando C4.5, utilizando Programación Genética para regresión simbólica se consigue un acierto cercano al 90\%, mientras que con Programación Genética obteniendo un sistema basado en reglas se consigue un acierto algo superior al 85\%. Para el segundo problema C4.5 consigue un acierto del 70\%, mientras que Programación Genética consigue alrededor de un 98\% con las distintas variantes.
 
