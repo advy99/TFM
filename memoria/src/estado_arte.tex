@@ -60,7 +60,15 @@ Años más tarde, en 1995, Investigadores del departamento de Medicina Forense d
 
 \subsection{Sistemas basados en reglas}
 
+Los sistemas basados en reglas son un tipo de sistema experto en el que se pretende simular el razonamiento humano utilizando reglas del estilo \textit{IF-THEN}, una representación estándar en el mundo de la lógica que ha demostrado su potencia en el ámbito de la inteligencia artificial, además de ser un método interpretable y comprensible por los usuarios del sistema.
 
+Una de las primeras aplicaciones de este tipo de sistema experto fue DENDRAL \cite{primerDENDRAL}. Desarrollado en la década de 1960 en la Universidad de Stanford, es considerado uno de los primeros sistemas expertos por su capacidad de toma de decisiones de forma automatizada. Fue diseñado para ayudar a químicos orgánicos a identificar moléculas desconocidas analizando los resultados de un espectrómetro de masas y con ayuda del conocimiento experto.
+
+Tras DENDRAL, los mismos investigadores de la Universidad de Stanford desarrollaron en la década de 1970 MYCIN \cite{tesisMYCIN}, otro sistema basado en reglas, con el que gracias a más de 600 reglas era capaz de identificar bacterias que causaran infecciones graves.
+
+Tras varias propuesta en las que se utilizaban sistemas basados en reglas utilizando conocimiento experto, a partir de finales de la década de 1980 se proponen diversos métodos para obtener un conjunto de reglas a partir de los datos del problema. Una de esas propuestas es CN2 \cite{propuestaCN2}, que, utilizando como base los algoritmos para construir árboles ID3 y AQ, se trata de una propuesta de algoritmo para obtener reglas sencillas y que de cierta forma se adapten al ruido en los datos. Este algoritmo se trata de un algoritmo iterativo, en el que en cada iteración obtendrá la regla que cubra el mayor número de observaciones de una clase aunque cubra algunas observaciones de otras clases, añadiendo cierto grado de error. Tras obtener una regla que cubra dichas observaciones, esa regla pasará a la lista de reglas de la solución, y volverá a iterar pero eliminando las observaciones ya cubiertas. Como vemos esta forma de actuar hará que el resultado sea una lista de reglas ordenada, teniendo prioridad las primeras reglas añadidas al sistema ya que son las que más ejemplos de una clase cubren.
+
+En 1995 William Cohen propone otro algoritmo para obtener reglas \cite{propuestaRIPPER}, RIPPER. Este método se basa en construir las reglas utilizando un método greedy de cobertura de ejemplos, pero añadiendo una tasa de error para detener la construcción de reglas. Además, proponen IREP, un enfoque divide y vencerás donde el conjunto de observaciones del que obtener las reglas se divide en dos, una partición creciente y una partición de poda. Este método se basa en generar reglas añadiendo antecedentes siempre que se mejore la ganancia de información de la regla, una vez la regla ya no cubre ejemplos de distintas clases, se procede a podar la regla usando una poda incremental de error reducido.
 
 \subsection{Programación Genética}
 
