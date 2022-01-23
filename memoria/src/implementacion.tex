@@ -99,34 +99,6 @@ Esta clase se trata de la clase del algoritmo de Programación Genética que imp
 
 \newpage
 
-\subsubsection{Clase Expresion\_GAP y AlgoritmoGAP}
-
-Como vemos, con la estructura de clases con plantillas, introducir un nuevo algoritmo es tan simple como definir el comportamiento de la expresión a utilizar y como se ajusta dicho algoritmo a los datos. Por este motivo, introducir la variante de GA-P es muy simple.
-
-Para las expresiones de GA-P usaremos como base las expresiones de Programación Genética, ya que el único añadido es el cromosoma, los operadores de cruce y mutación de GA-P y la forma en la que se obtienen los valores numéricos, por lo tanto la clase \texttt{Expresion\_GAP} quedará de la siguiente forma.
-
-
-
-\begin{figure}[H]
-    \centering
-	 \begin{subfigure}[b]{0.49\textwidth}
-		 \centering
-		 \includegraphics[width=0.3\textwidth]{clases/expresion_gap.png}
-		 \caption{Diagrama de la clase Expresion\_GAP.}
-		\label{fig:diagrama_clase_expresion_gap}
-	 \end{subfigure}
-	\begin{subfigure}[b]{0.49\textwidth}
-		 \centering
-		 \includegraphics[width=0.3\textwidth]{clases/algoritmo_gap.png}
- 		\caption{Diagrama de la clase Algoritmo\_GAP.}
- 	  \label{fig:diagrama_clase_algoritmo_gap}
-   \end{subfigure}
-
-	\caption{Diagrama de clases de Algoritmo\_GAP y Expresion\_GAP.}
-	\label{fig:diagrama_clases_gap}
-\end{figure}
-
-
 \subsubsection{Clase Parametros}
 
 De cara a hacer más sencillo el uso de los algoritmos también se ha implementado una clase auxiliar \texttt{Parametros} que contiene todos los parámetros posibles para los algoritmos. De esta forma gestionar los parámetros con los que se lanza un algoritmo es mucho más sencillo, además de que nos permite una mayor flexibilidad a la hora de realizar distintas ejecuciones.
@@ -239,50 +211,18 @@ Como podemos ver, con cinco repeticiones y siendo cada una de estas un 2-cv (de 
 
 De cara a evaluar los algoritmos necesitaremos una función de evaluación que nos permita saber el error que estamos cometiendo en las estimaciones.
 
-En nuestro caso, al realizar una regresión simbólica, utilizaremos tres medidas:
+En nuestro caso, al estar ante un problema de clasificación utilizaremos las siguientes:
 
 \begin{itemize}
-	\item Error cuadrático medio.
-	\item Raíz del error cuadrático medio.
-	\item Error absoluto medio.
+	\item Precisión.
+	\item Área bajo la curva ROC.
 \end{itemize}
 
-\subsubsection{Error cuadrático medio}
+\subsubsection{Precisión}
 
-El error cuadrático medio es un estimador que medirá el promedio de los errores cometidos al cuadrado. Esta función de error se utiliza especialmente al entrenar modelos, ya que es muy sensible a errores, lo que ayuda a la hora del aprendizaje a distinguir dos soluciones, aunque el error que cometan ambas sea similar, esta función penalizará mucho más a la que tenga un mayor error.
 
-\begin{figure}[H]
-	 \centering
-	 $$ ECM = \frac{1}{n} \sum_{i = 1}^{n}(\hat{Y_i} - Y_i)^2 $$
-	 \caption{Fórmula para calcular el error cuadrático medio, donde $\hat{Y_i}$ son las etiquetas predecidas y $Y_i$ son las etiquetas reales.}
-	\label{fig:ECM}
-\end{figure}
+\subsubsection{Área bajo la curva ROC}
 
-\subsubsection{Raíz del error cuadrático medio}
-
-La raíz del error cuadrático medio se trata de aplicar la raíz cuadrada al error cuadrático medio. Este error, al tener la misma escala que las etiquetas reales se utiliza para interpretar directamente el resultado sobre los datos disponibles.
-
-\begin{figure}[H]
-	 \centering
-	 $$ RECM = \sqrt{ECM} $$
-	 \caption{Fórmula para calcular la raíz del error cuadrático medio.}
-	\label{fig:RECM}
-\end{figure}
-
-\newpage
-
-\subsubsection{Error absoluto medio}
-
-El error absoluto medio (MAE por sus siglas en inglés) se trata de medir la diferencia entre dos valores, en nuestro caso los valores obtenidos y los valores esperados.
-
-\begin{figure}[H]
-	 \centering
-	 $$ MAE = \frac{\sum_{i = 1}^{n}|\hat{Y_i} - Y_i|}{n} $$
-	 \caption{Fórmula para calcular el error absoluto medio, donde $\hat{Y_i}$ son las etiquetas predecidas y $Y_i$ son las etiquetas reales.}
-	\label{fig:MAE}
-\end{figure}
-
-Con el error absoluto medio podremos observar el error de precisión del modelo al estimar valores, así como comparar con el estado del arte del problema, ya que como vimos, en la mayoría de trabajos se utilizaba esta técnica para medir el error.
 
 \newpage
 
@@ -351,73 +291,8 @@ Los binarios se generarán en la carpeta \texttt{bin} y cada uno de ellos tiene 
 
 De cara a probar que nuestra implementación funciona vamos a utilizar un conjunto de datos sencillo, con pocos datos y cuyo funcionamiento es muy simple, Iris \cite{irisDataset}. Este dataset contiene tres características de tres variantes de la flor Iris: Setosa, Versicolour y Virginica. Existen 50 muestras de cada clase, siendo 150 muestras en total.
 
-En principio este problema es de clasificación, pero para hacer esta prueba se han asignado valores numéricos a cada clase, de forma que a cada clase asignaremos un valor numérico, 0, 1 y 2. De esta forma, nuestro algoritmo utilizará las tres características numéricas para predecir el valor numérico que será la clase.
+% TODO: lanzar iris como conjunto de prueba
 
-
-Para la prueba se ha separado el conjunto de entrada en un 80\% de entrenamiento y un 20\% de test. Tras esto se han ajustado los algoritmos usando como validación 5x2cv y los siguientes parámetros:
-
-\begin{itemize}
-	\item Tamaño de población: $1.000$.
-	\item Probabilidad de que un nodo sea una variable: $30\%$.
-	\item Tamaño máximo del árbol: $10$.
-	\item Número de evaluaciones: $100.000$.
-	\item Probabilidad de cruce en PG: $75\%$.
-	\item Probabilidad de cruce en GA: $75\%$.
-	\item Probabilidad de mutación en PG: $5\%$.
-	\item Probabilidad de mutación en GA: $5\%$.
-	\item Probabilidad de cruce intra-nicho: $3\%$.
-	\item Tamaño del torneo: $30$.
-\end{itemize}
-
-Tras realizar las ejecuciones, obtenemos los siguientes resultados en Programación Genética:
-
-\begin{lstlisting}
-RMSE (Root Mean Square Error) en validacion cruzada de: 0.2616322184
-\end{lstlisting}
-
-Con las siguientes predicciones sobre el conjunto de test:
-
-\begin{figure}[H]
-	 \centering
-	 \includegraphics[width=0.8\textwidth]{iris_gp.png}
-	 \caption{Comparación de valores reales y predicciones con Programación genetica.}
-	\label{fig:iris_gp}
-\end{figure}
-
-Y con la siguiente fórmula:
-
-\begin{figure}[H]
-	 \centering
-	 $$( ( -1.136984  / ( -3.640915  +  9.897730 ) ) +  x3 )$$
-	 \caption{Fórmula obtenida de la regresión simbólica con Programación Genética.}
-	\label{fig:formula_iris_gp}
-\end{figure}
-
-Mientras que en GA-P obtenemos:
-
-\begin{lstlisting}
-RMSE (Root Mean Square Error) en validacion cruzada de: 0.24989117
-\end{lstlisting}
-
-Con las siguientes predicciones sobre el conjunto de test:
-
-\begin{figure}[H]
-	 \centering
-	 \includegraphics[width=0.8\textwidth]{iris_gap.png}
-	 \caption{Comparación de valores reales y predicciones con GA-P.}
-	\label{fig:iris_gap}
-\end{figure}
-
-Y con la siguiente fórmula:
-
-\begin{figure}[H]
-	 \centering
-	 $$( -0.299342  +  x_3 )$$
-	 \caption{Fórmula obtenida de la regresión simbólica con GA-P.}
-	\label{fig:formula_iris_gap}
-\end{figure}
-
-Como vemos, el resultado es muy similar, y es que si nos fijamos en las fórmulas obtenidas de la regresión simbólica (figuras \ref{fig:formula_iris_gp} y \ref{fig:formula_iris_gap}), ambas son prácticamente la misma, pero GA-P ha sido capaz de aprender mejor los valores numéricos constantes necesarios y por lo tanto obtener un resultado más compacto, tal y como esperábamos.
 
 \newpage
 
