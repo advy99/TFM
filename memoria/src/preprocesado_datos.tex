@@ -1,4 +1,6 @@
-\section{Preprocesado de los datos}
+\section{Análisis y preprocesado de los datos}
+
+\subsection{Análisis del conjunto de datos}
 
 Nuestro conjunto de datos se compone de tres ficheros:
 
@@ -10,21 +12,175 @@ Nuestro conjunto de datos se compone de tres ficheros:
 
 \begin{figure}[H]
 	\begin{lstlisting}[language={}]
-	NoGrooves,Absence,Defined,Absent,Defined,Present,Absent,Absent,FormedWithoutRarefactions,36
+	NoGrooves,Absence,Defined,Absent,Defined,Present,Absent,Absent,FormedWithoutRarefactions,Ph07-35-39
 	\end{lstlisting}
-	\caption{Ejemplo de un dato cuya edad de muerte es 36 años, del conjunto de datos \texttt{completo.arff}.}
+	\caption{Ejemplo de un dato cuya edad de muerte está en el rango comprendido por la fase 7, entre 35 y 39 años, del conjunto de datos \texttt{completo.arff}.}
 	\label{fig:ejemplo_dato}
 \end{figure}
 
 Como vemos en la figura \ref{fig:ejemplo_dato} los datos tienen asignados valores categóricos para cada característica, y finalmente la edad a la que murió la persona con las características asociadas.
 
+Para comenzar, realizaremos un análisis de cada uno de los conjuntos de datos. Como el conjunto de datos completo se trata simplemente de la unión de los datos de la lateralizad izquierda y la derecha, será el último análisis que realicemos.
+
+\subsubsection{Análisis de la lateralidad izquierda}
+
+Este conjunto de datos cuenta con 439 muestras. Para empezar vamos a ver de forma gráfica como se distribuyen los datos según las fases propuestas por Todd:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/distribucion_clases_lateralidad_izquierda.png}
+	\caption{Número de datos por cada fase propuesta por Todd con el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:conteo_l0}
+\end{figure}
+
+Podemos ver que contamos con una cantidad muy alta de observaciones de las últimas fases en comparación con las primeras fases, en especial de la última fase, de personas de más de cincuenta años.
+
+Debido a que todas las variables del conjunto de datos son categóricas, para este análisis solo podemos observar como se distribuyen los valores de cada predictor para cada fase. Vamos ver cada uno de estos predictores y comentar la información que nos proporcionan.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_IrregularPorosity_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de IrregularPorosity en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_IrregularPorosity_lateralidad_izquierda}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_UpperSymphysialExtremity_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de UpperSymphysialExtremity en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_UpperSymphysialExtremity_lateralidad_izquierda}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_BonyNodule_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de BonyNodule en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_BonyNodule_lateralidad_izquierda}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_LowerSymphysialExtremity_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de LowerSymphysialExtremity en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_LowerSymphysialExtremity_lateralidad_izquierda}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_DorsalMargin_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de DorsalMargin en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_DorsalMargin_izquierda}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_DorsalPlaeau_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de DorsalPlaeau en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_DorsalPlaeau_izquierda}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_VentralBevel_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de VentralBevel en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_VentralBevel_izquierda}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_VentralMargin_lateralidad_izquierda.png}
+	\caption{Distribución de los valores de VentralMargin en el conjunto de datos de la lateralidad izquierda.}
+	\label{fig:densidad_VentralMargin_izquierda}
+\end{figure}
+
+\subsubsection{Análisis de la lateralidad derecha}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/distribucion_clases_lateralidad_derecha.png}
+	\caption{Número de datos por cada fase propuesta por Todd con el conjunto de datos de la lateralidad derecha.}
+	\label{fig:conteo_l1}
+\end{figure}
+
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_IrregularPorosity_lateralidad_derecha.png}
+	\caption{Distribución de los valores de IrregularPorosity en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_IrregularPorosity_lateralidad_derecha}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_UpperSymphysialExtremity_lateralidad_derecha.png}
+	\caption{Distribución de los valores de UpperSymphysialExtremity en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_UpperSymphysialExtremity_lateralidad_derecha}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_BonyNodule_lateralidad_derecha.png}
+	\caption{Distribución de los valores de BonyNodule en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_BonyNodule_lateralidad_derecha}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_LowerSymphysialExtremity_lateralidad_derecha.png}
+	\caption{Distribución de los valores de LowerSymphysialExtremity en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_LowerSymphysialExtremity_derecha}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_DorsalMargin_lateralidad_derecha.png}
+	\caption{Distribución de los valores de DorsalMargin en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_DorsalMargin_derecha}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_DorsalPlaeau_lateralidad_derecha.png}
+	\caption{Distribución de los valores de DorsalPlaeau en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_DorsalPlaeau_derecha}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_VentralBevel_lateralidad_derecha.png}
+	\caption{Distribución de los valores de VentralBevel en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_VentralBevel_derecha}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_VentralMargin_lateralidad_derecha.png}
+	\caption{Distribución de los valores de VentralMargin en el conjunto de datos de la lateralidad derecha.}
+	\label{fig:densidad_VentralMargin_derecha}
+\end{figure}
+
+\subsubsection{Análisis del conjunto completo}
+
+
 
 % TODO: actualizar toda la parte de sobremuestro, explicando SMOTE, borderline-SMOTE, ADASYN,
 % comentar como funciona en nuestro conjunto de datos
 
-\subsection{Sobremuestreo} \label{sobremuestreo}
 
-El algoritmo que utilizaremos, SMOGN \cite{SMOGN}, se basa en una versión mejorada de SMOTE \cite{SMOTE} adaptada para trabajar con regresión, SMOTER \cite{SMOTER}. SMOGN también nos permite utilizar variantes de SMOTE, como Borderline SMOTE \cite{BL-SMOTE}, que será la variante escogida para nuestro problema debido a los buenos resultados obtenidos.
+\subsection{Sobremuestreo} \label{sobremuestreo}
 
 En esta sección introduciremos SMOTE y Borderline SMOTE de cara a mostrar la idea original de sobremuestreo en problemas de clasificación, su adaptación a problemas de regresión con SMOTER y finalmente una mejora de este último, SMOGN, que será el algoritmo a utilizar.
 
@@ -110,17 +266,4 @@ Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \r
 % TODO: Ampliar esto cuando se aplique el preprocesado
 
 
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{}                   & \textbf{Lateralidad izquierda} & \textbf{Lateralidad derecha} & \textbf{Conjunto completo} \\ \hline
-\textbf{Original}           & 439                            & 453                          & 892                        \\ \hline
-\textbf{Tras aplicar X} & 579                            & 592                          & 1182                       \\ \hline
-\end{tabular}
-}
-\caption{Comparación del número de datos en el conjunto original y tras aplicar X.}\label{table:comparacion_orig_X}
-\end{table}
-
-Como vemos en las figuras \ref{fig:l0-over}, \ref{fig:l1-over} y \ref{fig:completo-over} hemos conseguido equilibrar la densidad de las etiquetas, reduciendo la densidad de las etiquetas con valores más altos, los más predominantes en el conjunto de datos, y creando nuevos datos sintéticos de etiquetas con menor valor. Además, como podemos ver en la tabla \ref{table:comparacion_orig_SMOGN}, aumentando el número de muestras, sin necesidad de que SMOGN haya aplicado submuestreo.
+\newpage
