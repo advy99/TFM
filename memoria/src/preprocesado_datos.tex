@@ -112,6 +112,8 @@ Aunque con \texttt{VentralBevel} vemos como para los distintos valores tenemos u
 
 Para \texttt{VentralMargin} vemos como claramente si toma el valor de \texttt{Absent} nos indica que la observación de una fase temprana, si toma el valor de \texttt{PartiallyFormed} estamos ante una observación de una fase mayor o igual a la sexta, y si toma el valor de \texttt{FormedWithoutRarefactions} se trata de una observación de la última fase. Con respecto al resto de valores, \texttt{FormedWithFewRarefactions} sigue teniendo una cantidad alta de fases, pero nos puede dar la información de que la observación no es de las tres fases más tempranas, mientras que \texttt{FormedWithLotRecessesAndProtrusions} no nos da ninguna información de la clase debido al solape de fases que existen.
 
+\newpage
+
 \subsubsection{Análisis de la lateralidad derecha}
 
 Este conjunto de datos cuenta con 453 muestras. Al igual que con la lateralidad izquierda, vamos a ver de forma gráfica como se distribuyen los datos según las fases propuestas por Todd. Debido a la similitud de con la lateralidad izquierda, si las conclusiones obtenidas son semejantes a las obtenidas anteriormente para cada predictor no se comentarán por evitar repetirse:
@@ -187,10 +189,85 @@ Este conjunto de datos cuenta con 453 muestras. Al igual que con la lateralidad 
 
 \subsubsection{Análisis del conjunto completo}
 
+El conjunto completo de los datos cuenta con 892 observaciones, las de la lateralidad izquierda y derecha unidas. Por este motivo, al obtener las mismas conclusiones de la lateralidad izquierda y la lateralidad derecha, las conclusiones en el conjunto de datos completo cabe esperar que sean las mismas. Por este motivo simplemente vamos a comentar las más destacadas.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/distribucion_clases_completo.png}
+	\caption{Número de datos por cada fase propuesta por Todd con el conjunto de datos completo.}
+	\label{fig:conteo_c}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_IrregularPorosity_completo.png}
+	\caption{Distribución de los valores de IrregularPorosity en el conjunto de datos completo.}
+	\label{fig:densidad_IrregularPorosity_completo}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_UpperSymphysialExtremity_completo.png}
+	\caption{Distribución de los valores de UpperSymphysialExtremity en el conjunto de datos completo.}
+	\label{fig:densidad_UpperSymphysialExtremity_completo}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_BonyNodule_completo.png}
+	\caption{Distribución de los valores de BonyNodule en el conjunto de datos completo.}
+	\label{fig:densidad_BonyNodule_completo}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_LowerSymphysialExtremity_completo.png}
+	\caption{Distribución de los valores de LowerSymphysialExtremity en el conjunto de datos completo.}
+	\label{fig:densidad_LowerSymphysialExtremity_completo}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_DorsalMargin_completo.png}
+	\caption{Distribución de los valores de DorsalMargin en el conjunto de datos completo.}
+	\label{fig:densidad_DorsalMargin_completo}
+\end{figure}
+
+En este caso cabe destacar que en todo el conjunto de datos la variable \texttt{DorsalMargin} solo toma el valor de \texttt{Present}, independientemente de la fase a la que pertenezca la observación, por lo que no aporta nada de información a la hora de realizar la clasificación y por lo tanto podemos eliminar este predictor.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_DorsalPlaeau_completo.png}
+	\caption{Distribución de los valores de DorsalPlaeau en el conjunto de datos completo.}
+	\label{fig:densidad_DorsalPlaeau_completo}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_VentralBevel_completo.png}
+	\caption{Distribución de los valores de VentralBevel en el conjunto de datos completo.}
+	\label{fig:densidad_VentralBevel_completo}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos/densidad_VentralMargin_completo.png}
+	\caption{Distribución de los valores de VentralMargin en el conjunto de datos completo.}
+	\label{fig:densidad_VentralMargin_completo}
+\end{figure}
 
 % TODO: actualizar toda la parte de sobremuestro, explicando SMOTE, borderline-SMOTE, ADASYN,
 % comentar como funciona en nuestro conjunto de datos
+
+
+\subsubsection{Conclusiones del análisis de datos}
+
 
 
 \subsection{Sobremuestreo} \label{sobremuestreo}
