@@ -268,13 +268,25 @@ En este caso cabe destacar que en todo el conjunto de datos la variable \texttt{
 
 \subsubsection{Conclusiones del análisis de datos}
 
+Como breve resumen a este análisis de datos realizado, podemos ver como claramente este problema está desbalanceado y además es de una gran dificultad debido al gran solapamiento entre las clases, haciendo más difícil la clasificación.
+
+También hemos podido observar distintas situaciones donde la decisión de la fase es más clara, acotando el tramo de decisión unicamente a dos o tres fases, sin embargo esto sucede con muy pocas observaciones del conjunto de datos. Hay que recordar que esto se ha hecho con un análisis univariante, es decir, observando por separado cada variable, el modelo que utilicemos tendrá a su disposición cualquier combinación de variables, con lo que se espera encontrar una mayor separabilidad entre las fases de cara a obtener un buen resultado en el problema.
+
+Además, se ha observado que uno de los predictores, \texttt{DorsalMargin}, no aporta información al tomar únicamente un valor para todas las observaciones, independientemente de la clase, por lo que podríamos eliminar esta variable. En caso de no eliminarla, deberíamos observar que o bien no se utiliza en las reglas que obtengamos, o siempre que aparezca el valor utilizado será \texttt{Present}, que es el que siempre toma en el conjunto de datos.
+
+Una vez realizado este análisis de datos, pasamos a las distintas técnicas de preprocesamiento que utilizaremos.
 
 
-\subsection{Sobremuestreo} \label{sobremuestreo}
+\subsection{Preprocesamiento} \label{sobremuestreo}
+
+En esta sección se discutirá el preprocesamiento a aplicar a los datos de cara a entrenar el modelo, desde las propias transformaciones que aplicaremos a los datos, hasta si es necesario aplicar técnicas más avanzadas como sobremuestreo y reducción de ruido.
 
 En esta sección introduciremos SMOTE y Borderline SMOTE de cara a mostrar la idea original de sobremuestreo en problemas de clasificación, su adaptación a problemas de regresión con SMOTER y finalmente una mejora de este último, SMOGN, que será el algoritmo a utilizar.
 
-\subsubsection{SMOTE}
+\subsubsection{Transformación de los datos}
+
+
+\subsubsection{Sobremuestreo: SMOTE}
 
 SMOTE se trata de un método para conseguir balancear el número de datos para un problema de clasificación creando nuevos datos de las clases minoritarias de forma sintética.
 
@@ -294,7 +306,7 @@ Uno de estos problemas es que cuando existe ruido entre las clases, o las clases
 
 Este problema se hace mucho más presente en nuestro caso, al contar con tantas clases y con tantas características, y para resolverlo se propuso la variante Borderline-SMOTE.
 
-\subsubsection{Borderline SMOTE}
+\subsubsection{Sobremuestreo: Borderline SMOTE}
 
 
 Borderline SMOTE \cite{BL-SMOTE} se trata de una variante de SMOTE que propone buscar los límites en el espacio de valores de la clase a obtener nuevos datos sintéticos, de forma que cuando se generen dichos datos nuevos, estén dentro de dichos límites. De esta forma evitamos problemas con conjuntos de datos con mucho ruido y múltiples clases.
@@ -347,6 +359,13 @@ En su artículo proponen dos variantes, una donde las nuevas muestras sintética
 \end{figure}
 
 Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \ref{fig:BLSMOTE-SMOTE}, esta técnica es mucho más versátil y conveniente que SMOTE.
+
+
+\subsubsection{Sobremuestreo: ADASYN}
+
+
+\subsubsection{Reducción de ruido}
+
 
 
 \newpage
