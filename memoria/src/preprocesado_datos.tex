@@ -285,10 +285,23 @@ En esta sección introduciremos SMOTE y Borderline SMOTE de cara a mostrar la id
 
 \subsubsection{Transformación de los datos}
 
+Con respecto a las transformaciones de los datos, todo el conjunto de datos está formado por características categóricas, lo que simplificará en gran cantidad tanto la formulación de las reglas como la interpretabilidad, ya que no tendremos que manejar valores reales para las características, en cuyo caso se podría haber propuesto un sistema de reglas difuso. Por este motivo en este caso no será necesario aplicar ninguna transformación a los datos.
+
+Si es cierto que podemos hacer una pequeña selección de características, ya que como hemos visto en el análisis inicial, en concreto en la figura \ref{fig:densidad_DorsalMargin_completo}, la característica \texttt{DorsalMargin} la podemos eliminar del conjunto de datos al no aportar información relevante, al solo tomar un valor.
+
+Tras esto, pasamos a las propuestas para balancear el número de instancias de cada clase.
+
+\subsubsection{Separación en conjunto de entrenamiento y test}
+
+Tras eliminar la característica que no aportaba información, se realizará una separación de los conjuntos de datos en conjuntos de entrenamiento y de test. Esto es importante de cara a la validación del algoritmo, ya que es necesario comprobar que la propuesta se comporta adecuadamente con datos con los que no ha entrenado, aunque dentro de la propia fase de entrenamiento apliquemos una validación cruzada que se explicará más adelante.
+
+Es importante realizar este paso antes de aplicar las técnicas de sobremuestreo para solucionar el balanceo de clases, ya que el conjunto de test no puede contener datos sintéticos, ya que se trata de una prueba real del modelo, como si fueran datos reales que nos han llegado sin etiquetar.
+
+En este caso se ha seleccionado de forma aleatoria uniforme un 80\% de las observaciones del conjunto de datos como datos de entrenamiento y el 20\% restante como datos de test para cada conjunto de datos. Sobre este 80\% de datos serán los datos a los que apliquemos el balanceo de clases, ya que con estos datos son con los que vamos a entrenar el modelo de cara a realizar las predicciones.  
 
 \subsubsection{Sobremuestreo: SMOTE}
 
-SMOTE se trata de un método para conseguir balancear el número de datos para un problema de clasificación creando nuevos datos de las clases minoritarias de forma sintética.
+SMOTE \cite{paperSMOTE} se trata de un método para conseguir balancear el número de datos para un problema de clasificación creando nuevos datos de las clases minoritarias de forma sintética.
 
 Las clases minoritarias se sobremuestrean tomando cada muestra de dicha clase minoritaria, e introduciendo valores sintéticos a lo largo del segmento que une a todos o a cualquiera de los $k$ vecinos más cercanos de la clase. Dependiendo de la cantidad de datos sintéticos a generar se escogerá el valor de $k$ para seleccionar más o menos vecinos.
 
@@ -368,9 +381,7 @@ Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \r
 
 
 
-\newpage
-
-\subsection{Resultado tras el preprocesado}
+\subsection{Análisis de datos tras el preprocesado}
 
 % TODO: Ampliar esto cuando se aplique el preprocesado
 
