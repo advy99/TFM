@@ -416,6 +416,97 @@ Por otro lado, BorderlineSMOTE no propone ninguna modificación para solucionar 
 
 \subsection{Análisis de datos tras el preprocesado}
 
+Como vimos en la sección de análisis del conjunto de datos, vamos a analizar los datos obtenidos tanto por SMOTE como por Borderline SMOTE. Debido a la similitud entre ambas lateralidades, en esta ocasión solo comentaremos los efectos que podemos ver en el conjunto de datos completo. Este análisis nos servirá para observar si la aplicación de estas técnicas de sobremuestreo ha funcionado para equilibrar el número de clases, y si ha tenido algún efecto negativo que podamos ver utilizando la información de cada variable por separado, como añadir ruido o solape a las clases aplicar estas técnicas.
+
+\subsubsection{Análisis del conjunto completo tras aplicar SMOTE}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/distribucion_clases_completo_SMOTE.png}
+	\caption{Número de datos por cada fase propuesta por Todd con el conjunto de datos completo.}
+	\label{fig:conteo_c_smote}
+\end{figure}
+
+Como era de esperar, claramente se han balanceado el número de observaciones de cada clase, como era de esperar. Un detalle a tener en cuenta es que SMOTE no ha sido capaz de generar tantas instancias de las otras clases como la clase mayoritaria, por lo que ha tenido que hacer un submuestreo para esta clase, pasando la última fase de 279 observaciones a 222 observaciones.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/densidad_IrregularPorosity_completo_SMOTE.png}
+	\caption{Distribución de los valores de IrregularPorosity en el conjunto de datos completo.}
+	\label{fig:densidad_IrregularPorosity_completo_smote}
+\end{figure}
+
+Para \texttt{IrregularPorosity} vemos como ahora para el valor \texttt{Absence} todas las fases tienen un número de observaciones similar, cuando antes aunque existían observaciones de todas las clases con este valor, las de la fase cuatro al ser tan minoritaria podría pasar desapercibida. Por otro lado vemos como el número de observaciones con valor \texttt{Medium} casi se ha duplicado, pero manteniendo las observaciones que vimos anteriormente, este valor solo lo toman observaciones de fases altas. Esto último también ha ocurrido con el valor \texttt{Much}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/densidad_UpperSymphysialExtremity_completo_SMOTE.png}
+	\caption{Distribución de los valores de UpperSymphysialExtremity en el conjunto de datos completo.}
+	\label{fig:densidad_UpperSymphysialExtremity_completo_smote}
+\end{figure}
+
+Con \texttt{UpperSymphysialExtremity} de nuevo vuelve a ocurrir que la distribución de las fases para valores de \texttt{Defined} se equilibra, al añadir más instancias de las clases minoritarias, sin embargo hay que tener en cuenta que cuanto más baja es la fase, menos observaciones aparecen y más pasan al valor \texttt{NotDefined}, luego la aplicación de SMOTE nos ha confirmado que aunque algunas observaciones de fases bajas toman el valor de \texttt{Defined}, esto no es lo común y suelen tomar el valor de \texttt{NotDefined}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/densidad_BonyNodule_completo_SMOTE.png}
+	\caption{Distribución de los valores de BonyNodule en el conjunto de datos completo.}
+	\label{fig:densidad_BonyNodule_completo_smote}
+\end{figure}
+
+En el caso de \texttt{BonyNodule} vuelve a ocurrir lo mismo que con \texttt{UpperSymphysialExtremity} pero con la segunda y tercera fase.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/densidad_LowerSymphysialExtremity_completo_SMOTE.png}
+	\caption{Distribución de los valores de LowerSymphysialExtremity en el conjunto de datos completo.}
+	\label{fig:densidad_LowerSymphysialExtremity_completo_smote}
+\end{figure}
+
+Con \texttt{LowerSymphysialExtremity} se vuelve a repetir lo comentado anteriormente, pero en este caso dejando todavía más claro que el valor \texttt{NotDefined} solo lo toman valores de la primera y segunda fase, mientras que existe algo de solape entre \texttt{Defined} y \texttt{NotDefined} en la tercera fase, y de la cuarta fase en adelante siempre toma el valor de \texttt{Defined}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/densidad_DorsalPlaeau_completo_SMOTE.png}
+	\caption{Distribución de los valores de DorsalPlaeau en el conjunto de datos completo.}
+	\label{fig:densidad_DorsalPlaeau_completo_smote}
+\end{figure}
+
+Observando como se ha comportado SMOTE con \texttt{DorsalPlaeau} podemos sacar unas conclusiones más interesantes. Al principio parecía que este predictor no aportaba información debido a que tanto con \texttt{Absent} como con \texttt{Present} había observaciones de todas las clases, sin embargo tras aplicar SMOTE podemos ver como ha encontrado muchos más vecinos de las tres primeras clases con valor \texttt{Present} que con \texttt{Absent}, mientras que el resto de clases no ha encontrado vecinos con los que aumentar el número de observaciones con \texttt{Present}, haciendo que ahora este valor sea mayormente indicador de que la observación se encuentra en las tres primeras fases.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/densidad_VentralBevel_completo_SMOTE.png}
+	\caption{Distribución de los valores de VentralBevel en el conjunto de datos completo.}
+	\label{fig:densidad_VentralBevel_completo_smote}
+\end{figure}
+
+Para \texttt{VentralBevel}, como con otros predictores, con SMOTE ha mantenido lo que observamos al analizar los datos originales. Si se toma el valor de \texttt{InProcess} y en especial \texttt{Present} es indicador de que la observación se trata de una fase alta.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \textwidth]{conjunto_datos_smote/densidad_VentralMargin_completo_SMOTE.png}
+	\caption{Distribución de los valores de VentralMargin en el conjunto de datos completo.}
+	\label{fig:densidad_VentralMargin_completo_smote}
+\end{figure}
+
+Por último, para la variable \texttt{VentralMargin} es para la única que se ha modificado muy notablemente la distribución de clases con respecto a los valores que toma la característica. Empezando por lo que esperábamos, para el valor \texttt{Absent} siguen siendo observaciones de fases tempranas. Para \texttt{PartiallyFormed}, lo que en principio parecía un poco de solape de la quinta fase, pero nos dejaba bastante claro que se trataban de observaciones de la fase seis en adelante, ha pasado a ser una distribución de observaciones equitativa entre todas las fases de la cuarta a la décima, esto se puede explicar debido a la falta de observaciones, que muchas de estas al tomar otros valores de \texttt{VentralMargin} no disponiamos de la información suficiente para saber que en realidad también forma parte de \texttt{PartiallyFormed}. Lo mismo sucede con \texttt{FormedWithoutRarefactions}, lo que parecía una clara clasificación a la última fase debido a la falta de muestras ahora no está tan claro, al haber encontrado vecinos más cercanos de otras fases con este valor. Con \texttt{FormedWithFewRarefactions} pasa al contrario, y parece ser que el detalle del submuestreo comentado en el número de observaciones por cada clase se ha realizado para valores de \texttt{FormedWithFewRarefactions}, aunque con las otras características no es visible a simple vista, aquí esta claro, al pasar de casi seiscientas observaciones a menos de cincuenta. Esto puede ser debido a que al aplicar el proceso de búsqueda de vecinos sea la zona donde menos vecinos ha podido encontrar, decidiendo eliminar observaciones de esta zona.
+
+\subsubsection{Análisis del conjunto completo tras aplicar BorderlineSMOTE}
+
+Debido a que las soluciones para BorderlineSMOTE son muy parecidas a nivel gráfico que las de SMOTE, no se han añadido las imágenes para no extender de forma innecesaria el análisis, debido a que se sacarían las mismas conclusiones.
+
+Lo importante de aplicar este algoritmo sería si las observaciones generadas realmente se encuentran en una zona crucial de la frontera de decisión, sin embargo esto no lo podemos observar de forma gráfica al contar con demasiadas dimensiones.
+
+\subsubsection{Conclusiones de la aplicación de sobremuestreo}
+
+
+Como conclusiones comentar que, a priori, con este pequeño análisis de datos, parece que estas técnicas de sobremuestreo pueden ayudar a la hora de entrenar el modelo.
+
+La aplicación de estas técnicas nos puede ayudar a reafirmar la utilidad de ciertos valores para decidir la fase o al menos acotarla, por lo que podría disminuir el sesgo del modelo sin haber añadido información errónea. La única excepción a esto puede ser con la última característica, \texttt{VentralMargin}, donde si hemos visto una gran diferencia entre el conjunto original y el conjunto con sobremuestreo, aunque esto puede ser tanto por falta de información en el conjunto completo, o porque realmente ha añadido información incorrecta en este caso.
 
 
 
