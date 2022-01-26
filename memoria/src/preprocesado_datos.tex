@@ -279,9 +279,7 @@ Una vez realizado este análisis de datos, pasamos a las distintas técnicas de 
 
 \subsection{Preprocesamiento} \label{sobremuestreo}
 
-En esta sección se discutirá el preprocesamiento a aplicar a los datos de cara a entrenar el modelo, desde las propias transformaciones que aplicaremos a los datos, hasta si es necesario aplicar técnicas más avanzadas como sobremuestreo y reducción de ruido.
-
-En esta sección introduciremos SMOTE y Borderline SMOTE de cara a mostrar la idea original de sobremuestreo en problemas de clasificación, su adaptación a problemas de regresión con SMOTER y finalmente una mejora de este último, SMOGN, que será el algoritmo a utilizar.
+En esta sección se discutirá el preprocesamiento a aplicar a los datos de cara a entrenar el modelo, tanto las propias transformaciones que aplicaremos a los datos, como si es necesario aplicar técnicas más avanzadas como sobremuestreo y las algunas propuestas para aplicarlo.
 
 \subsubsection{Transformación de los datos}
 
@@ -300,6 +298,21 @@ Es importante realizar este paso antes de aplicar las técnicas de sobremuestreo
 En este caso se ha seleccionado de forma aleatoria uniforme un 80\% de las observaciones del conjunto de datos como datos de entrenamiento y el 20\% restante como datos de test para cada conjunto de datos. Sobre este 80\% de datos serán los datos a los que apliquemos el balanceo de clases, ya que con estos datos son con los que vamos a entrenar el modelo de cara a realizar las predicciones.
 
 \newpage
+
+\subsection{Sobremuestreo: Discusión sobre su importancia en este problema}
+
+Ya hemos visto en el análisis de los datos la cantidad de observaciones con las que contamos de cada una de las clases del conjunto de datos \ref{fig:conteo_c}, y observamos como claramente de fases más tempranas apenas tenemos observaciones.
+
+Los conjuntos de datos con esta distribución de observaciones son problemáticos, debido a que cualquier modelo que utilicemos tendrá un sesgo a favor de las clases mayoritarias a la hora de clasificar los datos. Esto se debe a que al realizar la clasificación, cuenta con tan pocos ejemplos de clases minoritarias que simplemente clasificando cualquier observación como de la clase mayoritaria es capaz de obtener un buen resultado de precisión.
+
+Existen varias formas de corregir este problema, dependiendo del enfoque utilizado:
+
+\begin{enumerate}
+	\item Adaptando los datos: Se intentan conseguir más muestras de la clase minoritaria, ya sean creados de forma sintética o intentando obtener más información del problema. También se puede reducir el número de observaciones de la clase mayoritaria si contamos con suficientes ejemplos en la clase minoritaria.
+	\item Adaptando los algoritmos: Para cada una de las clases se añade un peso de penalización al clasificar erróneamente una observación, de forma que se penaliza más equivocarse al clasificar erróneamente una observación de la clase minoritaria que si el modelo se equivoca en una observación de la clase mayoritaria. Esto en realidad es contrarrestar el sesgo inicial del modelo añadiendo un sesgo manual hacia las clases minoritarias.
+\end{enumerate}
+
+En nuestro caso, la primera solución será la que utilicemos debido a que de base el conjunto de datos es pequeño. Utilizaremos sobremuestro ya que no tenemos suficientes datos de las clases minoritarias como para realizar un submuestreo, y eso conllevaría una perdida de información demasiado grande.
 
 \subsubsection{Sobremuestreo: SMOTE}
 
@@ -388,12 +401,8 @@ Para comparar de forma gráfica SMOTE y BorderlineSMOTE podemos observar la sigu
 
 Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \ref{fig:BLSMOTE-SMOTE}, esta técnica es mucho más versátil y conveniente que SMOTE.
 
-
-\subsubsection{Sobremuestreo: ADASYN}
-
-
-\subsubsection{Reducción de ruido}
-
+% TODO: Ampliar a otros métodos de sobremuestreo como ADASYN
+% \subsubsection{Sobremuestreo: ADASYN}
 
 
 \subsection{Análisis de datos tras el preprocesado}
