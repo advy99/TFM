@@ -297,18 +297,30 @@ Tras eliminar la característica que no aportaba información, se realizará una
 
 Es importante realizar este paso antes de aplicar las técnicas de sobremuestreo para solucionar el balanceo de clases, ya que el conjunto de test no puede contener datos sintéticos, ya que se trata de una prueba real del modelo, como si fueran datos reales que nos han llegado sin etiquetar.
 
-En este caso se ha seleccionado de forma aleatoria uniforme un 80\% de las observaciones del conjunto de datos como datos de entrenamiento y el 20\% restante como datos de test para cada conjunto de datos. Sobre este 80\% de datos serán los datos a los que apliquemos el balanceo de clases, ya que con estos datos son con los que vamos a entrenar el modelo de cara a realizar las predicciones.  
+En este caso se ha seleccionado de forma aleatoria uniforme un 80\% de las observaciones del conjunto de datos como datos de entrenamiento y el 20\% restante como datos de test para cada conjunto de datos. Sobre este 80\% de datos serán los datos a los que apliquemos el balanceo de clases, ya que con estos datos son con los que vamos a entrenar el modelo de cara a realizar las predicciones.
+
+\newpage
 
 \subsubsection{Sobremuestreo: SMOTE}
 
-SMOTE \cite{paperSMOTE} se trata de un método para conseguir balancear el número de datos para un problema de clasificación creando nuevos datos de las clases minoritarias de forma sintética.
+SMOTE \cite{SMOTE} se trata de un método para conseguir balancear el número de datos para un problema de clasificación creando nuevos datos de las clases minoritarias de forma sintética. Fue propuesto en 2002 por varios investigadores de la Universidad de Florida del sur y la Universidad de Notre Dame.
 
-Las clases minoritarias se sobremuestrean tomando cada muestra de dicha clase minoritaria, e introduciendo valores sintéticos a lo largo del segmento que une a todos o a cualquiera de los $k$ vecinos más cercanos de la clase. Dependiendo de la cantidad de datos sintéticos a generar se escogerá el valor de $k$ para seleccionar más o menos vecinos.
-
+Su funcionamiento se basa en tomar la clase minoritaria como clase positiva, y para cada elemento de dicha clase positiva buscar los $k$ vecinos más cercanos de la clase positiva. Una vez tenemos los $k$ elementos más cercanos, se crea un dato sintético entre cada vecino seleccionado y el punto original, escogiendo una zona del espacio al azar del segmento que une el vecino seleccionado y el punto original. De esta forma, modificando el número de vecinos a seleccionar, $k$, podemos ajustar el número de nuevos datos sintéticos.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale = 1]{ej_smote.png}
+	\includegraphics[scale = 0.6]{preprocesamiento/funcionamiento_smote.png}
+	\caption{Ilustración de como funciona SMOTE.}
+	\label{fig:funcionamiento_smote}
+\end{figure}
+
+\newpage
+
+En su propuesta este método fue comparado con otros métodos de sobremuestreo:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{preprocesamiento/comparacion_ej_smote.png}
 	\caption{Comparación de SMOTE con otros métodos de sobremuestreo en el conjunto de datos Phonome. En el eje X los falsos positivos y en el eje Y los verdaderos positivos. Imagen obtenida de \cite{SMOTE}.}
 	\label{fig:comparacionSMOTE}
 \end{figure}
@@ -321,7 +333,6 @@ Este problema se hace mucho más presente en nuestro caso, al contar con tantas 
 
 \subsubsection{Sobremuestreo: Borderline SMOTE}
 
-
 Borderline SMOTE \cite{BL-SMOTE} se trata de una variante de SMOTE que propone buscar los límites en el espacio de valores de la clase a obtener nuevos datos sintéticos, de forma que cuando se generen dichos datos nuevos, estén dentro de dichos límites. De esta forma evitamos problemas con conjuntos de datos con mucho ruido y múltiples clases.
 
 En su artículo proponen dos variantes, una donde las nuevas muestras sintéticas son creadas a partir de todo el conjunto de datos, y otra donde las nuevas muestras solo se generan a partir de los datos considerados en el límite.
@@ -330,17 +341,17 @@ En su artículo proponen dos variantes, una donde las nuevas muestras sintética
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.33\textwidth}
-		  \includegraphics[width=\textwidth]{bl-smote-original.png}
+		  \includegraphics[width=\textwidth]{preprocesamiento/bl-smote-original.png}
         \caption{}
         \label{fig:blSMOTE-orig}
     \end{subfigure}
     \begin{subfigure}[b]{0.33\textwidth}
-        \includegraphics[width=\textwidth]{bl-smote-datos-borderline.png}
+        \includegraphics[width=\textwidth]{preprocesamiento/bl-smote-datos-borderline.png}
         \caption{}
         \label{fig:blSMOTE-border}
     \end{subfigure}
     \begin{subfigure}[b]{0.33\textwidth}
-        \includegraphics[width=\textwidth]{bl-smote-datos-sinteticos.png}
+        \includegraphics[width=\textwidth]{preprocesamiento/bl-smote-datos-sinteticos.png}
         \caption{}
         \label{fig:blSMOTE-sintetico}
     \end{subfigure}
@@ -350,19 +361,23 @@ En su artículo proponen dos variantes, una donde las nuevas muestras sintética
 
 \end{figure}
 
+Este método funciona de la misma forma que SMOTE a la hora de generar a los nuevos datos sintéticos, sin embargo, lo que hace es en lugar de utilizar todos los datos de la clase minoritaria, hace una preselección de datos, evitando los datos que son considerados como ruido y los datos donde es indiferente crear nuevas observaciones ya que no afectan a la frontera de decisión, es decir, se trata de una zona donde está claro que la clase es minoritaria. Esto hace que los puntos escogidos estén en la zona donde nos interesa tener datos, las fronteras entre las distintas clases, de forma que sea más facil diferenciar una clase de otra. Todo este proceso se ve ilustrado en figura \ref{fig:ejemploBL-SMOTE}.
+
+
+Para comparar de forma gráfica SMOTE y BorderlineSMOTE podemos observar la siguiente ilustración utilizando datos generados de forma aleatoria con dos dimensiones:
 
 \begin{figure}[H]
     \centering
 	 \begin{subfigure}[b]{\textwidth}
 		 \centering
-		 \includegraphics[width=0.8\textwidth]{resampling_smote.png}
+		 \includegraphics[width=0.8\textwidth]{preprocesamiento/resampling_smote.png}
 		 \caption{A la izquierda bordes de las clases, y a la derecha sobremuestreo con SMOTE}
 		 \label{fig:SMOTE-cmp}
 	 \end{subfigure}
 
     \begin{subfigure}[b]{\textwidth}
 		 \centering
-		  \includegraphics[width=0.8\textwidth]{resampling_blsmote.png}
+		  \includegraphics[width=0.8\textwidth]{preprocesamiento/resampling_blsmote.png}
         \caption{A la izquierda bordes de las clases, y a la derecha sobremuestreo con BorderlineSMOTE}
         \label{fig:BLSMOTE-cmp}
     \end{subfigure}
