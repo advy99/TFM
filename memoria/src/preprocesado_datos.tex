@@ -299,7 +299,7 @@ En este caso se ha seleccionado de forma aleatoria uniforme un 80\% de las obser
 
 \newpage
 
-\subsection{Sobremuestreo: Discusión sobre su importancia en este problema}
+\subsubsection{Sobremuestreo: Discusión sobre su importancia en este problema}
 
 Ya hemos visto en el análisis de los datos la cantidad de observaciones con las que contamos de cada una de las clases del conjunto de datos \ref{fig:conteo_c}, y observamos como claramente de fases más tempranas apenas tenemos observaciones.
 
@@ -406,10 +406,17 @@ Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \r
 % TODO: Ampliar a otros métodos de sobremuestreo como ADASYN
 % \subsubsection{Sobremuestreo: ADASYN}
 
+\subsubsection{Sobremuestreo: Aplicación sobre datos categóricos}
+
+La propuesta de SMOTE original utiliza el algoritmo k-NN para obtener los vecinos más cercanos, sin embargo, en nuestro caso tenemos un conjunto de datos donde todas las variables son categóricas, y por lo tanto no se puede realizar esta búsqueda de vecinos.
+
+Para solucionar este problema utilizaremos la propuesta de SMOTE-N \cite{SMOTE}, también propuesta en el mismo trabajo donde se propuso SMOTE. Esta propuesta se basa en modificar el algoritmo k-NN utilizado en SMOTE por el k-NN propuesto por Stanfill y Waltz en 1986 \cite{kNNSMOTEN}, donde para aplicar el k-NN a un conjunto de datos categóricos utilizaban una versión modificada de la métrica de diferencia de valor, donde la distancia se basaba en el grado de diferencia entre los valores categóricos.
+
+Por otro lado, BorderlineSMOTE no propone ninguna modificación para solucionar este problema, sin embargo como las características de nuestro conjunto de datos toman valores ordenados, como por ejemplo el nivel de porosidad, o el nivel de surcos presentes, se han codificado los datos de forma ordinal, transformando cada observación a un vector de enteros, asignando un entero a cada nivel de los valores que pueden tomar para cada una de sus características. Con esta modificación hemos podido aplicar BorderlineSMOTE y después deshacer la codificación para obtener los resultados del sobremuestreo con las etiquetas originales.
 
 \subsection{Análisis de datos tras el preprocesado}
 
-% TODO: Ampliar esto cuando se aplique el preprocesado
+
 
 
 \newpage
