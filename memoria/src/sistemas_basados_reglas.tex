@@ -1,5 +1,42 @@
 \section{Aprendizaje de sistemas basados en reglas con Programación Genética}
 
+De cara al descubrimiento de reglas utilizando Programación Genética existen diversos enfoques y tomas de decisiones a realizar. En esta sección explicaremos, comentaremos y se realiza una comparación entre todos estos detalles. Aunque a lo largo de la década de los noventa y a principios de siglo se han realizado las distintas propuestas de cara a este ámbito, Alex A. Freitas \cite{dataMiningDescubrimientoReglasGeneticos} realizó una recopilación y discusión sobre este ámbito, que será la que utilizaremos de base.
+
+
+\subsection{Representación de los individuos}
+
+Normalmente en los algoritmos evolutivos se suele representar a un individuo como una solución al problema, de forma que la población explore el conjunto de soluciones buscando la mejor. Sin embargo, para aprender reglas tenemos distintas opciones, dependiendo de si consideramos una solución a un conjunto de reglas que clasifiquen el conjunto de datos completo, o si interpretamos como solución las reglas de forma individual.
+
+Por este motivo, aparecen dos enfoques distintos, dependiendo de la representación de los individuos.
+
+\subsubsection{Enfoque Pittsburgh}
+
+El enfoque Pittsburgh se basa en representar un individuo de la población como un conjunto de reglas completo, por lo tanto, un individuo de la población representa una solución completa al problema.
+
+La principal ventaja de utilizar este esquema es que un individuo puede tener en cuenta el conjunto de reglas completo, de forma que se tenga en cuenta cuando dos reglas se solapan, o si es posible reducir reglas redundantes, cosa que, como veremos en la siguiente sección, no es posible con el enfoque Michigan.
+
+Otra ventaja de este enfoque es que la función de ajuste tiene en cuenta todo el conjunto de reglas, no como de buenas son las reglas de forma individual, lo que puede ayudar a una mayor generalización en las soluciones y evitar el sobreajuste.
+
+\subsubsection{Enfoque Michigan}
+
+Por otro lado, el enfoque Michigan se basa en representar un individuo como una única regla, de forma que un individuo solo representa una solución parcial al problema, ya que solo servirá para ciertas observaciones del conjunto de datos.
+
+Dentro de este enfoque, para construir una solución completa al problema, existen dos formas de proceder:
+
+\begin{enumerate}
+	\item Lanzar múltiples veces el algoritmo evolutivo, para obtener así múltiples reglas que solucionen el problema.
+	\item Utilizar la población completa del algoritmo como solución al problema.
+\end{enumerate}
+
+Como podemos imaginar, la primera opción se puede utilizar dividiendo el conjunto de datos por clase, de forma que cada algoritmo evolutivo se centre en aprender reglas para dicha clase, y por tanto lanzando tantas veces el algoritmo como clases tenemos en el problema.
+
+Con la segunda opción tenemos la ventaja de lanzar una única vez el algoritmo, sin embargo hay que tener en cuenta que se deben introducir mecanismos de diversidad para que la población no se estanque y simplemente clasifique reglas de la clase mayoritaria, o elimine reglas más especificas que otras por el simple hecho de cubrir una zona más pequeña del espacio, pero tal vez más interesante.
+
+
+
+
+
+
 
 
 % Enfoque michigan
