@@ -343,6 +343,10 @@ En nuestro caso, la primera solución será la que utilicemos debido a que de ba
 % TODO: probar en el algoritmo añadir los pesos para corregir el sesgo
 \newpage
 
+\subsubsection{Sobremuestreo: Replicación aleatoria}
+
+Una forma muy sencilla de aplicar sobremuestreo es replicar observaciones de las clases minoritarias de forma aleatoria.
+
 \subsubsection{Sobremuestreo: SMOTE}
 
 SMOTE \cite{SMOTE} se trata de un método para conseguir balancear el número de datos para un problema de clasificación creando nuevos datos de las clases minoritarias de forma sintética. Fue propuesto en 2002 por varios investigadores de la Universidad de Florida del sur y la Universidad de Notre Dame.
@@ -372,9 +376,6 @@ Como vemos en la figura \ref{fig:comparacionSMOTE}, este método se comporta bas
 Uno de estos problemas es que cuando existe ruido entre las clases, o las clases se encuentran dispersas por el espacio de valores, gran parte de los valores sintéticos se encontrarán en una zona del espacio que no corresponde a su clase.
 
 Este problema se hace mucho más presente en nuestro caso, al contar con tantas clases y con tantas características, y para resolverlo se propuso la variante Borderline-SMOTE.
-
-% TODO: Completar replicacion aleatoria y la ventaja de que realmente no te inventas datos
-% \subsubsection{Sobremuestreo: Replicación aleatoria}
 
 
 \subsubsection{Sobremuestreo: Borderline SMOTE}

@@ -2,9 +2,9 @@
 
 \subsection{Conjunto de datos a utilizar}
 
-Para realizar este trabajo utilizaremos un conjunto de datos con $892$ muestras de la sínfisis púbica clasificados manualmente por investigadores del Laboratorio de Antropología Física de la Universidad de Granada utilizando las diez fases propuestas por Todd.
+Para realizar este trabajo utilizaremos un conjunto de datos con $960$ muestras de la sínfisis púbica clasificados manualmente por investigadores del Laboratorio de Antropología Física de la Universidad de Granada utilizando las diez fases propuestas por Todd.
 
-Este conjunto de datos se divide en dos partes, las muestras tomadas de la lateralidad izquierda ($439$ muestras) y la lateralidad derecha ($453$ muestras) del pubis.
+Este conjunto de datos se divide en dos partes, las muestras tomadas de la lateralidad izquierda ($473$ muestras) y la lateralidad derecha ($487$ muestras) del pubis.
 
 \subsubsection{Problema del balanceo de clases}
 
@@ -24,17 +24,13 @@ En nuestro caso, al utilizar el mismo conjunto de datos, podemos ver en su artí
 	 \label{fig:esquema_datos}
 \end{figure}
 
-En la figura \ref{fig:esquema_datos} podemos ver el flujo que seguirán los datos de entrada, a falta de concretar el sistema de validación a utilizar, 5x2cv, que se explicará más adelante.
+En la figura \ref{fig:esquema_datos} podemos ver el flujo que seguirán los datos de entrada, a falta de concretar el sistema de validación a utilizar, validación cruzada, que se explicará más adelante.
 
 \newpage
 
-\subsection{Algoritmos a utilizar e implementación}
+\subsection{Algoritmos a utilizar y experimentación}
 
-De cara a la implementación se propone utilizar \textit{R} para realizar el análisis de los datos debido a la gran cantidad de bibliotecas y herramientas que ofrece, \textit{Python} para aplicar parte del preprocesado de los datos ya que este lenguaje cuenta con múltiples herramientas para análisis de datos así como muchos de los métodos que vamos a utilizar, mientras que para la implementación de los algoritmos evolutivos se utilizará \textit{C++}.
-
-La decisión de utilizar \textit{C++} viene dada ya que estos algoritmos tienden a ser lentos a la hora de realizar su entrenamiento, por lo que se ha buscado un lenguaje compilado con el que tener mejores tiempos de ejecución. También nos permite realizar una implementación orientada a objetos, lo que nos dará una mejor estructura del código a implementar, así como utilizar software como \textit{OpenMP} \cite{OpenMP} de cara a paralelizar secciones de código que nos permiten reducir el tiempo de ejecución gracias al paralelismo de datos, como veremos más adelante.
-
-Por último, este lenguaje nos ofrece distintas herramientas de control del software, como \textit{GDB} \cite{gdb} para depurar el código, \textit{Valgrind} \cite{valgrind} para comprobar que no existen problemas con la memoria dinámica y la biblioteca \textit{Google Test} \cite{gtest} para realizar test unitarios y comprobar que el código funciona correctamente.
+De cara a la experimentación se propone utilizar \textit{R} para realizar el análisis de los datos debido a la gran cantidad de bibliotecas y herramientas que ofrece, mientras que se utilizará \textit{Python} para aplicar parte del preprocesado de los datos ya que este lenguaje cuenta con múltiples herramientas para análisis de datos así como muchos de los métodos que vamos a utilizar.
 
 También se utilizará el sistema de control de versiones \textit{Git} \cite{git} durante todo el proceso de creación del código y esta memoria.
 
