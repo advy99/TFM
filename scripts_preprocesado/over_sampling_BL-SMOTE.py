@@ -5,6 +5,12 @@ import sklearn as skl
 import pandas as pd
 import csv
 import sys
+import numpy as np
+import random
+
+random.seed(12345)
+np.random.seed(12345)
+
 
 if len(sys.argv) != 3:
 	print("ERROR: Introduzca el nombre del fichero de datos y la ruta de salida")
@@ -46,7 +52,7 @@ X, y = oversample.fit_resample(X, y)
 X = encoder.inverse_transform(X)
 
 f = open(salida, "w")
-f.write(",".join(csv_header))
+f.write(csv_header)
 f.write("\n")
 
 i = 0

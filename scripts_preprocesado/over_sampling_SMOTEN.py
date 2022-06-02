@@ -4,6 +4,11 @@ import imblearn.over_sampling
 import pandas as pd
 import csv
 import sys
+import numpy as np
+import random
+
+random.seed(12345)
+np.random.seed(12345)
 
 if len(sys.argv) != 3:
 	print("ERROR: Introduzca el nombre del fichero de datos y la ruta de salida")

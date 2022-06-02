@@ -92,15 +92,29 @@ train_test_split <- function(datos, porcentaje_test = 0.2){
 }
 
 completo <- leer_datos("datos/completo-18-82.arff")
-validacion <- leer_datos("datos/completo-18-82.arff.val.arff")
+completo_random_oversampling <- leer_datos("datos/completo-18-82-original-traTest.arff")
+SMOTE <- leer_datos("datos/completo-18-82-SMOTE-traTest.arff")
+BL_SMOTE <- leer_datos("datos/completo-18-82-BL_SMOTE-traTest.arff")
 
 
-completo_random_oversampling <- leer_datos("datos/completo-18-82.arff.traTest.arff")
 
 
 comprobar_distribuciones(completo, "completo")
 comprobar_distribuciones(completo_random_oversampling, "completo_random_oversampling")
+comprobar_distribuciones(SMOTE, "SMOTE")
+comprobar_distribuciones(BL_SMOTE, "BL_SMOTE")
 
+
+
+
+
+
+completo <- leer_datos("datos/completo-18-82.arff")
+validacion <- leer_datos("datos/completo-18-82.arff.val.arff")
+
+
+# para obtener el dataset de training original, quitando las observaciones de validación
+# con el resultado aplicaremos SMOTE y BL-SMOTE
 indices <- c()
 for(i in 1:nrow(validacion)) {
 	encontrado <- FALSE
