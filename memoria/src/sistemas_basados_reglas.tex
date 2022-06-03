@@ -46,7 +46,7 @@ Otro detalle si se utiliza esta solución es que sigue sin resolver el problema 
 
 \begin{figure}[H]
     \centering
-	  \includegraphics[width=\textwidth]{arbol_problema_restriccion_semantica.png}
+	  \includegraphics[scale = 0.3]{arbol_problema_restriccion_semantica.png}
     \caption{Árbol incorrecto desde el punto de vista semántico.}
 	 \label{fig:arbol_problema_restriccion_semantica}
 \end{figure}
@@ -55,10 +55,25 @@ Aunque este problema en principio no nos debería preocupar, porque al aprender 
 
 \subsubsection{Añadir restricciones sintácticas a Programación Genética}
 
+En este caso, en lugar de modificar las funciones utilizadas por Programación Genética para construir el árbol, se añaden restricciones a cada nodo.
+
+Al lanzar el algoritmo se incluirá información de, para un tipo de nodo, qué tipo de nodos pueden ser usados como hijos de dicho nodo. Esto permite evitar situaciones donde, por ejemplo, se genere un operador de comparación como hijo de otro operador de comparación.
+
+A este tipo de algoritmos de Programación Genética se les llama Strongly-Typed GP (STPG), ya que lo que realmente estamos haciendo es una restricción de tipos a los nodos.
+
+Este tipo de aproximaciones se basan en las siguientes reglas para generar árboles correctos:
+
+\begin{itemize}
+	\item El nodo raíz devuelve el mismo tipo de dato del requerido por el problema (un valor booleano si estamos aprendiendo reglas, o un número real si se está haciendo regresión simbólica).
+	\item Cada nodo devuelve el mismo tipo de dato que el tipo marcado por su nodo padre en sus argumentos.
+\end{itemize}
+
+Siguiendo estas dos reglas intuitivas conseguimos construir árboles correctos, pero es cierto que tenemos que tener en cuenta estas restricciones a la hora de implementar los operadores de Programación Genética, en especial el operador de cruce. La única restricción que añadiría este enfoque es que al operar con los árboles se escojan siempre nodos que tienen el mismo tipo de dato necesario en sus padres. Por ejemplo, en el operador de cruce, al cruzar dos individuos, si escogemos dentro del primer hijo un nodo que genera un valor de tipo $T_1$, es necesario que el nodo escogido del segundo hijo con el que se va a cruzar también genere un valor de tipo $T_1$, de forma que al intercambiarlos de árbol los nodos padres no seleccionados sigan cumpliendo las restricciones.
+
 
 \subsubsection{Programación Genética basada en gramáticas}
 
-
+Por último, otro de los enfoques, y también uno de los más utilizados, es utilizar una gramática al generar los árboles. Este enfoque es una modificación de añadir restricciones al algoritmo de Programación Genética, donde las restricciones semánticas y sintácticas las impone una gramática.
 
 
 
