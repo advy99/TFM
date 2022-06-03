@@ -1,9 +1,68 @@
 \section{Aprendizaje de sistemas basados en reglas con Programación Genética}
 
-De cara al descubrimiento de reglas utilizando Programación Genética existen diversos enfoques y tomas de decisiones a realizar. En esta sección explicaremos, comentaremos y se realiza una comparación entre todos estos detalles. Aunque a lo largo de la década de los noventa y a principios de siglo se han realizado las distintas propuestas de cara a este ámbito, Alex A. Freitas \cite{dataMiningDescubrimientoReglasGeneticos} realizó una recopilación y discusión sobre este ámbito, que será la que utilizaremos de base.
+De cara al descubrimiento de reglas utilizando Programación Genética existen algunos problemas, así como diversos enfoques y tomas de decisiones a realizar. En esta sección comentaremos dichos problemas, discutiremos las posibles soluciones, así como analizar las distintos enfoques que se pueden tomar, además de realizar una comparación entre todos estos detalles. Aunque a lo largo de la década de los noventa y a principios de siglo se han realizado las distintas propuestas de cara a este ámbito, Alex A. Freitas \cite{dataMiningDescubrimientoReglasGeneticos} realizó una recopilación y discusión sobre este ámbito, que será la que utilizaremos de base.
 
 
-\subsection{Representación de los individuos}
+\subsection{El problema de la clausura en Programación Genética}
+
+Uno de los problemas de utilizar Programación Genética para aprender reglas es que, al representar reglas en forma de árboles, podemos llegar a tener reglas que no tienen sentido debido a los distintos tipos de nodos utilizados dentro del árbol.
+
+De cara a solucionar este problema habitualmente en la literatura se proponen tres posibles soluciones:
+
+\begin{enumerate}
+	\item Binarizar todos los símbolos terminales y utilizar solo funciones booleanas: Transformar todos los tipos de nodos a un solo tipo.
+	\item Añadir restricciones a Programación Genética y tener en cuenta dichas restricciones al implementar el algoritmo.
+	\item Utilizar un algoritmo de Programación Genética basado en gramáticas.
+\end{enumerate}
+
+\subsubsection{Binarizar los símbolos terminales}
+
+Esta solución es la más simple de todas. Se basa en, todas las posibles operaciones, reducirlas a un único nodo que puede tomar valores verdadero o falso, de forma que podamos combinar todos los nodos de operaciones lógicas con los nodos terminales de funciones booleanas.
+
+Un ejemplo de esto sería, teniendo un caso donde tenemos un atributo color, convertir la estructura $Color = AZUL$, de un árbol donde el nodo raíz es $=$, el hijo de la izquierda es $Color$ y el de la derecha $AZUL$, a un único nodo $Color = AZUL$ en el problema, de forma que el algoritmo de Programación Genética trabaje con estas funciones booleanas como nodos terminales.
+
+\begin{figure}[H]
+    \centering
+	 \begin{subfigure}[b]{0.49\textwidth}
+		 \centering
+		 \includegraphics[width=0.5\textwidth]{arbol_color_azul.png}
+		 \caption{Representación original de una igualdad expresada en un árbol.}
+		 \label{fig:arbol_color_azul}
+	 \end{subfigure}
+	 \begin{subfigure}[b]{0.49\textwidth}
+		 \centering
+		\includegraphics[width=0.5\textwidth]{arbol_funcion_booleana.png}
+		\caption{Representación binarizando a funciones binarias los nodos terminales.}
+		\label{fig:arbol_funcion_booleana}
+   \end{subfigure}
+	\caption{Ejemplo de binarización de una expresión a una función binaria.}
+	\label{fig:arbol_exp_a_funcion_booleana}
+\end{figure}
+
+
+Un problema de este enfoque es que hay que adaptar el conjunto de datos de entrada y hacer un preprocesamiento para crear estas funciones lógicas, de forma que de cada atributo categórico podríamos generar $2^n$ funciones lógicas por cada operador que se pueda aplicar a dicho atributo, mientras que para los atributos continuos tenemos que añadir una forma de modificar las constantes de dichas funciones booleanas.
+
+Otro detalle si se utiliza esta solución es que sigue sin resolver el problema de restricciones semánticas, es decir, aunque se trabajen con funciones binarias, podrías seguir encontrando el siguiente caso:
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=\textwidth]{arbol_problema_restriccion_semantica.png}
+    \caption{Árbol incorrecto desde el punto de vista semántico.}
+	 \label{fig:arbol_problema_restriccion_semantica}
+\end{figure}
+
+Aunque este problema en principio no nos debería preocupar, porque al aprender un modelo de Programación Genética si se llega a este caso la regla no tendrá una buena puntuación, ya que no representará a ninguna observación.
+
+\subsubsection{Añadir restricciones sintácticas a Programación Genética}
+
+
+\subsubsection{Programación Genética basada en gramáticas}
+
+
+
+
+
+\subsection{Representación de la población}
 
 Normalmente en los algoritmos evolutivos se suele representar a un individuo como una solución al problema, de forma que la población explore el conjunto de soluciones buscando la mejor. Sin embargo, para aprender reglas tenemos distintas opciones, dependiendo de si consideramos una solución a un conjunto de reglas que clasifiquen el conjunto de datos completo, o si interpretamos como solución las reglas de forma individual.
 
