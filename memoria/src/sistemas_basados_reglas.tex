@@ -3,9 +3,9 @@
 De cara al descubrimiento de reglas utilizando Programación Genética existen algunos problemas, así como diversos enfoques y tomas de decisiones a realizar. En esta sección comentaremos dichos problemas, discutiremos las posibles soluciones, así como analizar las distintos enfoques que se pueden tomar, además de realizar una comparación entre todos estos detalles. Aunque a lo largo de la década de los noventa y a principios de siglo se han realizado las distintas propuestas de cara a este ámbito, Alex A. Freitas \cite{dataMiningDescubrimientoReglasGeneticos} realizó una recopilación y discusión sobre este ámbito, que será la que utilizaremos de base.
 
 
-\subsection{El problema de la clausura en Programación Genética}
+\subsection{El requisito de clausura en Programación Genética}
 
-Uno de los problemas de utilizar Programación Genética para aprender reglas es que, al representar reglas en forma de árboles, podemos llegar a tener reglas que no tienen sentido debido a los distintos tipos de nodos utilizados dentro del árbol.
+El requisito de clausura en Programación Genética es un requisito que necesita cumplir de cara a poder aplicar este algoritmo a un problema concreto. La clausura es el requisito de que la salida de un nodo ha de poder ser usada como entrada de cualquier nodo padre dentro del árbol. Esto puede causar problemas al aprender reglas, ya que al representar reglas en forma de árboles podemos llegar a soluciones que no tienen sentido debido a los distintos tipos de nodos utilizados dentro del árbol.
 
 De cara a solucionar este problema habitualmente en la literatura se proponen tres posibles soluciones:
 
@@ -73,8 +73,11 @@ Siguiendo estas dos reglas intuitivas conseguimos construir árboles correctos, 
 
 \subsubsection{Programación Genética basada en gramáticas}
 
-Por último, otro de los enfoques, y también uno de los más utilizados, es utilizar una gramática al generar los árboles. Este enfoque es una modificación de añadir restricciones al algoritmo de Programación Genética, donde las restricciones semánticas y sintácticas las impone una gramática.
+Por último, otro de los enfoques, y también uno de los más utilizados, es utilizar una gramática al generar los árboles. Este enfoque es una modificación de añadir restricciones al algoritmo de Programación Genética, donde las restricciones semánticas y sintácticas las impone una gramática definida por el usuario.
 
+Gracias al uso de la gramática, tanto al generar soluciones como al aplicar los distintos operadores de Programación Genética es necesario seguir la gramática de forma que siempre obtenemos árboles correctos desde el punto de vista de la gramática dada.
+
+Además también existe la ventaja de que reducimos el espacio de búsqueda del algoritmo, al permitir únicamente los estados dados por la gramática.
 
 
 \subsection{Representación de la población}
