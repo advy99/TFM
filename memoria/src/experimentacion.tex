@@ -175,12 +175,12 @@ La precisión se trata de una medida de evaluación bastante simple, es el núme
 
 \subsubsection{Error absoluto medio ordinal}
 
-El error absoluto medio ordinal (MAE por sus siglas en inglés) se trata de medir la diferencia entre dos valores, en nuestro caso los valores obtenidos y los valores esperados. En principio este error se utiliza en regresión, sin embargo, debido a que nuestro problema es un problema de clasificación ordinal (el orden de las clases tiene un significado e importancia a la hora de equivocarnos), podemos aplicar esta métrica a nuestro problema asignando a cada clase un orden, en nuestro caso del 1 al 10.
+El error absoluto medio ordinal (OMAE por sus siglas en inglés) se trata de medir la diferencia entre dos valores, en nuestro caso los valores obtenidos y los valores esperados. En principio este error se utiliza en regresión, sin embargo, debido a que nuestro problema es un problema de clasificación ordinal (el orden de las clases tiene un significado e importancia a la hora de equivocarnos), podemos aplicar esta métrica a nuestro problema asignando a cada clase un orden, en nuestro caso del 1 al 10.
 
 \begin{figure}[H]
 	 \centering
-	 $$ MAE = \frac{\sum_{i = 1}^{n}|\hat{Y_i} - Y_i|}{n} $$
-	 \caption{Fórmula para calcular el error absoluto medio, donde $\hat{Y_i}$ son las etiquetas predichas y $Y_i$ son las etiquetas reales.}
+	 $$ OMAE = \frac{\sum_{i = 1}^{n}|\hat{Y_i} - Y_i|}{n} $$
+	 \caption{Fórmula para calcular el error absoluto medio ordinal, donde $\hat{Y_i}$ son las etiquetas predichas y $Y_i$ son las etiquetas reales.}
 	\label{fig:MAE}
 \end{figure}
 

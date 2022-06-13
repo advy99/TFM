@@ -2,15 +2,15 @@
 
 
 
-Para este trabajo nos centraremos en resolver un problema real de aprendizaje automático utilizando el conocimiento obtenido a lo largo de las asignaturas del máster, comenzando con un análisis exploratorio de datos, aplicación de técnicas de preprocesamiento, uso de técnicas de sobremuestreo, así como el desarrollo del modelo que aprenderá el sistema basado en reglas y el motor de inferencia.
+Para este trabajo nos centraremos en resolver un problema real de aprendizaje automático utilizando el conocimiento obtenido a lo largo de las asignaturas del máster, comenzando con un análisis exploratorio de datos, aplicación de técnicas de preprocesamiento, uso de técnicas de sobremuestreo, así como el desarrollo del modelo que aprenderá el sistema basado en reglas y el motor de inferencia. Finalmente, se diseñará una metodología de validación experimental apropiada.
 
 \subsection{Problema a resolver}
 
 De cara a la identificación de cadáveres, una de las tareas clave es la estimación de la edad. Aunque los forenses tenían formas de estimar a que edad murió una persona a partir de sus restos óseos, no existía un método concreto y universal de forma que el forense solo tuviera que seguir ciertas pautas y observar ciertas características para estimar la edad de un fallecido.
 
-Por este motivo, en el año 1920, Thomas Wingate Todd publicó un artículo científico \cite{todd} en el que proponía una forma de clasificar en diez rangos de edad los restos óseos de una persona fallecida a partir de ciertas características de la sínfisis púbica, de forma que el proceso de identificación de cadáveres fuera más sencillo para los forenses.
+Por este motivo, en el año 1920, Thomas Wingate Todd publicó un artículo científico \cite{todd} en el que proponía una forma de clasificar en diez rangos de edad los restos óseos de una persona fallecida a partir de ciertas características de la sínfisis púbica, de forma que el proceso de identificación de cadáveres fuera más sencillo para los antropólogos.
 
-A pesar de ser una publicación de hace más de cien años, este método sigue siendo la base para la estimación de la edad a partir de los restos óseos. La mayoría de técnicas actuales se basan en esta propuesta y se siguen aplicando de forma manual.
+A pesar de ser una publicación de hace más de cien años, este método sigue siendo la base para la estimación de la edad a partir de los restos óseos. La mayoría de técnicas actuales se basan en variantes de esta propuesta (basadas por ejemplo en la redefinición de los rangos de edad y la reducción del número de fases \cite{sucheyBrooks}) y se siguen aplicando de forma manual.
 
 El sistema propuesto por Todd se centraba en nueve características, asignándole distintos valores categóricos, de la sínfisis púbica para realizar su clasificación:
 
@@ -103,7 +103,7 @@ En este trabajo, debido a la complejidad del problema, así como que el experto 
 Tras introducir el problema, comentar los principales retos que nos podemos encontrar y orientar que tipo de solución buscamos, podemos distinguir estos claros objetivos:
 
 \begin{enumerate}
-	\item Discutir la importancia de resolver este problema, así como los distintos enfoques utilizados hasta ahora en los distintos estudios que se han propuesto resolverlo.
+	\item Discutir la importancia de resolver este problema, así como los distintos enfoques utilizados hasta ahora en los diferentes estudios que se han propuesto resolverlo.
 	\item Estudiar y discutir distintos métodos de preprocesamiento de datos, en especial el balanceado de datos debido a las características del problema.
 	\item Estudiar, desarrollar y entrenar algoritmos evolutivos que permitan inferir reglas a partir de un conjunto de datos, discutiendo y analizando las distintas técnicas utilizadas hasta el momento para esta tarea.
 	\item Implementar un sistema basado en reglas capaz de resolver el problema.
