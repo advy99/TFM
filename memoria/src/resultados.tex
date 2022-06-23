@@ -1,3 +1,294 @@
 \section{Resultados} \label{resultados}
 
+De cara a comentar los resultados, vamos a recordar el entorno de experimentación utilizad. Para comenzar, se ha dividido el conjunto de datos original en un 80\% para entrenamiento y un 20\% para test, luego, tras esa separación, se ha aplicado sobremuestreo al conjunto de entrenamiento, sin modificar el conjunto de test, y ya en la ejecución de los algoritmos se ha utilizado una validación cruzada de 5 folds (5-cv) sobre el conjunto de entrenamiento, mientras que el conjunto de test que aparece en estos resultados es siempre el mismo, el 20\% original sin sobremuestreo, aplicado sobre el clasificador obtenido en cada fold.
+
+\subsubsection{Resultados con Bjorczuk por defecto}
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Bjorczuk con sobremuestreo aleatorio y función\\ de fitness por defecto.\end{tabular}}}                                                                                                             \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}} & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                        & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                              \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                  & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}    & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test}   \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 1}}   & \multicolumn{1}{c|}{25,1892}           & \multicolumn{1}{c|}{25,0536}             & \multicolumn{1}{c|}{\textbf{25,2197}} & \multicolumn{1}{c|}{0,1}               & \multicolumn{1}{c|}{0,1}                 & 0,0677          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 2}}   & \multicolumn{1}{c|}{30,9865}           & \multicolumn{1}{c|}{30,9643}             & \multicolumn{1}{c|}{31,0688}          & \multicolumn{1}{c|}{0,1009}            & \multicolumn{1}{c|}{0,1018}              & 0,1198          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 3}}   & \multicolumn{1}{c|}{30,982}            & \multicolumn{1}{c|}{31}                  & \multicolumn{1}{c|}{31,0833}          & \multicolumn{1}{c|}{0,1014}            & \multicolumn{1}{c|}{0,1}                 & 0,1198          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 4}}   & \multicolumn{1}{c|}{45}                & \multicolumn{1}{c|}{45}                  & \multicolumn{1}{c|}{45}               & \multicolumn{1}{c|}{0,1}               & \multicolumn{1}{c|}{0,1}                 & \textbf{0,3594} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 5}}   & \multicolumn{1}{c|}{31,0045}           & \multicolumn{1}{c|}{30,9636}             & \multicolumn{1}{c|}{31,058}           & \multicolumn{1}{c|}{0,1013}            & \multicolumn{1}{c|}{0,1036}              & 0,1198          \\ \hline
+\end{tabular}%
+}
+\caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio.}\label{tablaBJORCZUKdefecto}
+\end{table}
+
+
+
+Si nos fijamos en los resultados, vemos que los resultados de tasa de precisión en entrenamiento y validación es del 10\%. Si vemos la matriz de confusión obtenida esto se debe a que el algoritmo se está centrando solo en una de las diez clases, y clasifica todas las instancias siempre con la misma clase, también de ahí la gran variación en el valor del OMAE, si la clase en la que siempre clasifica es, por ejemplo, la clase 10, la fase de mayores de 50, como en el caso del cuarto fold, obtenemos un OMAE muy alto, sin embargo, si se centra en una clase central, como el fold 1 que clasifica todas las instancias como la quinta fase, obtiene un OMAE mucho menor. Sin embargo, en el conjunto de test,a diferencia del conjunto de entrenamiento, al no estar balanceadas las clases obtiene un valor de tasa de acierto mucho más alto en el cuarto fold, al centrarse en la fase donde más observaciones tenemos.
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccccccccc|}
+\hline
+\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 4 sobre el conjunto de test con el algoritmo \\ de Bjorczuk con sobremuestreo aleatorio y función de fitness por defecto.\end{tabular}}}                                                                                                                                                              \\ \hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{}}                                               & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                              & \multirow{2}{*}{} \\ \cline{3-12}
+\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9}          &                   \\ \hline
+\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & C0 = Ph01-19      \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & C1 = Ph02-20-21   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & C2 = Ph03-22-24   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & C3 = Ph04-25-26   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{13}} & C4 = Ph05-27-30   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{12}} & C5 = Ph06-31-34   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{30}} & C6 = Ph07-35-39   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{23}} & C7 = Ph08-40-44   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{27}} & C8 = Ph09-45-49   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{69}} & C9 = Ph10-50-     \\ \hline
+\end{tabular}%
+}
+\caption{Matriz de confusión del fold 4 del cuadro \ref{tablaBJORCZUKdefecto}.}
+\end{table}
+
+En el fold 1, el de menor OMAE, ocurre esta misma situación, solo que con la clase 5, Ph05-27-30.
+
+
+El clasificador obtenido por el mejor fold de esta caso es el siguiente:
+
+\begin{lstlisting}
+Rule: IF (AND = VentralMargin FormedWithoutRarefactions AND != VentralMargin FormedWithoutRarefactions AND != VentralMargin PartiallyFormed AND != VentralMargin FormedWithoutRarefactions AND != VentralMargin FormedWithoutRarefactions AND = DorsalMargin Absent != DorsalMargin Absent ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (OR = VentralMargin PartiallyFormed OR != IrregularPorosity Much AND = VentralMargin PartiallyFormed AND = DorsalMargin Absent AND != BonyNodule Absent = VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE IF (AND != BonyNodule Present AND = VentralMargin FormedWithoutRarefactions AND != VentralMargin PartiallyFormed AND = DorsalPlaeau Present != VentralMargin Absent ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesAndGrooves AND != UpperSymphysialExtremity Defined AND != IrregularPorosity Much = BonyNodule Present ) THEN (ToddPhase = Ph02-20-21)
+Rule: ELSE IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
+Rule: ELSE IF (OR = LowerSymphysialExtremity NotDefined OR != LowerSymphysialExtremity Defined OR = DorsalMargin Absent OR AND != VentralBevel Present != VentralMargin FormedWitFewRarefactions != IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (AND != DorsalMargin Absent AND = DorsalPlaeau Absent = VentralBevel Absent ) THEN (ToddPhase = Ph01-19)
+Rule: ELSE (ToddPhase = Ph01-19)
+\end{lstlisting}
+
+
+
+Este comportamiento por parte del algoritmo no es para nada normal, sobre todo teniendo en cuenta que ya no tiene el problema del desbalanceo de clases. Este comportamiento puede deberse a la dificultad del problema y a la forma de escoger las reglas del clasificador final, por lo que se ha extendido la experimentación modificando la función de evaluación de los algoritmos de cara a guiar de una mejor forma la búsqueda.
+
+\subsubsection{Resultados con Bjorczuk con OMAE como función de ajuste}
+
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Bjorczuk con sobremuestreo aleatorio y función\\ de fitness OMAE.\end{tabular}}}                                                                                                                    \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}} & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                        & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                              \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                  & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}    & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test}   \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 1}}   & \multicolumn{1}{c|}{15,8378}           & \multicolumn{1}{c|}{16,5536}             & \multicolumn{1}{c|}{18,3002}          & \multicolumn{1}{c|}{0,2275}            & \multicolumn{1}{c|}{0,2161}              & 0,0885          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 2}}   & \multicolumn{1}{c|}{22,4595}           & \multicolumn{1}{c|}{23,1607}             & \multicolumn{1}{c|}{24,0298}          & \multicolumn{1}{c|}{0,1928}            & \multicolumn{1}{c|}{0,1714}              & 0,0781          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 3}}   & \multicolumn{1}{c|}{20,7342}           & \multicolumn{1}{c|}{21,3036}             & \multicolumn{1}{c|}{21,8878}          & \multicolumn{1}{c|}{0,2185}            & \multicolumn{1}{c|}{0,1964}              & 0,0938          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 4}}   & \multicolumn{1}{c|}{18,009}            & \multicolumn{1}{c|}{17,8182}             & \multicolumn{1}{c|}{\textbf{15,9541}} & \multicolumn{1}{c|}{0,2426}            & \multicolumn{1}{c|}{0,2418}              & \textbf{0,1094} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 5}}   & \multicolumn{1}{c|}{15,8251}           & \multicolumn{1}{c|}{16,7273}             & \multicolumn{1}{c|}{18,2857}          & \multicolumn{1}{c|}{0,2269}            & \multicolumn{1}{c|}{0,2145}              & 0,0938          \\ \hline
+\end{tabular}%
+}
+\caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio y búsqueda guiada por OMAE.}\label{tablaBJORCZUKconOMAE}
+\end{table}
+
+Vemos como el modificar la función de fitness en el algoritmo ha mejorado los resultados, pero siguen siendo unos resultados bastante malos a nivel de tasa de acierto, llegando a un 10\% en el mejor de los casos en el conjunto de test. La matriz de confusión obtenida en el mejor fold, el cuarto, es la siguiente:
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccccccccc|}
+\hline
+\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 4 sobre el conjunto de test con el algoritmo\\  de Bjorczuk con sobremuestreo aleatorio y función de fitness OMAE.\end{tabular}}}                                                                                                                                                                                                                      \\ \hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{}}                                               & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                                                                                               & \multirow{2}{*}{} \\ \cline{3-12}
+\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0}         & \multicolumn{1}{c|}{C1}         & \multicolumn{1}{c|}{C2}         & \multicolumn{1}{c|}{C3}         & \multicolumn{1}{c|}{C4}         & \multicolumn{1}{c|}{C5}          & \multicolumn{1}{c|}{C6}         & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8}          & \multicolumn{1}{c|}{C9}         &                   \\ \hline
+\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & C0 = Ph01-19      \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & C1 = Ph02-20-21   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{\textbf{4}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & C2 = Ph03-22-24   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}           & \multicolumn{1}{c|}{0}          & C3 = Ph04-25-26   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{7}}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}          & C4 = Ph05-27-30   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{0}          & C5 = Ph06-31-34   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{6}} & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{\textbf{13}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{7}}  & \multicolumn{1}{c|}{0}          & C6 = Ph07-35-39   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{\textbf{10}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{8}}  & \multicolumn{1}{c|}{0}          & C7 = Ph08-40-44   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{\textbf{12}} & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{9}}  & \multicolumn{1}{c|}{0}          & C8 = Ph09-45-49   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{\textbf{6}} & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{\textbf{20}} & \multicolumn{1}{c|}{\textbf{2}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{34}} & \multicolumn{1}{c|}{\textbf{1}} & C9 = Ph10-50-     \\ \hline
+\end{tabular}%
+}
+\caption{Matriz de confusión del fold 4 del cuadro \ref{tablaBJORCZUKconOMAE}.}
+\end{table}
+
+\newpage
+
+Y el conjunto de reglas obtenido es el siguiente:
+
+\begin{lstlisting}
+Rule: IF (AND != BonyNodule Absent AND != LowerSymphysialExtremity Defined AND != IrregularPorosity Much AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesFormation AND != IrregularPorosity Much = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph01-19)
+Rule: ELSE IF (AND = IrregularPorosity Much AND != VentralBevel InProcess AND = UpperSymphysialExtremity Defined AND != BonyNodule Present != ArticularFace NoGrooves ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND = IrregularPorosity Much AND = VentralBevel Absent = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph07-35-39)
+Rule: ELSE IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
+Rule: ELSE IF (= VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (!= IrregularPorosity Absence ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (OR = DorsalPlaeau Present = ArticularFace RidgesFormation ) THEN (ToddPhase = Ph02-20-21)
+Rule: ELSE IF (AND != VentralBevel Absent AND = DorsalPlaeau Absent = VentralMargin FormedWithoutRarefactions ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (OR != DorsalPlaeau Absent != VentralBevel Absent ) THEN (ToddPhase = Ph05-27-30)
+
+Rule: ELSE (ToddPhase = Ph01-19)
+\end{lstlisting}
+
+Vemos como hemos conseguido que el algoritmo ya no se centre solo en una única clase, pero sigue sin funcionar, centrándose en las clases Ph06-31-34 y Ph09-45-49.
+
+\newpage
+
+\subsubsection{Resultados con Bjorczuk con MMAE como función de ajuste}
+
+Otra de las pruebas realizadas es usando el MMAE \cite{funcionesClasificacionOrdinal}, una métrica utilizada en clasificación ordinal, que en lugar de usar el OMAE total utiliza el máximo OMAE obtenido en cada clase.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Bjorczuk con sobremuestreo aleatorio y función\\ de fitness MMAE\end{tabular}}}                                                                                                                   \\ \hline
+\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                        & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                              \\ \hline
+\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}    & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test}   \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{c|}{22,4955}           & \multicolumn{1}{c|}{23,5179}             & \multicolumn{1}{c|}{27,1533}          & \multicolumn{1}{c|}{0,1892}            & \multicolumn{1}{c|}{0,1661}              & 0,0469          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{c|}{20,8739}           & \multicolumn{1}{c|}{20,4643}             & \multicolumn{1}{c|}{24,7499}          & \multicolumn{1}{c|}{0,1986}            & \multicolumn{1}{c|}{0,1982}              & 0,0885          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{22,5045}           & \multicolumn{1}{c|}{21,125}              & \multicolumn{1}{c|}{22,3844}          & \multicolumn{1}{c|}{0,1644}            & \multicolumn{1}{c|}{0,1714}              & \textbf{0,1198} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{18,6368}           & \multicolumn{1}{c|}{19,7455}             & \multicolumn{1}{c|}{23,4138}          & \multicolumn{1}{c|}{0,2179}            & \multicolumn{1}{c|}{0,1927}              & 0,0885          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{17,0897}           & \multicolumn{1}{c|}{17,6364}             & \multicolumn{1}{c|}{\textbf{21,3829}} & \multicolumn{1}{c|}{0,1991}            & \multicolumn{1}{c|}{0,18}                & 0,099           \\ \hline
+\end{tabular}%
+}
+\caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio y búsqueda guiada por MMAE.}\label{tablaBJORCZUKconMMAE}
+\end{table}
+
+
+En este caso ha obtenido un resultado algo peor al obtenido usando OMAE, sin embargo mucho mejor que con la función de fitness original. La matriz de confusión obtenida por el quinto fold, el mejor OMAE en el conjunto de test, es la siguiente:
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccrrrrrrrrrrc|}
+\hline
+\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 5 sobre el conjunto de test con el algoritmo\\  de Bjorczuk con sobremuestreo aleatorio y función de fitness MMAE.\end{tabular}}}                                                                                                                                                                                                                      \\ \hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{}}                                               & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                                                                                               & \multirow{2}{*}{} \\ \cline{3-12}
+\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1}         & \multicolumn{1}{c|}{C2}         & \multicolumn{1}{c|}{C3}         & \multicolumn{1}{c|}{C4}         & \multicolumn{1}{c|}{C5}          & \multicolumn{1}{c|}{C6}         & \multicolumn{1}{c|}{C7}          & \multicolumn{1}{c|}{C8}         & \multicolumn{1}{c|}{C9}         &                   \\ \hline
+\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{5}}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & C0 = Ph01-19      \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{2}}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & C1 = Ph02-20-21   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{1}}  & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & C2 = Ph03-22-24   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{3}} & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & C3 = Ph04-25-26   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{\textbf{4}} & \multicolumn{1}{r|}{\textbf{6}}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{1}}  & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & C4 = Ph05-27-30   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{3}} & \multicolumn{1}{r|}{\textbf{4}}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{3}}  & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & C5 = Ph06-31-34   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{6}} & \multicolumn{1}{r|}{\textbf{12}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{11}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & C6 = Ph07-35-39   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{6}} & \multicolumn{1}{r|}{\textbf{11}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{6}}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & C7 = Ph08-40-44   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{4}} & \multicolumn{1}{r|}{\textbf{13}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{10}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & C8 = Ph09-45-49   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{\textbf{9}} & \multicolumn{1}{r|}{\textbf{39}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{17}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{3}} & C9 = Ph10-50-     \\ \hline
+\end{tabular}%
+}
+\caption{Matriz de confusión del fold 5 del cuadro \ref{tablaBJORCZUKconMMAE}.}
+\end{table}
+
+\newpage
+
+Y el conjunto de reglas que conforma el clasificador es el siguiente:
+
+\begin{lstlisting}
+Rule: IF (AND = VentralBevel InProcess AND = VentralMargin FormedWithLotRecessesAndProtrusions AND = VentralMargin Absent AND != VentralBevel InProcess AND != DorsalPlaeau Present AND != VentralMargin FormedWithLotRecessesAndProtrusions = VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph01-19)
+Rule: ELSE IF (AND != VentralMargin FormedWithLotRecessesAndProtrusions AND != VentralMargin FormedWithLotRecessesAndProtrusions AND = VentralMargin Absent AND = VentralMargin Absent AND = BonyNodule Absent = VentralBevel InProcess ) THEN (ToddPhase = Ph07-35-39)
+Rule: ELSE IF (AND = VentralMargin FormedWithLotRecessesAndProtrusions AND != ArticularFace RidgesAndGrooves AND != LowerSymphysialExtremity NotDefined AND = UpperSymphysialExtremity Defined = VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND = DorsalPlaeau Present AND != VentralBevel InProcess AND = UpperSymphysialExtremity Defined AND != BonyNodule Present = ArticularFace NoGrooves ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
+Rule: ELSE IF (AND = DorsalPlaeau Present AND != VentralMargin PartiallyFormed = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (OR = VentralBevel Present AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph08-40-44)
+Rule: ELSE IF (OR = DorsalPlaeau Present = ArticularFace RidgesFormation ) THEN (ToddPhase = Ph02-20-21)
+Rule: ELSE IF (OR != DorsalPlaeau Absent OR != ArticularFace GroovesRest AND != IrregularPorosity Absence != DorsalMargin Present ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (OR != VentralMargin Absent OR != VentralBevel InProcess OR != UpperSymphysialExtremity Defined != DorsalPlaeau Absent ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE (ToddPhase = Ph01-19)
+\end{lstlisting}
+
+\newpage
+
+\subsubsection{Resultados con Bjorczuk con AMAE como función de ajuste}
+
+AMAE \cite{funcionesClasificacionOrdinal} es otra modificación de OMAE, utilizada en clasificación ordinal, que en lugar de usar el OMAE total utiliza una media del OMAE obtenido en cada clase.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|crrrrrr|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Bjorczuk con sobremuestreo aleatorio y función\\ de fitness AMAE\end{tabular}}}                                                                                                                                      \\ \hline
+\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                        & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                                                 \\ \hline
+\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}    & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{r|}{15,8378}           & \multicolumn{1}{r|}{16,5536}             & \multicolumn{1}{r|}{18,3002}          & \multicolumn{1}{r|}{0,2275}            & \multicolumn{1}{r|}{0,2161}              & 0,0885                             \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{r|}{22,4595}           & \multicolumn{1}{r|}{23,1607}             & \multicolumn{1}{r|}{24,0298}          & \multicolumn{1}{r|}{0,1928}            & \multicolumn{1}{r|}{0,1714}              & 0,0781                             \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{r|}{20,7342}           & \multicolumn{1}{r|}{21,3036}             & \multicolumn{1}{r|}{21,8878}          & \multicolumn{1}{r|}{0,2185}            & \multicolumn{1}{r|}{0,1964}              & 0,0938                             \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{r|}{18,009}            & \multicolumn{1}{r|}{17,8182}             & \multicolumn{1}{r|}{\textbf{15,9541}} & \multicolumn{1}{r|}{0,2426}            & \multicolumn{1}{r|}{0,2418}              & \textbf{0,1094}                    \\ \hline
+\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{r|}{15,8251}           & \multicolumn{1}{r|}{16,7273}             & \multicolumn{1}{r|}{18,2857}          & \multicolumn{1}{r|}{0,2269}            & \multicolumn{1}{r|}{0,2145}              & 0,0938                             \\ \hline
+\end{tabular}%
+}
+\caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio y búsqueda guiada por AMAE.}\label{tablaBJORCZUKconAMAE}
+\end{table}
+
+En este caso hemos obtenido unos resultados bastantes similares a la ejecución guiada por OMAE, si vemos la matriz de confusión del cuarto fold, el mejor de todos, vemos que es también muy similar:
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccrrrrrrrrrrc|}
+\hline
+\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 4 sobre el conjunto de test con el algoritmo\\  de Bjorczuk con sobremuestreo aleatorio y función de fitness AMAE.\end{tabular}}}                                                                                                                                                                                                                      \\ \hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{}}                                               & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                                                                                               & \multirow{2}{*}{} \\ \cline{3-12}
+\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0}         & \multicolumn{1}{c|}{C1}         & \multicolumn{1}{c|}{C2}         & \multicolumn{1}{c|}{C3}         & \multicolumn{1}{c|}{C4}         & \multicolumn{1}{c|}{C5}          & \multicolumn{1}{c|}{C6}         & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8}          & \multicolumn{1}{c|}{C9}         &                   \\ \hline
+\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{r|}{\textbf{5}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & C0 = Ph01-19      \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & C1 = Ph02-20-21   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{\textbf{4}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & C2 = Ph03-22-24   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{0}           & \multicolumn{1}{r|}{0}          & C3 = Ph04-25-26   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{3}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{7}}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{1}}  & \multicolumn{1}{r|}{0}          & C4 = Ph05-27-30   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{5}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{2}}  & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{5}}  & \multicolumn{1}{r|}{0}          & C5 = Ph06-31-34   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{6}} & \multicolumn{1}{r|}{\textbf{3}} & \multicolumn{1}{r|}{\textbf{13}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{7}}  & \multicolumn{1}{r|}{0}          & C6 = Ph07-35-39   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{3}} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{\textbf{10}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{8}}  & \multicolumn{1}{r|}{0}          & C7 = Ph08-40-44   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{\textbf{12}} & \multicolumn{1}{r|}{\textbf{1}} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{9}}  & \multicolumn{1}{r|}{0}          & C8 = Ph09-45-49   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{r|}{\textbf{6}} & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{0}          & \multicolumn{1}{r|}{\textbf{3}} & \multicolumn{1}{r|}{\textbf{3}} & \multicolumn{1}{r|}{\textbf{20}} & \multicolumn{1}{r|}{\textbf{2}} & \multicolumn{1}{r|}{0}  & \multicolumn{1}{r|}{\textbf{34}} & \multicolumn{1}{r|}{\textbf{1}} & C9 = Ph10-50-     \\ \hline
+\end{tabular}%
+}
+\caption{Matriz de confusión del fold 4 del cuadro \ref{tablaBJORCZUKconAMAE}.}
+\end{table}
+
+
+Como vemos, de nuevo se sigue centrando en las clases Ph06-31-34 y Ph09-45-49.
+
+\newpage
+
+Las reglas obtenidas son las siguientes:
+
+\begin{lstlisting}
+Rule: IF (AND != BonyNodule Absent AND != LowerSymphysialExtremity Defined AND != IrregularPorosity Much AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesFormation AND != IrregularPorosity Much = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph01-19)
+Rule: ELSE IF (AND = IrregularPorosity Much AND != VentralBevel InProcess AND = UpperSymphysialExtremity Defined AND != BonyNodule Present != ArticularFace NoGrooves ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND = IrregularPorosity Much AND = VentralBevel Absent = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph07-35-39)
+Rule: ELSE IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
+Rule: ELSE IF (= VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (!= IrregularPorosity Absence ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (OR = DorsalPlaeau Present = ArticularFace RidgesFormation ) THEN (ToddPhase = Ph02-20-21)
+Rule: ELSE IF (AND != VentralBevel Absent AND = DorsalPlaeau Absent = VentralMargin FormedWithoutRarefactions ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (OR != DorsalPlaeau Absent != VentralBevel Absent ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE (ToddPhase = Ph01-19)
+\end{lstlisting}
+
 \newpage
