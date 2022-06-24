@@ -1,0 +1,51 @@
+File name: ../datos/completo-18-82.arff.val.arff
+Runtime (s): 150.17
+Number of different attributes: 9
+Number of rules: 11
+Number of conditions: 71
+Average number of conditions per rule: 6.454545454545454
+Accuracy: 0,1875
+OMAE mean: 1,8264
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,0675
+AUC: 0,7568
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 100,00%
+ Class Ph02-20-21: 50,00%
+ Class Ph03-22-24: 0,00%
+ Class Ph04-25-26: 0,00%
+ Class Ph05-27-30: 7,69%
+ Class Ph06-31-34: 16,67%
+ Class Ph07-35-39: 0,00%
+ Class Ph08-40-44: 0,00%
+ Class Ph09-45-49: 18,52%
+ Class Ph10-50-: 30,43%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND AND != ArticularFace GroovesShallow AND != LowerSymphysialExtremity Defined != ArticularFace GroovesRest AND != LowerSymphysialExtremity Defined != ArticularFace GroovesRest ) THEN (ToddPhase = Ph01-19)
+ 2 Rule: ELSE IF (NOT OR OR OR AND OR != ArticularFace RegularPorosity != IrregularPorosity Absence = ArticularFace GroovesRest = ArticularFace RegularPorosity != VentralMargin Absent != VentralBevel Absent ) THEN (ToddPhase = Ph02-20-21)
+ 3 Rule: ELSE IF (NOT OR AND NOT AND = BonyNodule Absent AND NOT = LowerSymphysialExtremity Defined NOT = BonyNodule Present = BonyNodule Absent = ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph03-22-24)
+ 4 Rule: ELSE IF (AND NOT AND OR = VentralMargin FormedWitFewRarefactions AND = VentralMargin Absent = VentralMargin FormedWitFewRarefactions = LowerSymphysialExtremity NotDefined OR = VentralMargin FormedWithLotRecessesAndProtrusions = VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph10-50-)
+ 5 Rule: ELSE IF (AND NOT AND = IrregularPorosity Medium OR = VentralMargin FormedWithLotRecessesAndProtrusions OR = VentralMargin FormedWithLotRecessesAndProtrusions OR = VentralMargin PartiallyFormed = IrregularPorosity Absence = IrregularPorosity Medium ) THEN (ToddPhase = Ph09-45-49)
+ 6 Rule: ELSE IF (AND AND NOT != DorsalPlaeau Absent AND NOT = VentralBevel Absent NOT != IrregularPorosity Absence NOT != VentralMargin FormedWithoutRarefactions ) THEN (ToddPhase = Ph06-31-34)
+ 7 Rule: ELSE IF (AND != LowerSymphysialExtremity NotDefined AND = VentralBevel Absent NOT OR OR = BonyNodule Present = DorsalPlaeau Absent NOT = VentralMargin Absent ) THEN (ToddPhase = Ph04-25-26)
+ 8 Rule: ELSE IF (AND NOT != ArticularFace NoGrooves AND = ArticularFace NoGrooves AND NOT != IrregularPorosity Medium OR != VentralMargin FormedWithLotRecessesAndProtrusions != IrregularPorosity Medium ) THEN (ToddPhase = Ph08-40-44)
+ 9 Rule: ELSE IF (AND OR != ArticularFace GroovesRest OR AND != IrregularPorosity Medium != VentralBevel InProcess != ArticularFace GroovesRest = VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph05-27-30)
+ 10 Rule: ELSE IF (AND NOT AND NOT = ArticularFace NoGrooves NOT = VentralBevel Absent AND = VentralMargin PartiallyFormed NOT AND = VentralMargin PartiallyFormed = DorsalPlaeau Present ) THEN (ToddPhase = Ph07-35-39)
+ 11 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Test Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	5	0	0	0	0	0	0	0	0	0	|	C0 = Ph01-19
+		C1	2	2	0	0	0	0	0	0	0	0	|	C1 = Ph02-20-21
+		C2	3	2	0	0	0	0	0	0	0	0	|	C2 = Ph03-22-24
+		C3	3	0	1	0	0	0	0	0	0	0	|	C3 = Ph04-25-26
+		C4	4	0	0	0	1	7	0	0	1	0	|	C4 = Ph05-27-30
+		C5	2	0	0	0	3	2	0	0	3	2	|	C5 = Ph06-31-34
+		C6	2	0	0	0	5	13	0	0	5	5	|	C6 = Ph07-35-39
+		C7	3	0	0	0	1	10	0	0	8	1	|	C7 = Ph08-40-44
+		C8	2	0	0	0	1	12	0	0	5	7	|	C8 = Ph09-45-49
+		C9	7	0	0	0	0	20	1	0	20	21	|	C9 = Ph10-50-

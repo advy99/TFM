@@ -1,0 +1,51 @@
+File name: ../datos/BL_SMOTE/fold4.Tra.arff
+Runtime (s): 37.101
+Number of different attributes: 9
+Number of rules: 11
+Number of conditions: 11
+Average number of conditions per rule: 1.0
+Accuracy: 0,1254
+OMAE mean: 4,3767
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,0285
+AUC: 0,8473
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 100,00%
+ Class Ph02-20-21: 15,25%
+ Class Ph03-22-24: 0,00%
+ Class Ph04-25-26: 0,00%
+ Class Ph05-27-30: 0,00%
+ Class Ph06-31-34: 0,00%
+ Class Ph07-35-39: 0,00%
+ Class Ph08-40-44: 0,00%
+ Class Ph09-45-49: 0,00%
+ Class Ph10-50-: 10,36%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND != BonyNodule Absent != ArticularFace RidgesFormation ) THEN (ToddPhase = Ph02-20-21)
+ 2 Rule: ELSE IF (= IrregularPorosity Much ) THEN (ToddPhase = Ph10-50-)
+ 3 Rule: ELSE IF (= ArticularFace RegularPorosity ) THEN (ToddPhase = Ph01-19)
+ 4 Rule: ELSE IF (= DorsalMargin Absent ) THEN (ToddPhase = Ph09-45-49)
+ 5 Rule: ELSE IF (= DorsalMargin Absent ) THEN (ToddPhase = Ph08-40-44)
+ 6 Rule: ELSE IF (= DorsalMargin Absent ) THEN (ToddPhase = Ph05-27-30)
+ 7 Rule: ELSE IF (!= DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26)
+ 8 Rule: ELSE IF (= DorsalMargin Absent ) THEN (ToddPhase = Ph07-35-39)
+ 9 Rule: ELSE IF (= DorsalMargin Absent ) THEN (ToddPhase = Ph06-31-34)
+ 10 Rule: ELSE IF (!= DorsalMargin Present ) THEN (ToddPhase = Ph03-22-24)
+ 11 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Train Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	222	0	0	0	0	0	0	0	0	0	|	C0 = Ph01-19
+		C1	189	34	0	0	0	0	0	0	0	0	|	C1 = Ph02-20-21
+		C2	215	8	0	0	0	0	0	0	0	0	|	C2 = Ph03-22-24
+		C3	222	0	0	0	0	0	0	0	0	0	|	C3 = Ph04-25-26
+		C4	222	0	0	0	0	0	0	0	0	0	|	C4 = Ph05-27-30
+		C5	219	0	0	0	0	0	0	0	0	4	|	C5 = Ph06-31-34
+		C6	220	0	0	0	0	0	0	0	0	3	|	C6 = Ph07-35-39
+		C7	221	0	0	0	0	0	0	0	0	1	|	C7 = Ph08-40-44
+		C8	221	0	0	0	0	0	0	0	0	1	|	C8 = Ph09-45-49
+		C9	199	0	0	0	0	0	0	0	0	23	|	C9 = Ph10-50-
