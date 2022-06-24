@@ -1,0 +1,49 @@
+File name: ../datos/BL_SMOTE/fold0.Tra.arff
+Runtime (s): 177.833
+Number of different attributes: 9
+Number of rules: 9
+Number of conditions: 30
+Average number of conditions per rule: 3.3333333333333335
+Accuracy: 0,1151
+OMAE mean: 2,2991
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,0166
+AUC: 0,7402
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 0,00%
+ Class Ph02-20-21: 1,35%
+ Class Ph03-22-24: 9,01%
+ Class Ph04-25-26: 0,00%
+ Class Ph05-27-30: 6,28%
+ Class Ph06-31-34: 68,16%
+ Class Ph07-35-39: 2,24%
+ Class Ph08-40-44: 26,58%
+ Class Ph09-45-49: 0,00%
+ Class Ph10-50-: 1,35%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND != BonyNodule Present AND = BonyNodule Present = BonyNodule Present ) THEN (ToddPhase = Ph01-19)
+ 2 Rule: ELSE IF (AND = VentralMargin FormedWithLotRecessesAndProtrusions AND != VentralBevel InProcess AND = IrregularPorosity Much AND != BonyNodule Present = ArticularFace NoGrooves ) THEN (ToddPhase = Ph10-50-)
+ 3 Rule: ELSE IF (AND != BonyNodule Present AND = VentralMargin Absent != VentralBevel Absent ) THEN (ToddPhase = Ph07-35-39)
+ 4 Rule: ELSE IF (AND = ArticularFace RidgesAndGrooves AND != VentralBevel InProcess AND = UpperSymphysialExtremity Defined AND != BonyNodule Present = DorsalPlaeau Absent ) THEN (ToddPhase = Ph02-20-21)
+ 5 Rule: ELSE IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
+ 6 Rule: ELSE IF (AND != BonyNodule Present AND = VentralBevel Absent AND != VentralMargin PartiallyFormed AND = LowerSymphysialExtremity Defined != VentralMargin Absent ) THEN (ToddPhase = Ph08-40-44)
+ 7 Rule: ELSE IF (OR != BonyNodule Absent != VentralBevel Absent ) THEN (ToddPhase = Ph06-31-34)
+ 8 Rule: ELSE IF (OR != DorsalPlaeau Absent OR != ArticularFace GroovesRest AND != IrregularPorosity Absence != DorsalMargin Present ) THEN (ToddPhase = Ph05-27-30)
+ 9 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Train Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	0	0	0	0	171	51	0	0	0	0	|	C0 = Ph01-19
+		C1	0	3	0	0	179	40	0	0	0	0	|	C1 = Ph02-20-21
+		C2	8	0	20	0	131	56	0	7	0	0	|	C2 = Ph03-22-24
+		C3	6	0	0	0	23	133	0	60	0	0	|	C3 = Ph04-25-26
+		C4	11	0	0	0	14	158	0	40	0	0	|	C4 = Ph05-27-30
+		C5	0	0	0	0	30	152	0	41	0	0	|	C5 = Ph06-31-34
+		C6	18	0	0	0	13	131	5	56	0	0	|	C6 = Ph07-35-39
+		C7	7	0	0	0	3	153	0	59	0	0	|	C7 = Ph08-40-44
+		C8	3	0	0	0	2	147	0	70	0	0	|	C8 = Ph09-45-49
+		C9	1	0	0	0	2	166	0	51	0	3	|	C9 = Ph10-50-

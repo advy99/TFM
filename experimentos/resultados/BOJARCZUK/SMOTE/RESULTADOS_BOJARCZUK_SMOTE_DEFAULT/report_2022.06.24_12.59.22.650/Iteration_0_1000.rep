@@ -1,0 +1,96 @@
+IF (OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND != VentralMargin Absent AND != VentralMargin Absent AND = BonyNodule Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = IrregularPorosity Medium OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent OR = UpperSymphysialExtremity Defined OR != BonyNodule Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR = BonyNodule Absent OR AND != BonyNodule Absent != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != DorsalMargin Absent OR = BonyNodule Absent OR = VentralMargin Absent OR = UpperSymphysialExtremity Defined OR = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND = VentralMargin Absent AND = VentralMargin Absent AND = VentralBevel InProcess != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = VentralBevel InProcess OR != VentralMargin Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR != VentralBevel InProcess OR = VentralMargin Absent OR != BonyNodule Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND = VentralMargin Absent AND = BonyNodule Absent AND = VentralBevel InProcess != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR != BonyNodule Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent OR = UpperSymphysialExtremity Defined OR != VentralMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = BonyNodule Absent OR AND != VentralMargin Absent != DorsalMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = VentralMargin Absent OR != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND != VentralMargin Absent AND != VentralMargin Absent AND = VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR = BonyNodule Absent OR AND != BonyNodule Absent != DorsalMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = VentralMargin Absent AND != VentralMargin Absent AND != VentralMargin Absent AND = VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND = VentralMargin Absent AND = VentralMargin Absent AND = VentralBevel InProcess != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != BonyNodule Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != LowerSymphysialExtremity Defined AND != ArticularFace RidgesAndGrooves AND != UpperSymphysialExtremity Defined AND = VentralBevel InProcess = BonyNodule Present ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = VentralMargin Absent AND != BonyNodule Absent AND != BonyNodule Absent AND != VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR = VentralBevel InProcess OR = VentralMargin Absent OR != VentralBevel InProcess != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = BonyNodule Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = BonyNodule Absent OR != VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR = VentralMargin Absent OR = BonyNodule Absent OR != VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR != VentralBevel InProcess OR = VentralMargin Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = BonyNodule Absent OR AND != BonyNodule Absent != DorsalMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND = VentralMargin Absent AND = BonyNodule Absent AND = VentralBevel InProcess != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesAndGrooves AND != BonyNodule Absent AND = VentralBevel InProcess = BonyNodule Present ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = IrregularPorosity Medium OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND = VentralMargin Absent AND = BonyNodule Absent AND != VentralMargin Absent AND != BonyNodule Absent AND = VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = IrregularPorosity Medium OR = VentralMargin Absent OR != VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR != VentralMargin Absent OR != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent != IrregularPorosity Medium ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = BonyNodule Absent OR != VentralMargin Absent OR = BonyNodule Absent OR = BonyNodule Absent OR != VentralBevel Present != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralBevel InProcess OR = VentralMargin Absent OR = BonyNodule Absent OR AND != BonyNodule Absent != DorsalMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = VentralMargin Absent OR != VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = VentralMargin Absent OR != VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = BonyNodule Absent OR != VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = VentralBevel InProcess OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = VentralMargin Absent OR = UpperSymphysialExtremity Defined OR != VentralMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR != VentralMargin Absent OR != VentralMargin Absent OR = UpperSymphysialExtremity Defined OR != VentralMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralBevel InProcess OR != VentralMargin Absent OR != BonyNodule Absent OR = BonyNodule Absent OR = BonyNodule Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR = VentralBevel InProcess OR = VentralMargin Absent OR != VentralBevel InProcess != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = UpperSymphysialExtremity Defined OR != VentralMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND != VentralMargin Absent AND != VentralMargin Absent AND = VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR = VentralMargin Absent OR != BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralBevel InProcess OR != VentralMargin Absent OR != BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent OR != VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != BonyNodule Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR != VentralBevel InProcess OR != VentralBevel Present OR != VentralMargin Absent != UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = VentralBevel InProcess OR = VentralMargin Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR != VentralMargin Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR AND = VentralBevel Present != BonyNodule Absent OR = VentralMargin Absent OR = VentralMargin Absent OR != VentralMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = BonyNodule Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = BonyNodule Absent OR != VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = VentralMargin Absent OR != VentralMargin Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND = VentralMargin Absent AND = VentralMargin Absent AND = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = BonyNodule Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = BonyNodule Absent OR != VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralBevel Present AND = ArticularFace RidgesAndGrooves AND != BonyNodule Absent AND = VentralBevel InProcess = BonyNodule Present ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != LowerSymphysialExtremity Defined AND = LowerSymphysialExtremity Defined AND != UpperSymphysialExtremity Defined AND != IrregularPorosity Much = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = VentralMargin Absent OR != BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR AND = VentralBevel Present != BonyNodule Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND != VentralMargin Absent AND != VentralMargin Absent AND = VentralMargin Absent != VentralBevel Present ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR = VentralBevel InProcess OR = VentralMargin Absent OR != VentralBevel InProcess != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = BonyNodule Absent OR AND != BonyNodule Absent != BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = IrregularPorosity Medium OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != DorsalMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = BonyNodule Absent OR = VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent OR != UpperSymphysialExtremity Defined = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR = BonyNodule Absent OR AND != BonyNodule Absent != DorsalMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND = BonyNodule Absent AND != BonyNodule Absent AND != VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR != VentralMargin Absent OR != BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR != VentralMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND = BonyNodule Absent AND != BonyNodule Absent AND != VentralMargin Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Present = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND != VentralMargin Absent AND != VentralMargin Absent AND = BonyNodule Absent = VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = IrregularPorosity Medium OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = VentralBevel InProcess OR != VentralMargin Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (AND != VentralMargin Absent AND = BonyNodule Absent AND != VentralMargin Absent AND != VentralMargin Absent AND = VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = BonyNodule Absent OR != VentralMargin Absent OR = UpperSymphysialExtremity Defined OR = VentralMargin Absent OR != VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = UpperSymphysialExtremity Defined OR != BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = IrregularPorosity Medium OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent OR = VentralMargin Absent != BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR = VentralBevel InProcess OR != VentralMargin Absent OR = BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent != VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = BonyNodule Absent OR != VentralMargin Absent OR = UpperSymphysialExtremity Defined OR != VentralMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR != BonyNodule Absent OR = VentralMargin Absent OR != VentralMargin Absent OR = VentralMargin Absent != VentralMargin Absent ) THEN (ToddPhase = Ph10-50-); Fitness: 0.0
+IF (OR AND != VentralBevel InProcess != DorsalMargin Absent OR AND = VentralBevel Present != BonyNodule Absent OR = LowerSymphysialExtremity Defined = IrregularPorosity Medium ) THEN (ToddPhase = Ph07-35-39); Fitness: 3.10189732719847E-4
+IF (OR != VentralMargin Absent OR != VentralBevel InProcess OR != UpperSymphysialExtremity Defined OR != VentralBevel InProcess = UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph06-31-34); Fitness: 3.4465525857760776E-4
+IF (AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesAndGrooves AND != UpperSymphysialExtremity Defined AND != IrregularPorosity Much = BonyNodule Present ) THEN (ToddPhase = Ph02-20-21); Fitness: 0.003092624091541673
+IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24); Fitness: 0.0037111489098500075
+IF (OR = VentralBevel Present OR AND = ArticularFace GroovesRest != ArticularFace GroovesRest = VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph09-45-49); Fitness: 0.2666857839271632

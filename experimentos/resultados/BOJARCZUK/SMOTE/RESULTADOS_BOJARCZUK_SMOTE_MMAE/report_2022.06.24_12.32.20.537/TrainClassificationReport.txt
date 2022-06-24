@@ -1,0 +1,51 @@
+File name: ../datos/SMOTE/fold0.Tra.arff
+Runtime (s): 175.741
+Number of different attributes: 9
+Number of rules: 11
+Number of conditions: 28
+Average number of conditions per rule: 2.5454545454545454
+Accuracy: 0,2657
+OMAE mean: 2,0139
+Geometric mean: 0,1433
+Cohen's Kappa rate: 0,1842
+AUC: 0,7664
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 51,35%
+ Class Ph02-20-21: 46,85%
+ Class Ph03-22-24: 9,46%
+ Class Ph04-25-26: 41,89%
+ Class Ph05-27-30: 33,63%
+ Class Ph06-31-34: 22,42%
+ Class Ph07-35-39: 0,45%
+ Class Ph08-40-44: 10,81%
+ Class Ph09-45-49: 46,85%
+ Class Ph10-50-: 2,24%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND = BonyNodule Present AND = ArticularFace NoGrooves AND = VentralMargin Absent = VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph01-19)
+ 2 Rule: ELSE IF (AND != BonyNodule Present AND = VentralMargin Absent != VentralBevel Absent ) THEN (ToddPhase = Ph07-35-39)
+ 3 Rule: ELSE IF (AND = VentralMargin FormedWithLotRecessesAndProtrusions AND != VentralBevel InProcess AND = UpperSymphysialExtremity Defined AND != BonyNodule Present = ArticularFace NoGrooves ) THEN (ToddPhase = Ph10-50-)
+ 4 Rule: ELSE IF (AND != VentralMargin FormedWitFewRarefactions AND = VentralBevel Absent AND = ArticularFace RidgesFormation AND = BonyNodule Present != IrregularPorosity Medium ) THEN (ToddPhase = Ph03-22-24)
+ 5 Rule: ELSE IF (AND = VentralMargin FormedWitFewRarefactions = VentralBevel InProcess ) THEN (ToddPhase = Ph08-40-44)
+ 6 Rule: ELSE IF (= VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph04-25-26)
+ 7 Rule: ELSE IF (= ArticularFace RidgesFormation ) THEN (ToddPhase = Ph02-20-21)
+ 8 Rule: ELSE IF (AND = IrregularPorosity Absence = VentralBevel InProcess ) THEN (ToddPhase = Ph05-27-30)
+ 9 Rule: ELSE IF (OR = VentralBevel Present = VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph09-45-49)
+ 10 Rule: ELSE IF (AND = DorsalMargin Present AND = VentralBevel InProcess != ArticularFace RidgesFormation ) THEN (ToddPhase = Ph06-31-34)
+ 11 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Train Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	114	108	0	0	0	0	0	0	0	0	|	C0 = Ph01-19
+		C1	118	104	0	0	0	0	0	0	0	0	|	C1 = Ph02-20-21
+		C2	160	41	21	0	0	0	0	0	0	0	|	C2 = Ph03-22-24
+		C3	97	0	0	93	32	0	0	0	0	0	|	C3 = Ph04-25-26
+		C4	35	0	0	55	75	0	0	0	58	0	|	C4 = Ph05-27-30
+		C5	16	0	0	32	56	50	0	6	63	0	|	C5 = Ph06-31-34
+		C6	43	0	0	47	34	18	1	18	62	0	|	C6 = Ph07-35-39
+		C7	45	0	0	45	31	19	0	24	58	0	|	C7 = Ph08-40-44
+		C8	49	0	0	7	30	23	0	9	104	0	|	C8 = Ph09-45-49
+		C9	39	0	0	8	30	30	0	27	84	5	|	C9 = Ph10-50-

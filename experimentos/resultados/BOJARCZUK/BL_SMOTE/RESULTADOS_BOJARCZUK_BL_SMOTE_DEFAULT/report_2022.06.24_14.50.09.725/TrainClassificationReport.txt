@@ -1,0 +1,47 @@
+File name: ../datos/BL_SMOTE/fold1.Tra.arff
+Runtime (s): 180.159
+Number of different attributes: 9
+Number of rules: 7
+Number of conditions: 26
+Average number of conditions per rule: 3.7142857142857144
+Accuracy: 0,1003
+OMAE mean: 3,1045
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,0000
+AUC: 0,8667
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 0,00%
+ Class Ph02-20-21: 0,00%
+ Class Ph03-22-24: 0,00%
+ Class Ph04-25-26: 0,00%
+ Class Ph05-27-30: 0,00%
+ Class Ph06-31-34: 0,00%
+ Class Ph07-35-39: 0,00%
+ Class Ph08-40-44: 100,00%
+ Class Ph09-45-49: 0,00%
+ Class Ph10-50-: 0,00%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND = IrregularPorosity Much AND = IrregularPorosity Much AND != VentralBevel Present AND != IrregularPorosity Much AND = IrregularPorosity Absence AND != IrregularPorosity Much = IrregularPorosity Much ) THEN (ToddPhase = Ph10-50-)
+ 2 Rule: ELSE IF (OR = VentralMargin PartiallyFormed OR = IrregularPorosity Absence OR = IrregularPorosity Much != VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph08-40-44)
+ 3 Rule: ELSE IF (AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesAndGrooves AND != UpperSymphysialExtremity Defined AND != IrregularPorosity Much = BonyNodule Present ) THEN (ToddPhase = Ph02-20-21)
+ 4 Rule: ELSE IF (AND != IrregularPorosity Much != DorsalMargin Absent ) THEN (ToddPhase = Ph05-27-30)
+ 5 Rule: ELSE IF (OR = VentralBevel InProcess != VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph03-22-24)
+ 6 Rule: ELSE IF (OR = LowerSymphysialExtremity NotDefined OR != LowerSymphysialExtremity Defined OR = DorsalMargin Absent OR AND != VentralBevel Present != VentralMargin FormedWitFewRarefactions != IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26)
+ 7 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Train Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	0	0	0	0	0	0	0	222	0	0	|	C0 = Ph01-19
+		C1	0	0	0	0	0	0	0	222	0	0	|	C1 = Ph02-20-21
+		C2	0	0	0	0	0	0	0	222	0	0	|	C2 = Ph03-22-24
+		C3	0	0	0	0	0	0	0	223	0	0	|	C3 = Ph04-25-26
+		C4	0	0	0	0	0	0	0	223	0	0	|	C4 = Ph05-27-30
+		C5	0	0	0	0	2	0	0	220	0	0	|	C5 = Ph06-31-34
+		C6	0	0	0	0	0	0	0	222	0	0	|	C6 = Ph07-35-39
+		C7	0	0	0	0	0	0	0	223	0	0	|	C7 = Ph08-40-44
+		C8	0	0	0	0	1	0	0	221	0	0	|	C8 = Ph09-45-49
+		C9	0	0	0	0	3	0	0	220	0	0	|	C9 = Ph10-50-

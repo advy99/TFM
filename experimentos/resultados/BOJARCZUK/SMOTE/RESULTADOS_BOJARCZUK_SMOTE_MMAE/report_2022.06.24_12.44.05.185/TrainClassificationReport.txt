@@ -1,0 +1,49 @@
+File name: ../datos/SMOTE/fold4.Tra.arff
+Runtime (s): 173.48
+Number of different attributes: 9
+Number of rules: 9
+Number of conditions: 23
+Average number of conditions per rule: 2.5555555555555554
+Accuracy: 0,1996
+OMAE mean: 3,0980
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,1108
+AUC: 0,7531
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 50,90%
+ Class Ph02-20-21: 47,53%
+ Class Ph03-22-24: 0,45%
+ Class Ph04-25-26: 43,24%
+ Class Ph05-27-30: 31,98%
+ Class Ph06-31-34: 23,77%
+ Class Ph07-35-39: 0,45%
+ Class Ph08-40-44: 0,00%
+ Class Ph09-45-49: 0,00%
+ Class Ph10-50-: 1,35%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND != VentralBevel Absent AND = BonyNodule Present AND = VentralMargin PartiallyFormed AND = ArticularFace RidgesFormation AND = VentralMargin PartiallyFormed AND = ArticularFace RidgesFormation = ArticularFace RidgesFormation ) THEN (ToddPhase = Ph01-19)
+ 2 Rule: ELSE IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
+ 3 Rule: ELSE IF (AND != BonyNodule Present AND = VentralMargin Absent != VentralBevel Absent ) THEN (ToddPhase = Ph07-35-39)
+ 4 Rule: ELSE IF (AND = VentralMargin FormedWithLotRecessesAndProtrusions AND != VentralBevel InProcess AND = UpperSymphysialExtremity Defined AND != BonyNodule Present = ArticularFace NoGrooves ) THEN (ToddPhase = Ph10-50-)
+ 5 Rule: ELSE IF (= VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph04-25-26)
+ 6 Rule: ELSE IF (= ArticularFace RidgesFormation ) THEN (ToddPhase = Ph02-20-21)
+ 7 Rule: ELSE IF (AND = IrregularPorosity Absence = VentralBevel InProcess ) THEN (ToddPhase = Ph05-27-30)
+ 8 Rule: ELSE IF (= VentralBevel InProcess ) THEN (ToddPhase = Ph06-31-34)
+ 9 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Train Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	113	109	0	0	0	0	0	0	0	0	|	C0 = Ph01-19
+		C1	117	106	0	0	0	0	0	0	0	0	|	C1 = Ph02-20-21
+		C2	156	65	1	1	0	0	0	0	0	0	|	C2 = Ph03-22-24
+		C3	92	0	0	96	33	1	0	0	0	0	|	C3 = Ph04-25-26
+		C4	95	0	0	56	71	0	0	0	0	0	|	C4 = Ph05-27-30
+		C5	81	0	0	29	60	53	0	0	0	0	|	C5 = Ph06-31-34
+		C6	102	0	0	54	41	25	1	0	0	0	|	C6 = Ph07-35-39
+		C7	102	0	0	45	49	26	0	0	0	0	|	C7 = Ph08-40-44
+		C8	146	0	0	10	28	38	0	0	0	0	|	C8 = Ph09-45-49
+		C9	133	0	0	8	37	41	0	0	0	3	|	C9 = Ph10-50-
