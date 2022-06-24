@@ -13,7 +13,7 @@ np.random.seed(12345)
 
 
 if len(sys.argv) != 3:
-	print("ERROR: Introduzca el nombre del fichero de datos y la ruta de salida")
+	print("ERROR: Introduzca el nombre del fichero de datos y la carpeta de salida")
 	exit()
 
 conjunto = sys.argv[1]
@@ -29,7 +29,7 @@ with open(conjunto) as archivo_csv:
 
 	ultimo_leido = next(reader)
 	while len(ultimo_leido) == 0 or ultimo_leido[0].strip() != "@data":
-		csv_header = csv_header + "\n" + "".join(ultimo_leido)
+		csv_header = csv_header + "\n" + ",".join(ultimo_leido)
 		ultimo_leido = next(reader)
 	csv_header = csv_header + "\n" + "".join(ultimo_leido)
 

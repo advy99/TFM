@@ -8,6 +8,7 @@ import sys
 import numpy as np
 import random
 import os
+import copy
 
 random.seed(12345)
 np.random.seed(12345)
@@ -36,8 +37,10 @@ with open(conjunto) as archivo_csv:
 	reader = csv.reader(archivo_csv,  delimiter = ',')
 
 	ultimo_leido = next(reader)
+	csv_header = ",".join(ultimo_leido)
+	ultimo_leido = next(reader)
 	while len(ultimo_leido) == 0 or ultimo_leido[0].strip() != "@data":
-		csv_header = csv_header + "\n" + "".join(ultimo_leido)
+		csv_header = csv_header + "\n" + ",".join(ultimo_leido)
 		ultimo_leido = next(reader)
 	csv_header = csv_header + "\n" + "".join(ultimo_leido)
 
@@ -45,8 +48,6 @@ with open(conjunto) as archivo_csv:
 	lineas = [i for i in reader if (len(i) > 0 and i[0][0] != "@")]
 	X = [dato[:-1] for dato in lineas]
 	y = [dato[-1] for dato in lineas]
-
-
 
 
 
@@ -77,12 +78,12 @@ base_name = os.path.basename(conjunto)
 
 num_fold = 0
 for train_index, test_index in stratified_k_fold.split(X, y):
-	salida = base_name + ".fold{}.Tra.arff".format(num_fold)
+	salida = "fold{}.Tra.arff".format(num_fold)
 
 	salida_completa = "{}/{}".format(carpeta_salida, salida)
 	escribir_datos(salida_completa, X[train_index], y[train_index])
 
-	salida = base_name + ".fold{}.Test.arff".format(num_fold)
+	salida = "fold{}.Test.arff".format(num_fold)
 	salida_completa = "{}/{}".format(carpeta_salida, salida)
 	escribir_datos(salida_completa, X[test_index], y[test_index])
 

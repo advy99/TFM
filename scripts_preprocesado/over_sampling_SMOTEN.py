@@ -25,7 +25,7 @@ with open(conjunto) as archivo_csv:
 
 	ultimo_leido = next(reader)
 	while len(ultimo_leido) == 0 or ultimo_leido[0].strip() != "@data":
-		csv_header = csv_header + "\n" + "".join(ultimo_leido)
+		csv_header = csv_header + "\n" + ",".join(ultimo_leido)
 		ultimo_leido = next(reader)
 	csv_header = csv_header + "\n" + "".join(ultimo_leido)
 
