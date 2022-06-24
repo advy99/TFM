@@ -1,0 +1,81 @@
+File name: ../datos/completo-18-82.arff.val.arff
+Runtime (s): 269.679
+Number of different attributes: 9
+Number of rules: 41
+Number of conditions: 218
+Average number of conditions per rule: 5.317073170731708
+Accuracy: 0,2812
+OMAE mean: 1,7435
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,1389
+AUC: 0,7681
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 100,00%
+ Class Ph02-20-21: 0,00%
+ Class Ph03-22-24: 0,00%
+ Class Ph04-25-26: 75,00%
+ Class Ph05-27-30: 46,15%
+ Class Ph06-31-34: 0,00%
+ Class Ph07-35-39: 0,00%
+ Class Ph08-40-44: 0,00%
+ Class Ph09-45-49: 14,81%
+ Class Ph10-50-: 52,17%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (NOT != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph01-19)
+ 2 Rule: ELSE IF (AND NOT AND AND AND = LowerSymphysialExtremity Defined != IrregularPorosity Much != DorsalPlaeau Present = DorsalPlaeau Absent = VentralBevel Absent ) THEN (ToddPhase = Ph02-20-21)
+ 3 Rule: ELSE IF (AND NOT AND NOT = DorsalPlaeau Present = VentralBevel Present != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph03-22-24)
+ 4 Rule: ELSE IF (!= IrregularPorosity Absence ) THEN (ToddPhase = Ph10-50-)
+ 5 Rule: ELSE IF (NOT = IrregularPorosity Absence ) THEN (ToddPhase = Ph09-45-49)
+ 6 Rule: ELSE IF (AND AND AND NOT AND AND != BonyNodule Absent != DorsalMargin Absent = VentralMargin FormedWithoutRarefactions = DorsalPlaeau Absent = LowerSymphysialExtremity Defined = VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph04-25-26)
+ 7 Rule: ELSE IF (AND AND AND AND NOT AND AND != VentralMargin FormedWitFewRarefactions != VentralMargin FormedWithLotRecessesAndProtrusions = ArticularFace GroovesRest != VentralBevel InProcess = DorsalMargin Present = ArticularFace NoGrooves = VentralBevel Absent ) THEN (ToddPhase = Ph04-25-26)
+ 8 Rule: ELSE IF (AND AND AND AND AND AND = IrregularPorosity Absence != LowerSymphysialExtremity NotDefined = UpperSymphysialExtremity Defined = VentralBevel InProcess != LowerSymphysialExtremity NotDefined = UpperSymphysialExtremity Defined = VentralBevel InProcess ) THEN (ToddPhase = Ph05-27-30)
+ 9 Rule: ELSE IF (AND AND AND AND AND AND NOT != DorsalMargin Present = VentralBevel Present = DorsalMargin Present = DorsalMargin Present != BonyNodule Present = DorsalMargin Present != IrregularPorosity Much ) THEN (ToddPhase = Ph09-45-49)
+ 10 Rule: ELSE IF (AND AND NOT AND AND AND != DorsalMargin Present != UpperSymphysialExtremity Defined != VentralMargin FormedWitFewRarefactions = VentralMargin FormedWitFewRarefactions = IrregularPorosity Medium = DorsalMargin Present ) THEN (ToddPhase = Ph08-40-44)
+ 11 Rule: ELSE IF (AND AND AND AND AND AND NOT != LowerSymphysialExtremity Defined != DorsalPlaeau Present != LowerSymphysialExtremity NotDefined = VentralBevel Present = DorsalMargin Present = IrregularPorosity Absence = VentralBevel Present ) THEN (ToddPhase = Ph06-31-34)
+ 12 Rule: ELSE IF (AND AND NOT AND AND AND = VentralBevel Absent != BonyNodule Present = BonyNodule Present = VentralMargin Absent = ArticularFace NoGrooves = VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph06-31-34)
+ 13 Rule: ELSE IF (AND AND NOT AND NOT != VentralBevel Present = BonyNodule Present != VentralMargin FormedWithLotRecessesAndProtrusions = VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph08-40-44)
+ 14 Rule: ELSE IF (AND AND != IrregularPorosity Absence != DorsalPlaeau Present != VentralBevel InProcess ) THEN (ToddPhase = Ph08-40-44)
+ 15 Rule: ELSE IF (AND NOT AND AND AND AND AND = ArticularFace RidgesFormation != LowerSymphysialExtremity Defined = DorsalMargin Absent = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity NotDefined != IrregularPorosity Medium = VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph10-50-)
+ 16 Rule: ELSE IF (AND AND AND NOT AND NOT AND = LowerSymphysialExtremity Defined != DorsalPlaeau Present = UpperSymphysialExtremity NotDefined = LowerSymphysialExtremity Defined = DorsalMargin Present = VentralBevel Absent ) THEN (ToddPhase = Ph04-25-26)
+ 17 Rule: ELSE IF (AND AND AND AND NOT AND AND != DorsalMargin Absent = DorsalPlaeau Absent = BonyNodule Present = ArticularFace NoGrooves = UpperSymphysialExtremity Defined = VentralBevel InProcess = VentralBevel InProcess ) THEN (ToddPhase = Ph06-31-34)
+ 18 Rule: ELSE IF (AND = VentralMargin PartiallyFormed = DorsalMargin Present ) THEN (ToddPhase = Ph05-27-30)
+ 19 Rule: ELSE IF (AND AND AND AND = DorsalMargin Present = DorsalPlaeau Present != LowerSymphysialExtremity NotDefined = BonyNodule Absent = VentralBevel Present ) THEN (ToddPhase = Ph09-45-49)
+ 20 Rule: ELSE IF (AND NOT AND != LowerSymphysialExtremity Defined = VentralBevel Absent != DorsalPlaeau Absent ) THEN (ToddPhase = Ph09-45-49)
+ 21 Rule: ELSE IF (AND AND AND AND AND AND = UpperSymphysialExtremity Defined = BonyNodule Absent != DorsalMargin Absent != DorsalMargin Absent = LowerSymphysialExtremity Defined = VentralMargin Absent = UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26)
+ 22 Rule: ELSE IF (AND AND AND AND NOT AND AND != VentralBevel Present = VentralMargin FormedWitFewRarefactions = LowerSymphysialExtremity NotDefined = DorsalPlaeau Absent = UpperSymphysialExtremity Defined = IrregularPorosity Absence != ArticularFace GroovesRest ) THEN (ToddPhase = Ph05-27-30)
+ 23 Rule: ELSE IF (AND AND AND AND AND NOT AND != UpperSymphysialExtremity NotDefined != VentralBevel Present = IrregularPorosity Absence = VentralMargin FormedWithoutRarefactions != ArticularFace GroovesShallow = DorsalMargin Present != IrregularPorosity Much ) THEN (ToddPhase = Ph05-27-30)
+ 24 Rule: ELSE IF (AND AND NOT AND AND != UpperSymphysialExtremity Defined = DorsalMargin Absent = BonyNodule Absent = DorsalPlaeau Present != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph10-50-)
+ 25 Rule: ELSE IF (AND AND AND NOT AND = BonyNodule Present = VentralBevel Present != LowerSymphysialExtremity NotDefined = VentralBevel Present != DorsalPlaeau Present ) THEN (ToddPhase = Ph06-31-34)
+ 26 Rule: ELSE IF (AND AND AND AND NOT AND != ArticularFace RidgesFormation != IrregularPorosity Absence = UpperSymphysialExtremity Defined != UpperSymphysialExtremity NotDefined = ArticularFace NoGrooves != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26)
+ 27 Rule: ELSE IF (AND NOT AND AND AND AND != UpperSymphysialExtremity Defined = BonyNodule Present != BonyNodule Absent != VentralMargin FormedWitFewRarefactions = BonyNodule Absent = VentralMargin FormedWithoutRarefactions ) THEN (ToddPhase = Ph08-40-44)
+ 28 Rule: ELSE IF (AND NOT AND != DorsalPlaeau Absent != IrregularPorosity Much != VentralBevel Absent ) THEN (ToddPhase = Ph09-45-49)
+ 29 Rule: ELSE IF (= ArticularFace GroovesRest ) THEN (ToddPhase = Ph09-45-49)
+ 30 Rule: ELSE IF (AND != IrregularPorosity Medium != VentralMargin Absent ) THEN (ToddPhase = Ph08-40-44)
+ 31 Rule: ELSE IF (AND AND AND AND AND = UpperSymphysialExtremity Defined != IrregularPorosity Much = DorsalPlaeau Absent != DorsalMargin Absent != VentralBevel InProcess = VentralBevel Absent ) THEN (ToddPhase = Ph09-45-49)
+ 32 Rule: ELSE IF (AND AND NOT AND AND != IrregularPorosity Much != UpperSymphysialExtremity Defined != DorsalPlaeau Absent = VentralMargin PartiallyFormed != ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph10-50-)
+ 33 Rule: ELSE IF (AND AND NOT AND NOT AND = ArticularFace RidgesFormation = DorsalPlaeau Present != DorsalPlaeau Absent = VentralBevel InProcess != IrregularPorosity Medium ) THEN (ToddPhase = Ph10-50-)
+ 34 Rule: ELSE IF (NOT AND NOT AND != VentralMargin Absent = UpperSymphysialExtremity NotDefined != IrregularPorosity Medium ) THEN (ToddPhase = Ph05-27-30)
+ 35 Rule: ELSE IF (AND NOT AND != DorsalPlaeau Present != IrregularPorosity Much != ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph05-27-30)
+ 36 Rule: ELSE IF (!= DorsalPlaeau Present ) THEN (ToddPhase = Ph06-31-34)
+ 37 Rule: ELSE IF (AND AND AND AND = VentralBevel InProcess = DorsalMargin Present = VentralBevel InProcess != DorsalMargin Absent = DorsalPlaeau Absent ) THEN (ToddPhase = Ph03-22-24)
+ 38 Rule: ELSE IF (AND NOT AND AND = IrregularPorosity Much = UpperSymphysialExtremity Defined != IrregularPorosity Much = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph10-50-)
+ 39 Rule: ELSE IF (NOT AND AND AND AND AND = VentralBevel Absent != IrregularPorosity Much != BonyNodule Present = IrregularPorosity Absence = UpperSymphysialExtremity Defined = DorsalMargin Absent ) THEN (ToddPhase = Ph07-35-39)
+ 40 Rule: ELSE IF (NOT AND AND = DorsalPlaeau Absent = VentralBevel InProcess != BonyNodule Present ) THEN (ToddPhase = Ph08-40-44)
+ 41 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Test Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	5	0	0	0	0	0	0	0	0	0	|	C0 = Ph01-19
+		C1	4	0	0	0	0	0	0	0	0	0	|	C1 = Ph02-20-21
+		C2	2	2	0	0	1	0	0	0	0	0	|	C2 = Ph03-22-24
+		C3	1	0	0	3	0	0	0	0	0	0	|	C3 = Ph04-25-26
+		C4	0	2	0	3	6	0	0	0	1	1	|	C4 = Ph05-27-30
+		C5	0	1	0	4	1	0	0	0	1	5	|	C5 = Ph06-31-34
+		C6	0	0	0	6	10	0	0	0	7	7	|	C6 = Ph07-35-39
+		C7	0	0	0	4	8	0	0	0	3	8	|	C7 = Ph08-40-44
+		C8	0	1	0	3	10	0	0	0	4	9	|	C8 = Ph09-45-49
+		C9	0	2	0	8	14	0	0	0	9	36	|	C9 = Ph10-50-

@@ -1,0 +1,100 @@
+IF (AND AND = VentralBevel InProcess != DorsalMargin Present = IrregularPorosity Absence ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND = LowerSymphysialExtremity NotDefined = VentralBevel Absent = IrregularPorosity Medium != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND NOT AND NOT AND AND != IrregularPorosity Medium = VentralBevel Present != VentralBevel Absent = UpperSymphysialExtremity NotDefined != VentralBevel Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT AND AND AND = ArticularFace RidgesAndGrooves != ArticularFace RegularPorosity = BonyNodule Present = IrregularPorosity Absence != DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT AND NOT AND AND NOT AND = UpperSymphysialExtremity NotDefined != IrregularPorosity Medium != UpperSymphysialExtremity NotDefined != VentralBevel InProcess = VentralMargin FormedWithoutRarefactions != UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND AND NOT AND = DorsalMargin Absent = ArticularFace RegularPorosity = DorsalPlaeau Absent != DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND AND AND AND NOT AND != ArticularFace RegularPorosity = ArticularFace GroovesRest != LowerSymphysialExtremity NotDefined = IrregularPorosity Absence = LowerSymphysialExtremity NotDefined != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND = UpperSymphysialExtremity NotDefined != IrregularPorosity Absence = BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND != DorsalMargin Present != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND NOT AND != DorsalPlaeau Present != UpperSymphysialExtremity NotDefined = ArticularFace RegularPorosity != IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT = VentralBevel Present != DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND AND AND = VentralMargin FormedWithoutRarefactions = ArticularFace RegularPorosity != VentralMargin FormedWitFewRarefactions = IrregularPorosity Medium = UpperSymphysialExtremity NotDefined = VentralMargin FormedWithoutRarefactions != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND = VentralBevel Present != ArticularFace GroovesShallow != DorsalMargin Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT AND NOT AND != DorsalPlaeau Absent != IrregularPorosity Absence != VentralMargin FormedWithLotRecessesAndProtrusions = DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT != DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND NOT AND AND = DorsalPlaeau Present = BonyNodule Absent != DorsalMargin Present = ArticularFace RegularPorosity != BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND != VentralMargin FormedWitFewRarefactions = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND AND NOT = LowerSymphysialExtremity Defined != DorsalMargin Present = UpperSymphysialExtremity Defined != DorsalPlaeau Absent = BonyNodule Absent = UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND NOT = DorsalMargin Present != LowerSymphysialExtremity Defined = DorsalPlaeau Present != VentralBevel Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND AND AND AND != UpperSymphysialExtremity Defined = LowerSymphysialExtremity Defined != LowerSymphysialExtremity NotDefined = IrregularPorosity Absence != IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND = LowerSymphysialExtremity NotDefined != DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND NOT != IrregularPorosity Much = ArticularFace RidgesFormation != BonyNodule Present = VentralBevel Present = UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND = UpperSymphysialExtremity NotDefined != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND = DorsalMargin Absent = LowerSymphysialExtremity NotDefined = IrregularPorosity Medium != VentralBevel Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT AND = DorsalMargin Present != VentralMargin FormedWitFewRarefactions = ArticularFace GroovesRest ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND AND != LowerSymphysialExtremity Defined = LowerSymphysialExtremity Defined = UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND NOT AND AND AND != DorsalPlaeau Absent != LowerSymphysialExtremity NotDefined = IrregularPorosity Medium != DorsalPlaeau Absent != UpperSymphysialExtremity Defined = IrregularPorosity Absence ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT = DorsalMargin Absent = VentralBevel Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND NOT AND AND = BonyNodule Absent = IrregularPorosity Much != BonyNodule Present != IrregularPorosity Medium = ArticularFace NoGrooves = DorsalMargin Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND = VentralMargin FormedWitFewRarefactions = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND != LowerSymphysialExtremity Defined != DorsalMargin Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT = UpperSymphysialExtremity Defined = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT AND AND NOT != ArticularFace RidgesFormation != VentralBevel Present = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT AND NOT AND AND NOT = UpperSymphysialExtremity NotDefined = LowerSymphysialExtremity Defined != IrregularPorosity Much != LowerSymphysialExtremity NotDefined = IrregularPorosity Much ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND NOT != UpperSymphysialExtremity Defined = VentralMargin FormedWitFewRarefactions = VentralBevel Absent = LowerSymphysialExtremity NotDefined = DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND NOT AND != VentralBevel Present != DorsalMargin Present != ArticularFace RidgesFormation ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND AND = VentralMargin FormedWithLotRecessesAndProtrusions = VentralBevel Absent != BonyNodule Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND AND = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity Defined != DorsalMargin Present = BonyNodule Present != VentralMargin FormedWithLotRecessesAndProtrusions = BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND = DorsalMargin Absent != LowerSymphysialExtremity NotDefined = IrregularPorosity Absence != UpperSymphysialExtremity NotDefined = BonyNodule Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND NOT AND AND = ArticularFace RidgesAndGrooves = LowerSymphysialExtremity NotDefined != VentralBevel InProcess = VentralBevel Present = DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND != IrregularPorosity Much = DorsalPlaeau Present != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (= BonyNodule Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND NOT AND NOT AND NOT AND = DorsalPlaeau Present = BonyNodule Present = IrregularPorosity Much != UpperSymphysialExtremity NotDefined != DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND = UpperSymphysialExtremity NotDefined = BonyNodule Present != LowerSymphysialExtremity NotDefined != VentralMargin FormedWitFewRarefactions = DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND NOT != IrregularPorosity Medium = UpperSymphysialExtremity Defined != BonyNodule Absent != UpperSymphysialExtremity Defined != IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND NOT AND AND NOT = VentralBevel Absent != IrregularPorosity Medium = DorsalMargin Present = ArticularFace GroovesRest = VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND NOT = LowerSymphysialExtremity Defined != BonyNodule Absent != IrregularPorosity Medium != DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND AND = IrregularPorosity Much = IrregularPorosity Medium = DorsalPlaeau Absent != DorsalPlaeau Present != DorsalPlaeau Absent != VentralBevel Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND = IrregularPorosity Absence != ArticularFace GroovesShallow = IrregularPorosity Much = DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT != BonyNodule Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND NOT = UpperSymphysialExtremity Defined = IrregularPorosity Much != DorsalMargin Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (= VentralBevel Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (AND AND AND AND AND != VentralBevel Present = ArticularFace GroovesShallow != BonyNodule Absent = DorsalMargin Absent = DorsalPlaeau Absent = BonyNodule Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND AND AND AND NOT AND NOT = LowerSymphysialExtremity NotDefined = VentralBevel Present = VentralMargin FormedWithoutRarefactions != LowerSymphysialExtremity Defined = VentralMargin FormedWitFewRarefactions = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (= DorsalMargin Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0
+IF (NOT AND = ArticularFace RegularPorosity != VentralBevel InProcess ) THEN (ToddPhase = Ph04-25-26); Fitness: 6.246096096865374E-4
+IF (NOT AND = LowerSymphysialExtremity NotDefined = VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph04-25-26); Fitness: 6.246096096865374E-4
+IF (NOT AND AND NOT AND AND AND = ArticularFace RegularPorosity != UpperSymphysialExtremity NotDefined = BonyNodule Absent = DorsalMargin Absent != DorsalPlaeau Absent = IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.0012490631840088079
+IF (NOT AND AND AND != VentralBevel Present != UpperSymphysialExtremity NotDefined != IrregularPorosity Medium != IrregularPorosity Much ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.00330544112481053
+IF (NOT AND NOT != DorsalPlaeau Absent = VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.004992511159127475
+IF (AND NOT AND AND = VentralMargin Absent = DorsalMargin Absent = VentralMargin FormedWitFewRarefactions != IrregularPorosity Absence ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.005186563781303413
+IF (= IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.005267613520151466
+IF (NOT != IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.005267613520151466
+IF (AND AND NOT AND NOT != DorsalPlaeau Absent != VentralBevel InProcess = VentralBevel InProcess != IrregularPorosity Absence ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.00588548152890728
+IF (AND NOT AND AND AND AND NOT = DorsalMargin Absent = BonyNodule Absent != IrregularPorosity Medium != VentralBevel Present != DorsalPlaeau Present != IrregularPorosity Much ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.008711223558811978
+IF (NOT AND AND = DorsalPlaeau Absent != DorsalPlaeau Present = BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.009964344467988231
+IF (AND NOT = DorsalPlaeau Absent = DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.009987045223111623
+IF (AND NOT AND NOT AND != DorsalMargin Present != BonyNodule Present != VentralMargin Absent = DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.010213004570795409
+IF (AND NOT AND AND AND = VentralBevel Absent = UpperSymphysialExtremity Defined = DorsalMargin Absent != VentralMargin Absent != IrregularPorosity Much ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.01805054125212659
+IF (AND NOT AND AND AND != VentralMargin Absent = LowerSymphysialExtremity Defined != BonyNodule Present != BonyNodule Absent != IrregularPorosity Much ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.01805054125212659
+IF (NOT AND NOT AND != VentralMargin Absent = IrregularPorosity Absence = VentralBevel Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.09077526864255483
+IF (AND NOT AND = VentralMargin FormedWithLotRecessesAndProtrusions = BonyNodule Present != VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.09679000114769501
+IF (NOT AND AND AND AND = DorsalPlaeau Absent = VentralBevel InProcess != IrregularPorosity Absence = DorsalPlaeau Absent = UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.11735595447676059
+IF (NOT AND AND AND NOT AND != BonyNodule Absent != UpperSymphysialExtremity Defined != VentralMargin FormedWithoutRarefactions = DorsalPlaeau Absent = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.1402549529548332
+IF (NOT != BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.14556040571584541
+IF (= BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.14556040571584541
+IF (NOT != BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.14556040571584541
+IF (NOT AND AND != ArticularFace RidgesAndGrooves != BonyNodule Present = DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.16271544496758678
+IF (AND NOT AND NOT AND != IrregularPorosity Medium != IrregularPorosity Absence = VentralMargin FormedWithoutRarefactions != VentralBevel InProcess ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.16412476201807052
+IF (AND NOT AND AND AND NOT != LowerSymphysialExtremity Defined = VentralBevel Absent != VentralBevel InProcess = VentralBevel Present != UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.21749521734923302
+IF (NOT AND AND AND != VentralBevel InProcess != IrregularPorosity Much = LowerSymphysialExtremity NotDefined = UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.21749521734923302
+IF (= UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.21749521734923302
+IF (NOT AND = VentralBevel InProcess != VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.23092134514631993
+IF (NOT AND NOT = VentralBevel Absent = VentralBevel InProcess ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.23209271358831163
+IF (!= VentralBevel Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.24420677086823364
+IF (NOT AND AND NOT AND NOT AND AND != BonyNodule Present = UpperSymphysialExtremity NotDefined = DorsalPlaeau Absent != LowerSymphysialExtremity NotDefined != VentralMargin FormedWitFewRarefactions != BonyNodule Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.25266903633216004
+IF (NOT AND NOT AND AND AND = BonyNodule Absent != VentralMargin FormedWithoutRarefactions != VentralBevel Present != ArticularFace NoGrooves != ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.2735348003211525
+IF (NOT AND AND NOT = VentralBevel InProcess != VentralBevel InProcess != IrregularPorosity Medium ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.29481912591968634
+IF (NOT AND != VentralBevel Present != DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.29816985797979023
+IF (= ArticularFace GroovesRest ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.299461483167335
+IF (!= DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.30091067681292505
+IF (AND NOT != DorsalMargin Present = DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.30091067681292505
+IF (AND AND AND = DorsalPlaeau Absent != VentralMargin Absent != ArticularFace NoGrooves != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.30904441931402443
+IF (AND NOT AND = ArticularFace GroovesShallow != VentralBevel Present != UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.31228385061786773
+IF (NOT AND AND AND AND != IrregularPorosity Much = DorsalMargin Present != DorsalPlaeau Present != VentralBevel Absent = BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.3737516806480996
+IF (AND NOT AND AND NOT != ArticularFace GroovesRest = VentralMargin Absent = ArticularFace RidgesFormation != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.3830179937098242
+IF (NOT AND NOT AND AND = VentralBevel Absent != DorsalMargin Present != ArticularFace RidgesFormation != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.3830179937098242
+IF (AND AND NOT AND = UpperSymphysialExtremity Defined != UpperSymphysialExtremity Defined = LowerSymphysialExtremity Defined = BonyNodule Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.3840830414576317
+IF (NOT != VentralBevel Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.38516436349125266
+IF (AND AND NOT AND = IrregularPorosity Much = DorsalMargin Present = VentralMargin FormedWithoutRarefactions = VentralBevel Absent ) THEN (ToddPhase = Ph04-25-26); Fitness: 0.4722672908798162

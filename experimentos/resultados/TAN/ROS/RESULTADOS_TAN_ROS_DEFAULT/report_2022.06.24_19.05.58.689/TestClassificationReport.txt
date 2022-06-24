@@ -1,0 +1,50 @@
+File name: ../datos/completo-18-82.arff.val.arff
+Runtime (s): 268.959
+Number of different attributes: 9
+Number of rules: 10
+Number of conditions: 51
+Average number of conditions per rule: 5.1
+Accuracy: 0,1823
+OMAE mean: 3,7518
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,0261
+AUC: 0,8237
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 0,00%
+ Class Ph02-20-21: 0,00%
+ Class Ph03-22-24: 0,00%
+ Class Ph04-25-26: 0,00%
+ Class Ph05-27-30: 76,92%
+ Class Ph06-31-34: 0,00%
+ Class Ph07-35-39: 0,00%
+ Class Ph08-40-44: 0,00%
+ Class Ph09-45-49: 0,00%
+ Class Ph10-50-: 36,23%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND AND NOT AND NOT AND AND NOT != ArticularFace GroovesShallow = BonyNodule Present != ArticularFace NoGrooves = VentralBevel Absent != IrregularPorosity Much != IrregularPorosity Much ) THEN (ToddPhase = Ph05-27-30)
+ 2 Rule: ELSE IF (= DorsalMargin Present ) THEN (ToddPhase = Ph10-50-)
+ 3 Rule: ELSE IF (NOT AND AND AND AND = UpperSymphysialExtremity Defined != DorsalPlaeau Present = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity NotDefined = IrregularPorosity Much ) THEN (ToddPhase = Ph09-45-49)
+ 4 Rule: ELSE IF (NOT AND AND AND AND AND = ArticularFace NoGrooves = ArticularFace NoGrooves != UpperSymphysialExtremity NotDefined != UpperSymphysialExtremity Defined != UpperSymphysialExtremity Defined = ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph08-40-44)
+ 5 Rule: ELSE IF (NOT AND AND AND != UpperSymphysialExtremity Defined != IrregularPorosity Absence = ArticularFace GroovesRest = VentralBevel InProcess ) THEN (ToddPhase = Ph07-35-39)
+ 6 Rule: ELSE IF (NOT AND AND NOT = UpperSymphysialExtremity Defined = VentralMargin FormedWithLotRecessesAndProtrusions = BonyNodule Present ) THEN (ToddPhase = Ph06-31-34)
+ 7 Rule: ELSE IF (NOT AND AND NOT AND = DorsalMargin Absent = ArticularFace RegularPorosity = DorsalPlaeau Absent != DorsalMargin Present ) THEN (ToddPhase = Ph04-25-26)
+ 8 Rule: ELSE IF (NOT AND NOT AND AND = UpperSymphysialExtremity Defined = BonyNodule Absent = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph01-19)
+ 9 Rule: ELSE IF (NOT AND NOT AND AND = UpperSymphysialExtremity Defined = BonyNodule Absent = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph01-19)
+ 10 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Test Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	0	0	0	0	0	0	0	0	0	5	|	C0 = Ph01-19
+		C1	0	0	0	0	2	0	0	0	0	2	|	C1 = Ph02-20-21
+		C2	0	0	0	0	2	0	0	0	0	3	|	C2 = Ph03-22-24
+		C3	0	0	0	0	2	0	0	0	0	2	|	C3 = Ph04-25-26
+		C4	0	0	0	0	10	0	0	0	0	3	|	C4 = Ph05-27-30
+		C5	0	0	0	0	9	0	0	0	0	3	|	C5 = Ph06-31-34
+		C6	0	0	0	0	22	0	0	0	0	8	|	C6 = Ph07-35-39
+		C7	0	0	0	0	19	0	0	0	0	4	|	C7 = Ph08-40-44
+		C8	0	0	0	0	21	0	0	0	0	6	|	C8 = Ph09-45-49
+		C9	0	0	0	0	44	0	0	0	0	25	|	C9 = Ph10-50-
