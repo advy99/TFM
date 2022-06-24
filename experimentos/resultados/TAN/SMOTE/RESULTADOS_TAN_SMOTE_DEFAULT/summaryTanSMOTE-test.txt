@@ -1,0 +1,6 @@
+Dataset, Accuracy, OMAE, Cohen's Kappa rate, AUC, geometric mean, number of rules, number of conditions, average number of conditions, number of evaluations, execution time
+../datos/completo-18-82.arff.val.arff,0.359375,4.5,0.0,0.9,0.0,11,64,5.818181818181818,294234,274.08
+../datos/completo-18-82.arff.val.arff,0.23958333333333334,2.855635451505017,0.08272251308900523,0.8268425616251704,0.0,10,49,4.9,294234,268.124
+../datos/completo-18-82.arff.val.arff,0.359375,4.5,0.0,0.9,0.0,10,50,5.0,294234,266.031
+../datos/completo-18-82.arff.val.arff,0.359375,3.85,0.014028056112224449,0.8777777777777778,0.0,11,59,5.363636363636363,294234,269.841
+../datos/completo-18-82.arff.val.arff,0.359375,4.5,0.0,0.9,0.0,11,58,5.2727272727272725,294234,269.525

@@ -1,0 +1,6 @@
+Dataset, Accuracy, OMAE, Cohen's Kappa rate, AUC, geometric mean, number of rules, number of conditions, average number of conditions, number of evaluations, execution time
+../datos/BL_SMOTE/fold0.Tra.arff,0.10026978417266187,4.5,0.0,0.9,0.0,10,53,5.3,294234,275.234
+../datos/BL_SMOTE/fold1.Tra.arff,0.10026978417266187,4.5,0.0,0.9,0.0,10,52,5.2,294234,277.048
+../datos/BL_SMOTE/fold2.Tra.arff,0.09982014388489209,4.5,0.0,0.9,0.0,9,42,4.666666666666667,294234,266.345
+../datos/BL_SMOTE/fold3.Tra.arff,0.10026978417266187,4.414646709489759,4.995004995004995E-4,0.8667167167167166,0.0,11,57,5.181818181818182,294234,263.417
+../datos/BL_SMOTE/fold4.Tra.arff,0.09982014388489209,4.5,0.0,0.9,0.0,10,50,5.0,294234,268.057
