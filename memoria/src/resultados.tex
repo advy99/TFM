@@ -2,7 +2,10 @@
 
 De cara a comentar los resultados, vamos a recordar el entorno de experimentación utilizad. Para comenzar, se ha dividido el conjunto de datos original en un 80\% para entrenamiento y un 20\% para test, luego, tras esa separación, se ha aplicado sobremuestreo al conjunto de entrenamiento, sin modificar el conjunto de test, y ya en la ejecución de los algoritmos se ha utilizado una validación cruzada de 5 folds (5-cv) sobre el conjunto de entrenamiento, mientras que el conjunto de test que aparece en estos resultados es siempre el mismo, el 20\% original sin sobremuestreo, aplicado sobre el clasificador obtenido en cada fold.
 
-\subsubsection{Resultados con Bjorczuk por defecto}
+\subsection{Resultados con sobremuestreo aleatorio}
+
+
+\subsubsection{Algoritmo de Bjorczuk original}
 
 
 \begin{table}[H]
@@ -18,6 +21,7 @@ De cara a comentar los resultados, vamos a recordar el entorno de experimentaci�
 \multicolumn{1}{|c|}{\textbf{Fold 3}}   & \multicolumn{1}{c|}{3,0982}            & \multicolumn{1}{c|}{3,1}                  & \multicolumn{1}{c|}{3,10833}          & \multicolumn{1}{c|}{0,1014}            & \multicolumn{1}{c|}{0,1}                 & 0,1198          \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 4}}   & \multicolumn{1}{c|}{4,5}                & \multicolumn{1}{c|}{4,5}                  & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{0,1}               & \multicolumn{1}{c|}{0,1}                 & \textbf{0,3594} \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 5}}   & \multicolumn{1}{c|}{3,10045}           & \multicolumn{1}{c|}{3,09636}             & \multicolumn{1}{c|}{3,1058}           & \multicolumn{1}{c|}{0,1013}            & \multicolumn{1}{c|}{0,1036}              & 0,1198          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Media}}   & \multicolumn{1}{c|}{3,263244}           & \multicolumn{1}{c|}{3,25963}             & \multicolumn{1}{c|}{3,268596}           & \multicolumn{1}{c|}{0,10072}            & \multicolumn{1}{c|}{0,10108}              & 0,1573          \\ \hline
 \end{tabular}%
 }
 \caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio.}\label{tablaBJORCZUKdefecto}
@@ -71,7 +75,7 @@ Rule: ELSE (ToddPhase = Ph01-19)
 
 Este comportamiento por parte del algoritmo no es para nada normal, sobre todo teniendo en cuenta que ya no tiene el problema del desbalanceo de clases. Este comportamiento puede deberse a la dificultad del problema y a la forma de escoger las reglas del clasificador final, por lo que se ha extendido la experimentación modificando la función de evaluación de los algoritmos de cara a guiar de una mejor forma la búsqueda.
 
-\subsubsection{Resultados con Bjorczuk con OMAE como función de ajuste}
+\subsubsection{Algoritmo de Bjorczuk con OMAE como función de ajuste}
 
 
 
@@ -88,10 +92,13 @@ Este comportamiento por parte del algoritmo no es para nada normal, sobre todo t
 \multicolumn{1}{|c|}{\textbf{Fold 3}}   & \multicolumn{1}{c|}{2,07342}           & \multicolumn{1}{c|}{2,13036}             & \multicolumn{1}{c|}{2,18878}          & \multicolumn{1}{c|}{0,2185}            & \multicolumn{1}{c|}{0,1964}              & 0,0938          \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 4}}   & \multicolumn{1}{c|}{1,8009}            & \multicolumn{1}{c|}{1,78182}             & \multicolumn{1}{c|}{\textbf{1,59541}} & \multicolumn{1}{c|}{0,2426}            & \multicolumn{1}{c|}{0,2418}              & \textbf{0,1094} \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 5}}   & \multicolumn{1}{c|}{1,58251}           & \multicolumn{1}{c|}{1,67273}             & \multicolumn{1}{c|}{1,82857}          & \multicolumn{1}{c|}{0,2269}            & \multicolumn{1}{c|}{0,2145}              & 0,0938          \\ \hline
+\multicolumn{1}{|c|}{\textbf{Media}}   & \multicolumn{1}{c|}{1,857312}           & \multicolumn{1}{c|}{1,911268}             & \multicolumn{1}{c|}{1,969152}          & \multicolumn{1}{c|}{0,22166}            & \multicolumn{1}{c|}{0,20804}              & 0,09272          \\ \hline
 \end{tabular}%
 }
 \caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio y búsqueda guiada por OMAE.}\label{tablaBJORCZUKconOMAE}
 \end{table}
+
+
 
 Vemos como el modificar la función de fitness en el algoritmo ha mejorado los resultados, pero siguen siendo unos resultados bastante malos a nivel de tasa de acierto, llegando a un 10\% en el mejor de los casos en el conjunto de test. La matriz de confusión obtenida en el mejor fold, el cuarto, es la siguiente:
 
@@ -144,7 +151,7 @@ Vemos como hemos conseguido que el algoritmo ya no se centre solo en una única 
 
 \newpage
 
-\subsubsection{Resultados con Bjorczuk con MMAE como función de ajuste}
+\subsubsection{Algoritmo de Bjorczuk con MMAE como función de ajuste}
 
 Otra de las pruebas realizadas es usando el MMAE \cite{funcionesClasificacionOrdinal}, una métrica utilizada en clasificación ordinal, que en lugar de usar el OMAE total utiliza el máximo OMAE obtenido en cada clase.
 
@@ -164,10 +171,12 @@ Otra de las pruebas realizadas es usando el MMAE \cite{funcionesClasificacionOrd
 \multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{2,25045}           & \multicolumn{1}{c|}{2,1125}              & \multicolumn{1}{c|}{2,23844}          & \multicolumn{1}{c|}{0,1644}            & \multicolumn{1}{c|}{0,1714}              & \textbf{0,1198} \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{1,86368}           & \multicolumn{1}{c|}{1,97455}             & \multicolumn{1}{c|}{2,34138}          & \multicolumn{1}{c|}{0,2179}            & \multicolumn{1}{c|}{0,1927}              & 0,0885          \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{1,70897}           & \multicolumn{1}{c|}{1,76364}             & \multicolumn{1}{c|}{\textbf{2,13829}} & \multicolumn{1}{c|}{0,1991}            & \multicolumn{1}{c|}{0,18}                & 0,099           \\ \hline
+\multicolumn{1}{|c|}{\textbf{Media}} & \multicolumn{1}{c|}{2,032008}           & \multicolumn{1}{c|}{2,049782}             & \multicolumn{1}{c|}{2,381686} & \multicolumn{1}{c|}{0,19384}            & \multicolumn{1}{c|}{0,18168}                & 0,08854           \\ \hline
 \end{tabular}%
 }
 \caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio y búsqueda guiada por MMAE.}\label{tablaBJORCZUKconMMAE}
 \end{table}
+
 
 
 En este caso ha obtenido un resultado algo peor al obtenido usando OMAE, sin embargo mucho mejor que con la función de fitness original. La matriz de confusión obtenida por el quinto fold, el mejor OMAE en el conjunto de test, es la siguiente:
@@ -219,7 +228,8 @@ Rule: ELSE (ToddPhase = Ph01-19)
 
 \newpage
 
-\subsubsection{Resultados con Bjorczuk con AMAE como función de ajuste}
+\subsubsection{Algoritmo de Bjorczuk con AMAE como función de ajuste}
+
 
 AMAE \cite{funcionesClasificacionOrdinal} es otra modificación de OMAE, utilizada en clasificación ordinal, que en lugar de usar el OMAE total utiliza una media del OMAE obtenido en cada clase.
 
@@ -238,10 +248,12 @@ AMAE \cite{funcionesClasificacionOrdinal} es otra modificación de OMAE, utiliza
 \multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{r|}{2,07342}           & \multicolumn{1}{r|}{2,13036}             & \multicolumn{1}{r|}{2,18878}          & \multicolumn{1}{r|}{0,2185}            & \multicolumn{1}{r|}{0,1964}              & 0,0938                             \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{r|}{1,8009}            & \multicolumn{1}{r|}{1,78182}             & \multicolumn{1}{r|}{\textbf{1,59541}} & \multicolumn{1}{r|}{0,2426}            & \multicolumn{1}{r|}{0,2418}              & \textbf{0,1094}                    \\ \hline
 \multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{r|}{1,58251}           & \multicolumn{1}{r|}{1,67273}             & \multicolumn{1}{r|}{1,82857}          & \multicolumn{1}{r|}{0,2269}            & \multicolumn{1}{r|}{0,2145}              & 0,0938                             \\ \hline
+\multicolumn{1}{|c|}{\textbf{Media}} & \multicolumn{1}{r|}{1,857312}           & \multicolumn{1}{r|}{1,911268}             & \multicolumn{1}{r|}{1,969152}          & \multicolumn{1}{r|}{0,22166}            & \multicolumn{1}{r|}{0,20804}              & 0,09272                             \\ \hline
 \end{tabular}%
 }
 \caption{Tabla de resultados de Bjorczuk sobre el conjunto con sobremuestreo aleatorio y búsqueda guiada por AMAE.}\label{tablaBJORCZUKconAMAE}
 \end{table}
+
 
 En este caso hemos obtenido unos resultados bastantes similares a la ejecución guiada por OMAE, si vemos la matriz de confusión del cuarto fold, el mejor de todos, vemos que es también muy similar:
 
@@ -290,5 +302,67 @@ Rule: ELSE IF (AND != VentralBevel Absent AND = DorsalPlaeau Absent = VentralMar
 Rule: ELSE IF (OR != DorsalPlaeau Absent != VentralBevel Absent ) THEN (ToddPhase = Ph05-27-30)
 Rule: ELSE (ToddPhase = Ph01-19)
 \end{lstlisting}
+
+
+\subsubsection{Algoritmo de Falco original}
+
+\subsubsection{Algoritmo de Falco con OMAE como función de ajuste}
+
+
+\subsubsection{Algoritmo de Tan original}
+
+\subsubsection{Algoritmo de Tan con OMAE como función de ajuste}
+
+
+
+
+
+
+\subsection{Resultados con SMOTE}
+
+\subsubsection{Algoritmo de Bjorczuk original}
+
+\subsubsection{Algoritmo de Bjorczuk con OMAE como función de ajuste}
+
+\subsubsection{Algoritmo de Bjorczuk con MMAE como función de ajuste}
+
+\subsubsection{Algoritmo de Bjorczuk con AMAE como función de ajuste}
+
+
+\subsubsection{Algoritmo de Falco original}
+
+\subsubsection{Algoritmo de Falco con OMAE como función de ajuste}
+
+
+\subsubsection{Algoritmo de Tan original}
+
+\subsubsection{Algoritmo de Tan con OMAE como función de ajuste}
+
+
+
+\subsection{Resultados con BL-SMOTE}
+
+
+\subsubsection{Algoritmo de Bjorczuk original}
+
+\subsubsection{Algoritmo de Bjorczuk con OMAE como función de ajuste}
+
+\subsubsection{Algoritmo de Bjorczuk con MMAE como función de ajuste}
+
+\subsubsection{Algoritmo de Bjorczuk con AMAE como función de ajuste}
+
+
+\subsubsection{Algoritmo de Falco original}
+
+\subsubsection{Algoritmo de Falco con OMAE como función de ajuste}
+
+
+\subsubsection{Algoritmo de Tan original}
+
+\subsubsection{Algoritmo de Tan con OMAE como función de ajuste}
+
+
+
+
 
 \newpage
