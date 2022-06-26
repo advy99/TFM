@@ -2,7 +2,6 @@
 
 Respecto a la experimentación, el software para balancear las clases está implementado en Python mientras que las ejecuciones experimentales se han realizado en JCLEC.
 
-% TODO: Explicar el algoritmo de Bojarczuk_GP
 
 \subsection{Algoritmos a utilizar}
 
@@ -39,6 +38,10 @@ En esta propuesta simplemente se propone un algoritmo de Programación Genética
 \end{algorithmic}
 \end{algorithm}
 
+En este algoritmo se escogerá una única regla por clase, además de una regla por defecto.
+
+Para este algoritmo los autores proponen una función de ajuste basada en los errores cometidos, ya sea tanto por clasificar de forma incorrecta una instancia, como no cubrir instancias que si debería clasificar, ponderada por un factor de simplicidad de la regla, en la que tiene en cuenta la longitud de la regla generada.
+
 
 \subsubsection{Algoritmo de Tan}
 
@@ -55,7 +58,9 @@ El esquema que sigue el algoritmo es el siguiente:
 	 \label{fig:algoritmo_tan}
 \end{figure}
 
-Al igual que en el caso anterior, sigue el esquema de Michigan, ejecutando $n$ veces el algoritmo para un problema de $n$ clases.
+Al igual que en el caso anterior, sigue el esquema de Michigan, ejecutando $n$ veces el algoritmo para un problema de $n$ clases, sin embargo, esta propuesta no escoge únicamente una regla como solución a una clase. En este algoritmo, la solución a una ejecución serán todas las reglas no repetidas en la población elitista. De esta forma se permite tener múltiples reglas para una única clase.
+
+Como función objetivo se propone utilizar el factor resultante de multiplicar la sensibilidad y especificidad obtenida. Además, una vez finaliza la ejecución de todas las clases, el conjunto de reglas final también se reordenará utilizando este factor.
 
 \newpage
 
@@ -82,7 +87,28 @@ Como vemos, con estas restricciones establecidas en la gramática por defecto qu
 
 Con respecto al esquema del algoritmo, sigue un esquema básico de algoritmo evolutivo ya visto anteriormente, y no detallan un esquema concreto en su propuesta.
 
+También proponen utilizar un factor resultante de multiplicar la sensibilidad, especificidad y simplicidad de las reglas como función de ajuste del algoritmo.
+
+En este caso hay que tener en cuenta que las soluciones serán individuos con un conjunto diverso de reglas, y que si no es capaz de encontrar una regla para alguna clase, la solución no tendrá en cuenta dicha clase.
+
 \newpage
+
+\subsection{Modificaciones realizadas a los algoritmos}
+
+Como veremos más adelante en los resultados, debido a que el problema que planteamos resolver es demasiado complejo al contar con muchas clases, tan pocos atributos, y pocas observaciones, los algoritmos por defecto no daban buenos resultados por la forma de realizar la búsqueda por el espacio de soluciones.
+
+Para paliar este problema, en lugar de usar la función de fitness propuesta por cada algoritmo, se ha probado a variar la función de ajuste por algunas métricas usadas comúnmente en clasificación ordinal \cite{funcionesClasificacionOrdinal}.
+
+En el caso del algoritmo de Bojarczuk se ha probado a guiar la búsqueda con las siguientes funciones (además de la función propuesta por el propio algoritmo):
+
+\begin{itemize}
+	\item OMAE: Error absoluto medio ordinal. Se explicará más adelante ya que será una de las funciones de evaluación, de cara a medir la bondad de los resultados. Es la diferencia media entre los valores reales y los valores predichos. Al ser un problema de clasificación ordinal, si se el modelo se equivoca en la clase, es importante medir como de grande ha sido el error.
+	\item AMAE: Media del OMAE de cada una de las clases con las que se trabaja.
+	\item MMAE: Máximo OMAE de todas las clases. Para esta métrica se calcula el valor del MAE por clase, y se escoge el mayor de ellos como error cometido.
+\end{itemize}
+
+Para el algoritmo de Falco y el algoritmo de Tan, debido a que en realidad estos algoritmos se ejecutan tantas veces como clases tiene el problema, y en cada ejecución se trabaja con una única clase, no tiene sentido utilizar AMAE y MMAE, ya que solo tenemos los valores de OMAE para una única clase, por lo que solamente se ha utilizado la función de ajuste propuesta y el OMAE.
+
 
 \subsection{Validación de las pruebas}
 
@@ -146,7 +172,6 @@ De esta forma podremos obtener un valor del error del algoritmo para unos datos 
 
 
 En nuestro caso utilizaremos una validación cruzada de cinco folds para validación, además de contar con un conjunto de test en el que no se ha aplicado el sobremuestro, para comprobar como se comporta con datos reales y sin replicar.
-
 
 \newpage
 
