@@ -1,14 +1,297 @@
 \section{Análisis de resultados}
 
+Para comenzar, de cara a realizar el análisis de resultados, se han realizado resúmenes de los resultados obtenidos, utilizando las medias de las ejecuciones y los mejores resultados obtenidos.
+
+Utilizando dichos resúmenes para interpretar de una forma más sencilla los resultados, se discutirán distintos aspectos de estos:
+
+\begin{enumerate}
+	\item Diferencias según la función de ajuste utilizada.
+	\item Comparación entre los distintos algoritmos utilizados.
+	\item Diferencias según la técnica de sobremuestreo utilizada.
+	\item Comparación con otras técnicas del estado del arte.
+\end{enumerate}
+
+Además, por último se realizará un análisis del uso de características, de cara a encontrar que atributos se han utilizado más y así estudiar si alguno de estos atributos no es necesario.
+
+En este análisis, para referirse a los algoritmos y sus ejecuciones se seguirá la siguiente nomenclatura: \texttt{<ALG>-<OVERSAMPLING>-<FITNESS>}. Donde, \texttt{ALG} será el algoritmo de Programación Genética utilizado:
+
+\begin{itemize}
+	\item BJOR: Algoritmo de Bjorczuk.
+	\item FALCO: Algoritmo de Falco.
+	\item TAN: Algoritmo de Tan.
+\end{itemize}
+
+\texttt{OVERSAMPLING} será la técnica de balanceo de clases utilizada:
+
+\begin{itemize}
+	\item ROS: Sobremuestro aleatorio (Random Over Sampling).
+	\item SMOTE: El algoritmo SMOTE.
+	\item BLSMOTE: El algoritmo BorderlineSMOTE.
+\end{itemize}
+
+\texttt{FITNESS} será la función de ajuste utilizada durante el entrenamiento del algoritmo:
+
+\begin{itemize}
+	\item ORIG: Función original propuesta por el algoritmo.
+	\item OMAE.
+	\item MMAE.
+	\item AMAE.
+\end{itemize}
+
+De forma que, por ejemplo, TAN-SMOTE-OMAE quiere decir que se refiere a los resultados obtenidos por el algoritmo de Tan, utilizando el conjunto de datos con sobremuestro usando SMOTE, y entrenado con OMAE como función de ajuste.
+
 \subsection{Resumen de los resultados}
 
-\subsection{Comparación entre los algoritmos utilizados}
+Vamos a comenzar con una tabla a modo de resumen general de todas las ejecuciones. Esta tabla contiene los resultados en media de todos los algoritmos, técnicas de sobremuestro y funciones de ajuste utilizadas.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{Tabla con un resumen de los resultados en media obtenidos por todas las ejecuciones.}}                                                                                                                                                               \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{}}}  & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                        & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                            & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}    & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-ORIG}}      & \multicolumn{1}{c|}{3,2632}          & \multicolumn{1}{c|}{3,2596}             & \multicolumn{1}{c|}{3,2685}         & \multicolumn{1}{c|}{0,1007}           & \multicolumn{1}{c|}{0,1010}             & 0,1573        \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-ORIG}}    & \multicolumn{1}{c|}{2,6564}           & \multicolumn{1}{c|}{2,7200}             & \multicolumn{1}{c|}{2,7419}           & \multicolumn{1}{c|}{0,1947}           & \multicolumn{1}{c|}{0,1820}             & 0,0895       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-ORIG}}  & \multicolumn{1}{c|}{3,3474}           & \multicolumn{1}{c|}{3,3498}              & \multicolumn{1}{c|}{3,3594}          & \multicolumn{1}{c|}{0,1002}           & \multicolumn{1}{c|}{0,0985}             & 0,1854        \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-OMAE}}      & \multicolumn{1}{c|}{1,8573}          & \multicolumn{1}{c|}{1,9112}            & \multicolumn{1}{c|}{1,9691}         & \multicolumn{1}{c|}{0,2216}           & \multicolumn{1}{c|}{0,2080}             & 0,0927       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}}    & \multicolumn{1}{c|}{1,7362}           & \multicolumn{1}{c|}{1,6805}             & \multicolumn{1}{c|}{1,7972}          & \multicolumn{1}{c|}{0,2544}           & \multicolumn{1}{c|}{0,2518}              & 0,0968       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-OMAE}}  & \multicolumn{1}{c|}{2,1888}           & \multicolumn{1}{c|}{2,1557}             & \multicolumn{1}{c|}{2,1569}          & \multicolumn{1}{c|}{0,1796}            & \multicolumn{1}{c|}{0,1715}             & 0,1135       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-MMAE}}      & \multicolumn{1}{c|}{2,0320}          & \multicolumn{1}{c|}{2,0497}            & \multicolumn{1}{c|}{2,3816}         & \multicolumn{1}{c|}{0,1938}           & \multicolumn{1}{c|}{0,1816}             & 0,0885       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-MMAE}}    & \multicolumn{1}{c|}{2,6121}           & \multicolumn{1}{c|}{2,6252}             & \multicolumn{1}{c|}{2,4246}          & \multicolumn{1}{c|}{0,2247}           & \multicolumn{1}{c|}{0,2219}             & 0,1125        \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-MMAE}}  & \multicolumn{1}{c|}{2,6709}            & \multicolumn{1}{c|}{2,6776}             & \multicolumn{1}{c|}{2,4960}          & \multicolumn{1}{c|}{0,1381}           & \multicolumn{1}{c|}{0,1255}             & 0,1010       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-AMAE}}      & \multicolumn{1}{c|}{2,1410}           & \multicolumn{1}{c|}{2,1938}             & \multicolumn{1}{c|}{2,0212}          & \multicolumn{1}{c|}{0,2336}           & \multicolumn{1}{c|}{0,2212}             & 0,1864       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-AMAE}}    & \multicolumn{1}{c|}{2,4353}           & \multicolumn{1}{c|}{2,4740}             & \multicolumn{1}{c|}{2,3815}           & \multicolumn{1}{c|}{0,1595}           & \multicolumn{1}{c|}{0,1579}              & 0,0854       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-AMAE}}  & \multicolumn{1}{c|}{2,4353}           & \multicolumn{1}{c|}{2,4740}             & \multicolumn{1}{c|}{2,3815}           & \multicolumn{1}{c|}{0,1595}           & \multicolumn{1}{c|}{0,1579}              & 0,0854       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-ORIG}}     & \multicolumn{1}{c|}{4,3313}           & \multicolumn{1}{c|}{4,3385}             & \multicolumn{1}{c|}{4,3895}           & \multicolumn{1}{c|}{0,1733}           & \multicolumn{1}{c|}{0,1716}             & 0,0510       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-SMOTE-ORIG}}   & \multicolumn{1}{c|}{4,2311}           & \multicolumn{1}{c|}{4,2311}             & \multicolumn{1}{c|}{4,2923}          & \multicolumn{1}{c|}{0,2010}           & \multicolumn{1}{c|}{0,2010}             & 0,0677        \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-BLSMOTE-ORIG}} & \multicolumn{1}{c|}{4,3344}           & \multicolumn{1}{c|}{4,3502}             & \multicolumn{1}{c|}{4,2869}          & \multicolumn{1}{c|}{0,1492}           & \multicolumn{1}{c|}{0,1410}             & 0,0687       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}     & \multicolumn{1}{c|}{1,8201}           & \multicolumn{1}{c|}{1,8741}             & \multicolumn{1}{c|}{1,7541}          & \multicolumn{1}{c|}{0,3258}            & \multicolumn{1}{c|}{0,3118}             & 0,2218       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-SMOTE-OMAE}}   & \multicolumn{1}{c|}{1,9551}           & \multicolumn{1}{c|}{1,9139}             & \multicolumn{1}{c|}{1,8394}          & \multicolumn{1}{c|}{0,3214}            & \multicolumn{1}{c|}{0,3212}             & 0,2531       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-BLSMOTE-OMAE}} & \multicolumn{1}{c|}{1,7912}           & \multicolumn{1}{c|}{1,8748}             & \multicolumn{1}{c|}{2,033}            & \multicolumn{1}{c|}{0,3634}           & \multicolumn{1}{c|}{0,3428}              & 0,1708       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-ORIG}}       & \multicolumn{1}{c|}{3,9962}           & \multicolumn{1}{c|}{3,9788}             & \multicolumn{1}{c|}{4,0425}          & \multicolumn{1}{c|}{0,0951}            & \multicolumn{1}{c|}{0,0959}              & 0,1781       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-SMOTE-ORIG}}     & \multicolumn{1}{c|}{3,9326}           & \multicolumn{1}{c|}{3,9661}             & \multicolumn{1}{c|}{4,0411}          & \multicolumn{1}{c|}{0,1098}            & \multicolumn{1}{c|}{0,1039}             & 0,3354       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-BLSMOTE-ORIG}}   & \multicolumn{1}{c|}{4,4829}           & \multicolumn{1}{c|}{4,4909}             & \multicolumn{1}{c|}{4,44}             & \multicolumn{1}{c|}{0,1001}            & \multicolumn{1}{c|}{0,0999}             & 0,3594        \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}       & \multicolumn{1}{c|}{1,5948}           & \multicolumn{1}{c|}{1,5746}             & \multicolumn{1}{c|}{\textbf{1,5856}} & \multicolumn{1}{c|}{0,2566}           & \multicolumn{1}{c|}{0,2568}             & 0,1896        \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-SMOTE-OMAE}}     & \multicolumn{1}{c|}{1,4658}           & \multicolumn{1}{c|}{1,4912}             & \multicolumn{1}{c|}{1,6448}          & \multicolumn{1}{c|}{0,2922}           & \multicolumn{1}{c|}{0,2719}             & 0,2145       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-BLSMOTE-OMAE}}   & \multicolumn{1}{c|}{1,4595}           & \multicolumn{1}{c|}{1,5016}             & \multicolumn{1}{c|}{1,7807}          & \multicolumn{1}{c|}{0,2950}           & \multicolumn{1}{c|}{0,2780}             & 0,1822       \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con todas las ejecuciones realizadas.}
+\end{table}
+
+Aunque esta tabla sigue siendo demasiado grande como para intentar utilizarla en todas las secciones, si que agrupa todas las ejecuciones realizadas a lo largo de la experimentación. En los siguientes apartados se utilizarán tablas obtenidas a partir de esta tabla general para realizar las comparativas entre las distintas técnicas utilizadas.
 
 \subsection{Importancia de la función de ajuste en este problema}
 
+Para comenzar con este análisis de resultados vamos a comentar la importancia de la función de ajuste de los algoritmos a la hora de resolver el problema.
+
+Uno de los problemas encontrados al realizar la experimentación ha sido los malos resultados iniciales obtenidos por los tres algoritmos utilizados, independientemente de si utilizaban un enfoque Michigan, un enfoque híbrido, si escogían una única regla por clase, o si escogían más reglas por clase. Tras comprobar el comportamiento de los tres algoritmos y analizar sus resultados, la conclusión es que no era capaz de aprender reglas para un problema complejo con los medios que contaba el algoritmo, por lo que se decidió cambiar la forma de explorar el espacio de búsqueda, adaptando dicha búsqueda para un problema de clasificación ordinal.
+
+Este fue el motivo de que se estudiaran otras métricas como función de ajuste en los algoritmos, en concreto funciones utilizadas en problemas de clasificación ordinal:
+
+\begin{itemize}
+	\item OMAE.
+	\item AMAE.
+	\item MMAE.
+\end{itemize}
+
+Y aunque las dos últimas solo se han podido aplicar al algoritmo de Bjorczuk (ya que el algoritmo de Tan y el de Falco aprenden las clases por separado), el comportamiento ha sido el siguiente, separando los resultados por función de ajuste utilizada:
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla con un resumen de los resultados en media obtenidos por \\ las ejecuciones con la función de ajuste original.\end{tabular}}}                                                                                     \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}}           & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                            & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-ORIG}}      & \multicolumn{1}{c|}{3,263244}          & \multicolumn{1}{c|}{3,25963}             & \multicolumn{1}{c|}{3,268596}      & \multicolumn{1}{c|}{0,10072}           & \multicolumn{1}{c|}{0,10108}             & 0,1573        \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-ORIG}}    & \multicolumn{1}{c|}{2,65642}           & \multicolumn{1}{c|}{2,72006}             & \multicolumn{1}{c|}{2,7419}        & \multicolumn{1}{c|}{0,19478}           & \multicolumn{1}{c|}{0,18202}             & 0,08958       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-ORIG}}  & \multicolumn{1}{c|}{3,34746}           & \multicolumn{1}{c|}{3,3498}              & \multicolumn{1}{c|}{3,35946}       & \multicolumn{1}{c|}{0,10028}           & \multicolumn{1}{c|}{0,09854}             & 0,1854        \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-ORIG}}     & \multicolumn{1}{c|}{4,33138}           & \multicolumn{1}{c|}{4,33854}             & \multicolumn{1}{c|}{4,3895}        & \multicolumn{1}{c|}{0,17338}           & \multicolumn{1}{c|}{0,17162}             & 0,05104       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-SMOTE-ORIG}}   & \multicolumn{1}{c|}{4,23112}           & \multicolumn{1}{c|}{4,23114}             & \multicolumn{1}{c|}{4,29234}       & \multicolumn{1}{c|}{0,20108}           & \multicolumn{1}{c|}{0,20106}             & 0,0677        \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-BLSMOTE-ORIG}} & \multicolumn{1}{c|}{4,33444}           & \multicolumn{1}{c|}{4,35026}             & \multicolumn{1}{c|}{4,28696}       & \multicolumn{1}{c|}{0,14928}           & \multicolumn{1}{c|}{0,14102}             & 0,06874       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-ORIG}}       & \multicolumn{1}{c|}{3,99622}           & \multicolumn{1}{c|}{3,97882}             & \multicolumn{1}{c|}{4,04258}       & \multicolumn{1}{c|}{0,0951}            & \multicolumn{1}{c|}{0,0959}              & 0,17814       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-SMOTE-ORIG}}     & \multicolumn{1}{c|}{3,93266}           & \multicolumn{1}{c|}{3,96612}             & \multicolumn{1}{c|}{4,04112}       & \multicolumn{1}{c|}{0,1098}            & \multicolumn{1}{c|}{0,10394}             & 0,33544       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-BLSMOTE-ORIG}}   & \multicolumn{1}{c|}{4,48292}           & \multicolumn{1}{c|}{4,49098}             & \multicolumn{1}{c|}{4,44}          & \multicolumn{1}{c|}{0,1001}            & \multicolumn{1}{c|}{0,09998}             & 0,3594        \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con los resultados usando la función de ajuste propuesta en cada algoritmo.}\label{resumenDEFECTO}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla con un resumen de los resultados en media obtenidos por \\ las ejecuciones con la función de ajuste OMAE.\end{tabular}}}                                                                                     \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}}           & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                            & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-OMAE}}      & \multicolumn{1}{c|}{1,857312}          & \multicolumn{1}{c|}{1,911268}            & \multicolumn{1}{c|}{1,969152}      & \multicolumn{1}{c|}{0,22166}           & \multicolumn{1}{c|}{0,20804}             & 0,09272       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}}    & \multicolumn{1}{c|}{1,73628}           & \multicolumn{1}{c|}{1,68058}             & \multicolumn{1}{c|}{1,79724}       & \multicolumn{1}{c|}{0,25442}           & \multicolumn{1}{c|}{0,2518}              & 0,09688       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-OMAE}}  & \multicolumn{1}{c|}{2,18882}           & \multicolumn{1}{c|}{2,15576}             & \multicolumn{1}{c|}{2,15698}       & \multicolumn{1}{c|}{0,1796}            & \multicolumn{1}{c|}{0,17158}             & 0,11354       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}     & \multicolumn{1}{c|}{1,82012}           & \multicolumn{1}{c|}{1,87418}             & \multicolumn{1}{c|}{1,75414}       & \multicolumn{1}{c|}{0,3258}            & \multicolumn{1}{c|}{0,31182}             & 0,22186       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-SMOTE-OMAE}}   & \multicolumn{1}{c|}{1,95514}           & \multicolumn{1}{c|}{1,91396}             & \multicolumn{1}{c|}{1,83946}       & \multicolumn{1}{c|}{0,3214}            & \multicolumn{1}{c|}{0,32122}             & 0,25314       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-BLSMOTE-OMAE}} & \multicolumn{1}{c|}{1,79124}           & \multicolumn{1}{c|}{1,87488}             & \multicolumn{1}{c|}{2,033}         & \multicolumn{1}{c|}{0,36342}           & \multicolumn{1}{c|}{0,3428}              & 0,17082       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}       & \multicolumn{1}{c|}{1,59486}           & \multicolumn{1}{c|}{1,57468}             & \multicolumn{1}{c|}{1,58562}       & \multicolumn{1}{c|}{0,25664}           & \multicolumn{1}{c|}{0,25682}             & 0,1896        \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-SMOTE-OMAE}}     & \multicolumn{1}{c|}{1,46588}           & \multicolumn{1}{c|}{1,49124}             & \multicolumn{1}{c|}{1,64484}       & \multicolumn{1}{c|}{0,29228}           & \multicolumn{1}{c|}{0,27194}             & 0,21456       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-BLSMOTE-OMAE}}   & \multicolumn{1}{c|}{1,45956}           & \multicolumn{1}{c|}{1,50166}             & \multicolumn{1}{c|}{1,78072}       & \multicolumn{1}{c|}{0,29504}           & \multicolumn{1}{c|}{0,27808}             & 0,18228       \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con los resultados usando la función de ajuste OMAE.}\label{resumenOMAE}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla con un resumen de los resultados en media obtenidos por \\ las ejecuciones con la función de ajuste MMAE.\end{tabular}}}                                                                                    \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}}          & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                           & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-MMAE}}     & \multicolumn{1}{c|}{2,032008}          & \multicolumn{1}{c|}{2,049782}            & \multicolumn{1}{c|}{2,381686}      & \multicolumn{1}{c|}{0,19384}           & \multicolumn{1}{c|}{0,18168}             & 0,08854       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-MMAE}}   & \multicolumn{1}{c|}{2,61218}           & \multicolumn{1}{c|}{2,62522}             & \multicolumn{1}{c|}{2,42464}       & \multicolumn{1}{c|}{0,22472}           & \multicolumn{1}{c|}{0,22192}             & 0,1125        \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-MMAE}} & \multicolumn{1}{c|}{2,6709}            & \multicolumn{1}{c|}{2,67762}             & \multicolumn{1}{c|}{2,49606}       & \multicolumn{1}{c|}{0,13814}           & \multicolumn{1}{c|}{0,12554}             & 0,10106       \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con los resultados usando la función de ajuste MMAE.}\label{resumenMMAE}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla con un resumen de los resultados en media obtenidos por \\ las ejecuciones con la función de ajuste AMAE.\end{tabular}}}                                                                                    \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}}          & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                           & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-AMAE}}     & \multicolumn{1}{c|}{2,14104}           & \multicolumn{1}{c|}{2,19386}             & \multicolumn{1}{c|}{2,02128}       & \multicolumn{1}{c|}{0,23366}           & \multicolumn{1}{c|}{0,22122}             & 0,18644       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-AMAE}}   & \multicolumn{1}{c|}{2,43532}           & \multicolumn{1}{c|}{2,47408}             & \multicolumn{1}{c|}{2,3815}        & \multicolumn{1}{c|}{0,15954}           & \multicolumn{1}{c|}{0,1579}              & 0,08544       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-AMAE}} & \multicolumn{1}{c|}{2,43532}           & \multicolumn{1}{c|}{2,47408}             & \multicolumn{1}{c|}{2,3815}        & \multicolumn{1}{c|}{0,15954}           & \multicolumn{1}{c|}{0,1579}              & 0,08544       \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con los resultados usando la función de ajuste AMAE.}\label{resumenAMAE}
+\end{table}
+
+
+Como podemos ver en los resultados de la tabla \ref{resumenDEFECTO} en comparación con todas las demás ejecuciones usando métricas para clasificación ordinal (\ref{resumenOMAE}, \ref{resumenMMAE} y \ref{resumenAMAE}), y ya vimos en las matrices de confusión de los resultados, en ninguno de los algoritmos da buenos resultados la función de ajuste propuesta, independientemente del algoritmo concreto utilizado, siendo los resultados significativamente peores, y no siendo capaz ninguno de ellos de realizar predicciones complejas.
+
+Por otro lado, comparando las tres métricas de clasificación ordinal para el algoritmo de Bjorczuk, la elección clara se trata de OMAE, ya que en los conjuntos de test y validación consigue unos resultados mejores que usando tanto MMAE como AMAE, llegando a veces a mejorar el OMAE en un $0.6$.
+
+El haber realizado esta modificación de la función de ajuste, y que este cambio implique unas diferencias tan grandes en la ejecución del algoritmo nos lleva a la conclusión de la importancia de conocer el problema que estamos manejando. No se trata simplemente de conocer el dominio del problema y como se comportan los datos que utilizamos, también es importante adaptar los algoritmos al problema al que nos enfrentamos de cara a que la búsqueda por el espacio de soluciones sea coherente con el problema y lo que se busca.
+
+Por simplicidad y debido a que claramente OMAE consigue unos mejores resultados, en las siguientes secciones nos limitaremos a utilizar los resultados obtenidos por los experimentos que han utilizado OMAE.
+
+
+\subsection{Comparación entre los algoritmos utilizados}
+
+En este apartado vamos a comparar los resultados de los tres algoritmos utilizados. En este caso, además de las métricas utilizadas, otra de las cosas que tenemos que tener en cuenta es la simplicidad de la solución, ya que aunque los algoritmos de Bjorczuk y de Falco como máximo tienen once reglas (una por clase y la regla por defecto), el algoritmo de Tan, como hemos visto en algunos resultados, puede generar clasificadores con un conjunto de reglas mucho más grande.
+
+
+Vamos a comenzar observando las métricas de evaluación:
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla con un resumen de los resultados en media obtenidos por \\ las ejecuciones del algoritmo de Bjorczuk.\end{tabular}}}                                                                                            \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}}          & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                           & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-ROS-OMAE}}     & \multicolumn{1}{c|}{1,857312}          & \multicolumn{1}{c|}{1,911268}            & \multicolumn{1}{c|}{1,969152}      & \multicolumn{1}{c|}{0,22166}           & \multicolumn{1}{c|}{0,20804}             & 0,09272       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}}   & \multicolumn{1}{c|}{1,73628}           & \multicolumn{1}{c|}{1,68058}             & \multicolumn{1}{c|}{1,79724}       & \multicolumn{1}{c|}{0,25442}           & \multicolumn{1}{c|}{0,2518}              & 0,09688       \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-BLSMOTE-OMAE}} & \multicolumn{1}{c|}{2,18882}           & \multicolumn{1}{c|}{2,15576}             & \multicolumn{1}{c|}{2,15698}       & \multicolumn{1}{c|}{0,1796}            & \multicolumn{1}{c|}{0,17158}             & 0,11354       \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con los resultados del algoritmo de Bjorczuk y la función de ajuste OMAE.}\label{resumenBjorczukOMAE}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla con un resumen de los resultados en media obtenidos por \\ las ejecuciones del algoritmo de Falco.\end{tabular}}}                                                                                                \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}}           & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                            & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}     & \multicolumn{1}{c|}{1,82012}           & \multicolumn{1}{c|}{1,87418}             & \multicolumn{1}{c|}{1,75414}       & \multicolumn{1}{c|}{0,3258}            & \multicolumn{1}{c|}{0,31182}             & 0,22186       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-SMOTE-OMAE}}   & \multicolumn{1}{c|}{1,95514}           & \multicolumn{1}{c|}{1,91396}             & \multicolumn{1}{c|}{1,83946}       & \multicolumn{1}{c|}{0,3214}            & \multicolumn{1}{c|}{0,32122}             & 0,25314       \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-BLSMOTE-OMAE}} & \multicolumn{1}{c|}{1,79124}           & \multicolumn{1}{c|}{1,87488}             & \multicolumn{1}{c|}{2,033}         & \multicolumn{1}{c|}{0,36342}           & \multicolumn{1}{c|}{0,3428}              & 0,17082       \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con los resultados del algoritmo de Falco y la función de ajuste OMAE.}\label{resumenFalcoOMAE}
+
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla con un resumen de los resultados en media obtenidos por \\ las ejecuciones del algoritmo de Tan.\end{tabular}}}                                                                                                \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{}}         & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                            \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                          & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test} \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}     & \multicolumn{1}{c|}{1,59486}           & \multicolumn{1}{c|}{1,57468}             & \multicolumn{1}{c|}{1,58562}       & \multicolumn{1}{c|}{0,25664}           & \multicolumn{1}{c|}{0,25682}             & 0,1896        \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-SMOTE-OMAE}}   & \multicolumn{1}{c|}{1,46588}           & \multicolumn{1}{c|}{1,49124}             & \multicolumn{1}{c|}{1,64484}       & \multicolumn{1}{c|}{0,29228}           & \multicolumn{1}{c|}{0,27194}             & 0,21456       \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-BLSMOTE-OMAE}} & \multicolumn{1}{c|}{1,45956}           & \multicolumn{1}{c|}{1,50166}             & \multicolumn{1}{c|}{1,78072}       & \multicolumn{1}{c|}{0,29504}           & \multicolumn{1}{c|}{0,27808}             & 0,18228       \\ \hline
+\end{tabular}%
+}
+\caption{Tabla resumen con los resultados del algoritmo de Tan y la función de ajuste OMAE.}\label{resumenTanOMAE}
+\end{table}
+
+Vemos en las tablas \ref{resumenBjorczukOMAE} y \ref{resumenFalcoOMAE} que los resultados de Bojarczuk y Falco son similares, y las diferencias en los resultados pueden deberse simplemente a la aleatoriedad de las ejecuciones, sin embargo vemos en el cuadro \ref{resumenTanOMAE} que el algoritmo de Tan si es más competitivo que los otros. Sin embargo, otro detalle que tenemos que observar, es el número de reglas obtenidas por el clasificador:
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+               & \textbf{\begin{tabular}[c]{@{}c@{}}N. Reglas en promedio\\  del modelo\end{tabular}} \\ \hline
+\textbf{BJOR}  & 11                                                                                   \\ \hline
+\textbf{FALCO} & 11                                                                                   \\ \hline
+\textbf{TAN}   & 39                                                                                   \\ \hline
+\end{tabular}%
+\caption{Tabla resumen con el promedio de reglas obtenidas por cada modelo.}\label{resumenNReglas}
+\end{table}
+
+Si recordamos como funcionaban los distintos algoritmos, las puestas de Bjorczuk y Falco se limitaban a escoger una única regla por clase, mientras que el algoritmo de Tan escogía todas las reglas de la población elitista eliminando las repetidas. Este detalle hace que la solución encontrada por el algoritmo de Tan sea mucho más compleja y con una cantidad de reglas mucho mayor.
+
+Aunque es cierto que los resultados en el conjunto de test son mejores (con un OMAE un $0.17$ menor si comparamos el mejor resultado en media del algoritmo de Tan, con el mejor resultado en media obtenido por el algoritmo de Falco), una diferencia tan baja en OMAE es posible que no justifique la complejidad añadida de la solución propuesta.
+
 \subsection{Discusión sobre las técnicas de balanceo de clases aplicadas}
 
-\subsection{Comparación con el estado del arte}
+\subsection{Comparación con las técnicas del estado del arte}
 
 \subsection{Análisis de uso de características}
 
