@@ -1,1 +1,27 @@
 \section{Conclusiones}
+
+En este trabajo se ha presentado un problema real, de gran interés y que lleva siendo estudiado durante bastante tiempo, de cara a resolverlo utilizando técnicas de aprendizaje automático que además consiguieran resultados interpretables de cara a ser utilizados por expertos en el problema para obtener conocimiento.
+
+En la introducción del trabajo se propusieron los siguientes objetivos:
+
+\begin{enumerate}
+	\item Discutir la importancia de resolver este problema, así como los distintos enfoques utilizados hasta ahora en los diferentes estudios que se han propuesto resolverlo.
+	\item Estudiar y discutir distintos métodos de preprocesamiento de datos, en especial el balanceado de datos debido a las características del problema.
+	\item Estudiar, desarrollar y entrenar algoritmos evolutivos que permitan inferir reglas a partir de un conjunto de datos, discutiendo y analizando las distintas técnicas utilizadas hasta el momento para esta tarea.
+	\item Implementar un sistema basado en reglas capaz de resolver el problema.
+	\item Estudiar la idoneidad de la solución propuesta para el problema teniendo en cuenta tanto su factor de acierto como su interpretabilidad de cara a ser usado por expertos en el problema.
+\end{enumerate}
+
+Comenzando por el primer punto, tanto en la introducción como en el análisis del estado del arte se ha discutido la importancia de resolver este problema, además de hacerlo de una forma interpretable para poder aplicarlo a la extracción de conocimiento. También se han analizado distintas propuestas para resolverlo, desde algoritmos clásicos utilizados en ciencia de datos como árboles de clasificación, como métodos más sofisticados como algoritmos evolutivos para obtener reglas, redes neuronales profundas, etc. Se ha realizado una análisis de los distintos enfoques para resolver el problema, tomándolo tanto como un problema de clasificación como uno de regresión, estudiando las diferencias en las técnicas usadas en el estado del arte, e incluso utilizando como fuente de datos distintos formatos, ya que existen trabajos usando datos tabulares (como es nuestro caso), imágenes, e incluso modelos 3D de los huesos.
+
+
+Para el segundo objetivo, además de estudiar y analizar distintos algoritmos de balanceo de clases, también se ha realizado un análisis del conjunto de datos más en profundidad, lo que nos ha aportado información sobre como están distribuidos los datos e incluso de características que no se utilizaban en la toma de decisiones, mostrando que el análisis y preprocesado de los datos es crucial para cualquier problema de ciencia de datos, ya que es necesario tener un conocimiento del problema y los datos que se tienen para así poder tomar decisiones sobre los algoritmos, como veremos en el siguiente párrafo.
+
+Con respecto al tercer y cuarto objetivo, se ha realizado una introducción a los algoritmos evolutivos y los distintos tipos y enfoques utilizados. Se ha detallado en profundidad el tipo de algoritmo evolutivo que se ha utilizado y mejor funciona para aprender expresiones, Programación Genética, y así aprender un conjunto de reglas que resuelva el problema. No solo se ha explicado como funciona este tipo de algoritmos, si no que se ha realizado un análisis de los enfoques que se han usado hasta ahora en la literatura, los problemas que pueden llegar a tener, así como diversas soluciones propuestas. Además, se ha utilizado tres propuestas distintas de estos algoritmos de cara a comprobar su funcionamiento en este problema, y que gracias al conocimiento del problema tratado, y el análisis de datos previo, ha conseguido unos resultados competentes.
+
+Por último, con el análisis de resultados realizado al final de este trabajo se ha comparado toda la experimentación realizada, comparando los algoritmos utilizados, las técnicas de preprocesamiento y las modificaciones realizadas al comportamiento de los algoritmos. Además se ha realizado una comparación con los resultados del estado del arte teniendo en cuenta tanto las métricas de los resultados como su interpretabilidad, llegando a obtener soluciones que, aunque no sean tan competentes a nivel de métricas, son mucho más interpretables gracias a su simplicidad.
+
+Como conclusiones finales, gracias a este trabajo se puede ver la importancia de aplicar ciencia de datos y modelos de aprendizaje automático en problemas reales, donde es necesario un estudio y análisis no solo del problema a tratar, también de los datos y algoritmos con los que se trabaja. Además, este trabajo pone de manifiesto la importancia de la inteligencia artificial explicable, ya que en muchos campos es necesario que los resultados puedan ser utilizados por expertos y que se pueda extraer conocimiento de estos resultados para poder así mejorar el campo de aplicación.
+
+
+\newpage
