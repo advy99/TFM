@@ -1,1 +1,18 @@
 \section{Trabajos futuros}
+
+En este trabajo se ha realizado un estudio bastante amplio sobre las distintas técnicas de Programación Genética para aprender un sistema basado en reglas de cara a resolver el problema, sin embargo hay diversos enfoques que se podrían tomar para ampliar este trabajo en un futuro.
+
+\subsection{Uso de un modelo de aprendizaje iterativo con Programación Genética}
+
+Uno de los resultados del estado del arte, utilizado también en la comparativa de resultados, es NSLVOrd. Este algoritmo utiliza un enfoque de aprendizaje de reglas por cubrimiento secuencial de las instancias, sin embargo el aprendizaje de reglas lo realiza con un algoritmo genético clásico, codificando las reglas en un cromosoma de enteros, con tantos valores como posibles valores tengan los datos categóricos del problema.
+
+Sería interesante ver como se comporta un algoritmo que utilice Programación Genética para aprender las reglas, pero a su vez con un enfoque por cubrimiento secuencial de las instancias, de cara a aprender las mejores reglas para los datos y mejorar los resultados.
+
+\subsection{Modelos más complejos para la codificación de individuos}
+
+Aunque en este trabajo se ha comentado los enfoques de Pittsburgh y Michigan para representar los individuos de la población en Programación Genética, los algoritmos utilizados son con un enfoque Michigan y con un enfoque híbrido, por lo que comprobar el funcionamiento de un algoritmo con un enfoque de Pittsburgh sería de gran interés de cara a comparar todos los enfoques posibles.
+
+
+\subsection{Postprocesado de las reglas obtenidas}
+
+Otro enfoque interesante para este problema sería, una vez tenemos las reglas obtenidas en este trabajo, realizar un análisis de dichas reglas más en profundidad de cara a encontrar el subconjunto de reglas que mejor coopera, y así intentar mejorar los resultados de los algoritmos manteniendo la simplicidad de las soluciones.
