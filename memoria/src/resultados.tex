@@ -641,72 +641,14 @@ Rule: ELSE (ToddPhase = Ph01-19)
 
 \newpage
 
+\subsection{Comentarios sobre los resultados con las funciones de ajuste originales}
+
+Debido a que en el resto de ejecuciones, utilizando el conjunto de datos aplicando SMOTE y BL-SMOTE como técnicas de sobremuestreo, los resultados son iguales que los vistos en la sección anterior, donde se centran en clasificar una única clase, por lo que son resultados engañosos y no son coherentes, de cara a no extender innecesariamente esta memoria no se han incluido estos resultados en las siguientes secciones.
+
+
 \subsection{Resultados con SMOTE}
 
 Tras haber analizado los resultados con sobremuestro aleatorio, vamos a pasar a los resultados utilizando el conjunto de datos balanceado usando SMOTE. En esta sección, para no repetir las conclusiones obtenidas en la sección anterior, solo se comentarán los resultados relevantes con respecto a la diferencia entre usar un conjunto de datos u otro, y no al comportamiento en concreto de los algoritmos si se comportan de la misma forma que en el apartado anterior. En caso de que ocurra algún comportamiento distinto si se comentará más a fondo.
-
-\subsubsection{Algoritmo de Bjorczuk original}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|ccccccc|}
-\hline
-\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Bjorczuk con SMOTE \\ y función de fitness por defecto.\end{tabular}}}                                                                                                       \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                              \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \textbf{Test}   \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}           & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & 0,3594          \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{c|}{3,0973}            & \multicolumn{1}{c|}{3,1036}              & \multicolumn{1}{c|}{2,98}          & \multicolumn{1}{c|}{0,1007}            & \multicolumn{1}{c|}{0,0989}              & 0,1198          \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{3,6995}            & \multicolumn{1}{c|}{3,7}                 & \multicolumn{1}{c|}{3,68}          & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & 0,1406          \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}           & \multicolumn{1}{c|}{0,0998}            & \multicolumn{1}{c|}{0,1007}              & \textbf{0,3594} \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{2,6996}            & \multicolumn{1}{c|}{2,7}                 & \multicolumn{1}{c|}{\textbf{2,7}}  & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & 0,1562          \\ \hline
-\multicolumn{1}{|c|}{\textbf{Media}}  & \multicolumn{1}{c|}{3,6992}           & \multicolumn{1}{c|}{3,7007}             & \multicolumn{1}{c|}{3,672}         & \multicolumn{1}{c|}{0,1002}           & \multicolumn{1}{c|}{0,0992}             & 0,2270         \\ \hline
-\end{tabular}%
-}
-\caption{Tabla de resultados de Bjorczuk sobre el conjunto con SMOTE con la función de ajuste por defecto.}\label{tablaBJORCZUKconSMOTEdefecto}
-\end{table}
-
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|ccrrrrrrrrrrc|}
-\hline
-\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 5 sobre el conjunto de test con el algoritmo \\ de Bjorczuk con SMOTE y función de fitness por defecto.\end{tabular}}}                                                                                                                                                                \\ \hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                      & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                              & \multirow{2}{*}{} \\ \cline{3-12}
-\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6}          & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9} &                   \\ \hline
-\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C0 = Ph01-19      \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C1 = Ph02-20-21   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C2 = Ph03-22-24   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C3 = Ph04-25-26   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{13}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C4 = Ph05-27-30   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{12}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C5 = Ph06-31-34   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{30}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C6 = Ph07-35-39   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{23}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C7 = Ph08-40-44   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{27}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C8 = Ph09-45-49   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{69}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C9 = Ph10-50-     \\ \hline
-\end{tabular}%
-}
-\caption{Matriz de confusión del fold 5 del cuadro \ref{tablaBJORCZUKconSMOTEdefecto}.}
-\end{table}
-
-
-\begin{lstlisting}
-Rule: IF (AND != LowerSymphysialExtremity NotDefined AND != VentralBevel Present AND = LowerSymphysialExtremity Defined AND = BonyNodule Present AND = VentralBevel Present AND != BonyNodule Present != UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph10-50-)
-Rule: ELSE IF (OR != VentralBevel InProcess OR AND = VentralBevel Present != BonyNodule Absent OR = LowerSymphysialExtremity Defined = IrregularPorosity Medium ) THEN (ToddPhase = Ph07-35-39)
-Rule: ELSE IF (OR != VentralMargin Absent OR != VentralBevel InProcess OR != UpperSymphysialExtremity Defined OR != VentralBevel InProcess = UpperSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph06-31-34)
-Rule: ELSE IF (AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesAndGrooves AND != UpperSymphysialExtremity Defined AND != IrregularPorosity Much = BonyNodule Present ) THEN (ToddPhase = Ph02-20-21)
-Rule: ELSE IF (AND != VentralMargin Absent AND = BonyNodule Absent = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
-Rule: ELSE IF (OR = VentralBevel Present OR AND = ArticularFace GroovesRest != ArticularFace GroovesRest = VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph09-45-49)
-Rule: ELSE (ToddPhase = Ph01-19)
-\end{lstlisting}
 
 
 \subsubsection{Algoritmo de Bjorczuk con OMAE como función de ajuste}
@@ -909,70 +851,6 @@ Rule: ELSE (ToddPhase = Ph01-19)
 \end{lstlisting}
 
 
-\subsubsection{Algoritmo de Falco original}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|crrrrrr|}
-\hline
-\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Falco con SMOTE \\ y función de fitness por defecto.\end{tabular}}}                                                                                                                                                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                       & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                                                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}   & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{c|}{4,2234}            & \multicolumn{1}{c|}{4,261}               & \multicolumn{1}{c|}{\textbf{4,2908}} & \multicolumn{1}{c|}{0,2055}            & \multicolumn{1}{c|}{0,1835}              & \textbf{0,0677}                    \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{c|}{4,2266}            & \multicolumn{1}{c|}{4,2524}              & \multicolumn{1}{c|}{4,2985}          & \multicolumn{1}{c|}{0,2005}            & \multicolumn{1}{c|}{0,2032}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{4,2397}            & \multicolumn{1}{c|}{4,1964}              & \multicolumn{1}{c|}{4,2908}          & \multicolumn{1}{c|}{0,1992}            & \multicolumn{1}{c|}{0,2086}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{4,2372}            & \multicolumn{1}{c|}{4,2057}              & \multicolumn{1}{c|}{4,2908}          & \multicolumn{1}{c|}{0,1974}            & \multicolumn{1}{c|}{0,2158}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{4,2287}            & \multicolumn{1}{c|}{4,2402}              & \multicolumn{1}{c|}{4,2908}          & \multicolumn{1}{c|}{0,2028}            & \multicolumn{1}{c|}{0,1942}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Media}}  & \multicolumn{1}{c|}{4,2311}           & \multicolumn{1}{c|}{4,2311}             & \multicolumn{1}{c|}{4,2923}         & \multicolumn{1}{c|}{0,2010}           & \multicolumn{1}{c|}{0,2010}             & 0,0677                             \\ \hline
-\end{tabular}%
-}
-\caption{Tabla de resultados de Falco sobre el conjunto con SMOTE con la función de ajuste por defecto.}\label{tablaFALCOconSMOTEdefecto}
-\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|ccrrrrrrrrrrc|}
-\hline
-\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 1 sobre el conjunto de test con el algoritmo \\ de Falco con SMOTE y función de fitness por defecto.\end{tabular}}}                                                                                                                                                                                   \\ \hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                      & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                                              & \multirow{2}{*}{} \\ \cline{3-12}
-\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0}          & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2}         & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9}         &                   \\ \hline
-\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & C0 = Ph01-19      \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{3}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & C1 = Ph02-20-21   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & C2 = Ph03-22-24   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & C3 = Ph04-25-26   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{\textbf{12}} & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & C4 = Ph05-27-30   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{\textbf{11}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}} & C5 = Ph06-31-34   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{\textbf{29}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}} & C6 = Ph07-35-39   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{\textbf{23}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & C7 = Ph08-40-44   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{\textbf{25}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{2}} & C8 = Ph09-45-49   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{\textbf{62}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}          & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{7}} & C9 = Ph10-50-     \\ \hline
-\end{tabular}%
-}
-\caption{Matriz de confusión del fold 1 del cuadro \ref{tablaFALCOconSMOTEdefecto}.}
-\end{table}
-
-\begin{lstlisting}
-Rule: IF (= ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph01-19)
-Rule: ELSE IF (!= BonyNodule Absent ) THEN (ToddPhase = Ph03-22-24)
-Rule: ELSE IF (= IrregularPorosity Much ) THEN (ToddPhase = Ph10-50-)
-Rule: ELSE IF (= ArticularFace GroovesShallow ) THEN (ToddPhase = Ph02-20-21)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph09-45-49)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph08-40-44)
-Rule: ELSE IF (!= DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph07-35-39)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph06-31-34)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph05-27-30)
-Rule: ELSE (ToddPhase = Ph01-19)
-\end{lstlisting}
-
-
 \subsubsection{Algoritmo de Falco con OMAE como función de ajuste}
 
 % Please add the following required packages to your document preamble:
@@ -1035,71 +913,6 @@ Rule: ELSE IF (AND AND AND NOT != VentralMargin FormedWithoutRarefactions NOT OR
 Rule: ELSE IF (AND = IrregularPorosity Medium AND NOT AND = VentralMargin FormedWithoutRarefactions AND = VentralBevel InProcess = ArticularFace NoGrooves != VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph08-40-44)
 Rule: ELSE IF (AND AND NOT AND = IrregularPorosity Absence AND != LowerSymphysialExtremity Defined = IrregularPorosity Absence = IrregularPorosity Absence = VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph05-27-30)
 Rule: ELSE IF (AND = VentralMargin PartiallyFormed OR = ArticularFace NoGrooves OR = IrregularPorosity Medium AND != DorsalPlaeau Absent OR != DorsalPlaeau Absent = IrregularPorosity Medium ) THEN (ToddPhase = Ph07-35-39)
-Rule: ELSE (ToddPhase = Ph01-19)
-\end{lstlisting}
-
-
-
-\subsubsection{Algoritmo de Tan original}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|crrrrrr|}
-\hline
-\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Tan con SMOTE \\ y función de fitness por defecto.\end{tabular}}}                                                                                                                                                   \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                       & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                                                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}   & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}             & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & \textbf{0,3594}                    \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{c|}{2,7508}            & \multicolumn{1}{c|}{2,867}               & \multicolumn{1}{c|}{\textbf{2,8556}} & \multicolumn{1}{c|}{0,1488}            & \multicolumn{1}{c|}{0,1187}              & 0,2396                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}             & \multicolumn{1}{c|}{0,0998}            & \multicolumn{1}{c|}{0,1007}              & 0,3594                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{3,4125}            & \multicolumn{1}{c|}{3,4636}              & \multicolumn{1}{c|}{3,85}            & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,1007}              & 0,3594                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}             & \multicolumn{1}{c|}{0,0998}            & \multicolumn{1}{c|}{0,1007}              & 0,3594                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Media}}  & \multicolumn{1}{c|}{3,9326}           & \multicolumn{1}{c|}{3,9661}             & \multicolumn{1}{c|}{4,0411}         & \multicolumn{1}{c|}{0,1098}            & \multicolumn{1}{c|}{0,1039}             & 0,3354                            \\ \hline
-\end{tabular}%
-}
-\caption{Tabla de resultados de Tan sobre el conjunto con SMOTE con la función de ajuste por defecto.}\label{tablaTANconSMOTEdefecto}
-\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|ccrrrrrrrrrrc|}
-\hline
-\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 2 sobre el conjunto de test con el algoritmo \\ de Tan con SMOTE y función de fitness por defecto.\end{tabular}}}                                                                                                                                                            \\ \hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                      & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                     & \multirow{2}{*}{} \\ \cline{3-12}
-\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9} &                   \\ \hline
-\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}}  & C0 = Ph01-19      \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{3}}  & C1 = Ph02-20-21   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}}  & C2 = Ph03-22-24   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C3 = Ph04-25-26   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{12}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}}  & C4 = Ph05-27-30   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{8}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & C5 = Ph06-31-34   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{23}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{7}}  & C6 = Ph07-35-39   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{15}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{8}}  & C7 = Ph08-40-44   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{18}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{9}}  & C8 = Ph09-45-49   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{35}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{34}} & C9 = Ph10-50-     \\ \hline
-\end{tabular}%
-}
-\caption{Matriz de confusión del fold 2 del cuadro \ref{tablaTANconSMOTEdefecto}.}
-\end{table}
-
-\begin{lstlisting}
-Rule: IF (AND AND AND AND AND NOT != BonyNodule Absent != IrregularPorosity Medium != VentralMargin FormedWithLotRecessesAndProtrusions != VentralMargin FormedWithLotRecessesAndProtrusions = BonyNodule Absent = BonyNodule Absent ) THEN (ToddPhase = Ph05-27-30)
-Rule: ELSE IF (= DorsalPlaeau Present ) THEN (ToddPhase = Ph10-50-)
-Rule: ELSE IF (NOT AND AND AND AND = UpperSymphysialExtremity Defined != DorsalPlaeau Present = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity NotDefined = IrregularPorosity Much ) THEN (ToddPhase = Ph09-45-49)
-Rule: ELSE IF (NOT AND AND AND AND AND = ArticularFace NoGrooves = ArticularFace NoGrooves != UpperSymphysialExtremity NotDefined != UpperSymphysialExtremity Defined != UpperSymphysialExtremity Defined = ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph08-40-44)
-Rule: ELSE IF (NOT AND AND AND != UpperSymphysialExtremity Defined != IrregularPorosity Absence = ArticularFace GroovesRest = VentralBevel InProcess ) THEN (ToddPhase = Ph07-35-39)
-Rule: ELSE IF (NOT AND AND NOT = UpperSymphysialExtremity Defined = VentralMargin FormedWithLotRecessesAndProtrusions = BonyNodule Present ) THEN (ToddPhase = Ph06-31-34)
-Rule: ELSE IF (AND AND NOT = ArticularFace RegularPorosity = DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26)
-Rule: ELSE IF (NOT AND NOT AND AND = UpperSymphysialExtremity Defined = BonyNodule Absent = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph01-19)
-Rule: ELSE IF (NOT AND NOT AND AND = UpperSymphysialExtremity Defined = BonyNodule Absent = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph01-19)
 Rule: ELSE (ToddPhase = Ph01-19)
 \end{lstlisting}
 
@@ -1206,66 +1019,6 @@ Rule: ELSE (ToddPhase = Ph01-19)
 \subsection{Resultados con BL-SMOTE}
 
 Por último, vamos a comprobar los resultados obtenidos por BL-SMOTE. Siguiendo en la linea de SMOTE, solo se comentarán las diferencias más relevantes y que pueden haber sido causadas por el conjunto de datos.
-
-\subsubsection{Algoritmo de Bjorczuk original}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|crrrrrr|}
-\hline
-\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Bjorczuk con BL-SMOTE \\ y función de fitness por defecto.\end{tabular}}}                                                                                                                                         \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                                                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{c|}{2,7359}            & \multicolumn{1}{c|}{2,7453}              & \multicolumn{1}{c|}{2,7886}        & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0953}              & 0,151                              \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{c|}{3,1045}            & \multicolumn{1}{c|}{3,1037}              & \multicolumn{1}{c|}{3,1087}        & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & 0,1198                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}           & \multicolumn{1}{c|}{0,0998}            & \multicolumn{1}{c|}{0,1007}              & \textbf{0,3594}                    \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{3,6973}            & \multicolumn{1}{c|}{3,7}                 & \multicolumn{1}{c|}{3,7}           & \multicolumn{1}{c|}{0,1007}            & \multicolumn{1}{c|}{0,0989}              & 0,1406                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{2,6996}            & \multicolumn{1}{c|}{2,7}                 & \multicolumn{1}{c|}{\textbf{2,7}}  & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & 0,1562                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Media}}  & \multicolumn{1}{c|}{3,3474}           & \multicolumn{1}{c|}{3,3498}              & \multicolumn{1}{c|}{3,3594}       & \multicolumn{1}{c|}{0,1002}           & \multicolumn{1}{c|}{0,0985}             & 0,1854                             \\ \hline
-\end{tabular}%
-}
-\caption{Tabla de resultados de Bjorczuk sobre el conjunto con BL-SMOTE y con la función de ajuste por defecto.}\label{tablaBJORCZUKconBLSMOTEdefecto}
-\end{table}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|ccrrrrrrrrrrc|}
-\hline
-\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 5 sobre el conjunto de test con el algoritmo \\ de Bjorczuk con BL-SMOTE y función de fitness por defecto.\end{tabular}}}                                                                                                                                                    \\ \hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                      & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                     & \multirow{2}{*}{} \\ \cline{3-12}
-\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9} &                   \\ \hline
-\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C0 = Ph01-19      \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{55}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C1 = Ph02-20-21   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{55}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C2 = Ph03-22-24   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C3 = Ph04-25-26   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C4 = Ph05-27-30   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{55}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C5 = Ph06-31-34   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{55}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C6 = Ph07-35-39   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C7 = Ph08-40-44   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C8 = Ph09-45-49   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{56}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C9 = Ph10-50-     \\ \hline
-\end{tabular}%
-}
-\caption{Matriz de confusión del fold 5 del cuadro \ref{tablaBJORCZUKconBLSMOTEdefecto}.}
-\end{table}
-
-\begin{lstlisting}
-Rule: IF (AND != VentralMargin Absent AND != UpperSymphysialExtremity Defined AND != VentralMargin Absent AND != VentralMargin Absent != UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph10-50-)
-Rule: ELSE IF (OR = LowerSymphysialExtremity Defined != VentralBevel InProcess ) THEN (ToddPhase = Ph07-35-39)
-Rule: ELSE IF (OR != VentralMargin Absent OR != VentralBevel InProcess OR != UpperSymphysialExtremity Defined != BonyNodule Absent ) THEN (ToddPhase = Ph06-31-34)
-Rule: ELSE IF (AND != LowerSymphysialExtremity Defined AND = ArticularFace RidgesAndGrooves AND != UpperSymphysialExtremity Defined AND != IrregularPorosity Much = BonyNodule Present ) THEN (ToddPhase = Ph02-20-21)
-Rule: ELSE IF (!= IrregularPorosity Much) THEN (ToddPhase = Ph03-22-24)
-Rule: ELSE IF (= ArticularFace GroovesRest ) THEN (ToddPhase = Ph04-25-26)
-Rule: ELSE (ToddPhase = Ph01-19)
-\end{lstlisting}
 
 \subsubsection{Algoritmo de Bjorczuk con OMAE como función de ajuste}
 
@@ -1467,70 +1220,7 @@ Rule: ELSE IF (= VentralMargin FormedWithoutRarefactions ) THEN (ToddPhase = Ph0
 Rule: ELSE (ToddPhase = Ph01-19)
 \end{lstlisting}
 
-\subsubsection{Algoritmo de Falco original}
 
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|crrrrrr|}
-\hline
-\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Falco con BL-SMOTE \\ y función de fitness por defecto.\end{tabular}}}                                                                                                                                              \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                       & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                                                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}   & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{c|}{4,3018}            & \multicolumn{1}{c|}{4,3628}              & \multicolumn{1}{c|}{4,2885}          & \multicolumn{1}{c|}{0,1718}            & \multicolumn{1}{c|}{0,1421}              & \textbf{0,0729}                    \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{c|}{4,369}             & \multicolumn{1}{c|}{4,4024}              & \multicolumn{1}{c|}{4,2885}          & \multicolumn{1}{c|}{0,1263}            & \multicolumn{1}{c|}{0,1259}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{4,2893}            & \multicolumn{1}{c|}{4,2693}              & \multicolumn{1}{c|}{\textbf{4,2808}} & \multicolumn{1}{c|}{0,1754}            & \multicolumn{1}{c|}{0,1709}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{4,3354}            & \multicolumn{1}{c|}{4,3457}              & \multicolumn{1}{c|}{4,2885}          & \multicolumn{1}{c|}{0,1475}            & \multicolumn{1}{c|}{0,1367}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{4,3767}            & \multicolumn{1}{c|}{4,3711}              & \multicolumn{1}{c|}{4,2885}          & \multicolumn{1}{c|}{0,1254}            & \multicolumn{1}{c|}{0,1295}              & 0,0677                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Media}}  & \multicolumn{1}{c|}{4,3344}           & \multicolumn{1}{c|}{4,3502}             & \multicolumn{1}{c|}{4,2869}         & \multicolumn{1}{c|}{0,1492}           & \multicolumn{1}{c|}{0,1410}             & 0,0687                            \\ \hline
-\end{tabular}%
-}
-\caption{Tabla de resultados de Falco sobre el conjunto con BL-SMOTE con la función de ajuste por defecto.}\label{tablaFALCOconBLSMOTEdefecto}
-
-\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|ccrrrrrrrrrrc|}
-\hline
-\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 3 sobre el conjunto de test con el algoritmo \\ de Falco con BL-SMOTE y función de fitness por defecto.\end{tabular}}}                                                                                                                                                       \\ \hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                      & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                     & \multirow{2}{*}{} \\ \cline{3-12}
-\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9} &                   \\ \hline
-\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C0 = Ph01-19      \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C1 = Ph02-20-21   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C2 = Ph03-22-24   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C3 = Ph04-25-26   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{\textbf{12}} & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C4 = Ph05-27-30   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{\textbf{11}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}}  & C5 = Ph06-31-34   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{\textbf{29}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{1}}  & C6 = Ph07-35-39   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{\textbf{23}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C7 = Ph08-40-44   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{\textbf{25}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{2}}  & C8 = Ph09-45-49   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{\textbf{62}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{7}}  & C9 = Ph10-50-     \\ \hline
-\end{tabular}%
-}
-\caption{Matriz de confusión del fold 3 del cuadro \ref{tablaFALCOconBLSMOTEdefecto}.}
-\end{table}
-
-\begin{lstlisting}
-Rule: IF (OR AND != ArticularFace RidgesFormation AND != ArticularFace RidgesFormation != BonyNodule Absent = ArticularFace GroovesShallow ) THEN (ToddPhase = Ph02-20-21)
-Rule: ELSE IF (= IrregularPorosity Much ) THEN (ToddPhase = Ph10-50-)
-Rule: ELSE IF (NOT OR = UpperSymphysialExtremity Defined = DorsalPlaeau Absent ) THEN (ToddPhase = Ph03-22-24)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph07-35-39)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph06-31-34)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph05-27-30)
-Rule: ELSE IF (= ArticularFace RegularPorosity ) THEN (ToddPhase = Ph01-19)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph09-45-49)
-Rule: ELSE IF (= DorsalPlaeau Absent ) THEN (ToddPhase = Ph08-40-44)
-Rule: ELSE IF (!= DorsalPlaeau Present ) THEN (ToddPhase = Ph04-25-26)
-Rule: ELSE (ToddPhase = Ph01-19)
-\end{lstlisting}
 
 
 \subsubsection{Algoritmo de Falco con OMAE como función de ajuste}
@@ -1600,69 +1290,7 @@ Rule: ELSE (ToddPhase = Ph01-19)
 
 
 
-\subsubsection{Algoritmo de Tan original}
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|crrrrrr|}
-\hline
-\multicolumn{7}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados de Tan con BL-SMOTE \\ y función de fitness por defecto.\end{tabular}}}                                                                                                                                              \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                     & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                                                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}       & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}} \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 1}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}           & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & \textbf{0,3594}                    \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 2}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}           & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,0989}              & 0,3594                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 3}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}           & \multicolumn{1}{c|}{0,0998}            & \multicolumn{1}{c|}{0,1007}              & 0,3594                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 4}} & \multicolumn{1}{c|}{4,4146}            & \multicolumn{1}{c|}{4,4549}              & \multicolumn{1}{c|}{\textbf{4,2}}  & \multicolumn{1}{c|}{0,1003}            & \multicolumn{1}{c|}{0,1007}              & 0,3594                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Fold 5}} & \multicolumn{1}{c|}{4,5}               & \multicolumn{1}{c|}{4,5}                 & \multicolumn{1}{c|}{4,5}           & \multicolumn{1}{c|}{0,0998}            & \multicolumn{1}{c|}{0,1007}              & 0,3594                             \\ \hline
-\multicolumn{1}{|c|}{\textbf{Media}}  & \multicolumn{1}{c|}{4,4829}           & \multicolumn{1}{c|}{4,4909}             & \multicolumn{1}{c|}{4,44}          & \multicolumn{1}{c|}{0,1001}            & \multicolumn{1}{c|}{0,0999}             & 0,3594                             \\ \hline
-\end{tabular}%
-}
-\caption{Tabla de resultados de Tan sobre el conjunto con BL-SMOTE con la función de ajuste por defecto.}\label{tablaTANconBLSMOTEdefecto}
-
-\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|ccrrrrrrrrrrc|}
-\hline
-\multicolumn{13}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Matriz de confusión obtenida en el fold 4 sobre el conjunto de test con el algoritmo \\ de Tan con BL-SMOTE y función de fitness por defecto.\end{tabular}}}                                                                                                                                                         \\ \hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                      & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                     & \multirow{2}{*}{} \\ \cline{3-12}
-\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9} &                   \\ \hline
-\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & C0 = Ph01-19      \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & C1 = Ph02-20-21   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{3}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{2}}  & C2 = Ph03-22-24   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & C3 = Ph04-25-26   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{13}} & C4 = Ph05-27-30   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{12}} & C5 = Ph06-31-34   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{30}} & C6 = Ph07-35-39   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{23}} & C7 = Ph08-40-44   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{27}} & C8 = Ph09-45-49   \\ \cline{2-13}
-\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{69}} & C9 = Ph10-50-     \\ \hline
-\end{tabular}%
-}
-\caption{Matriz de confusión del fold 4 del cuadro \ref{tablaTANconBLSMOTEdefecto}.}
-\end{table}
-
-\begin{lstlisting}
-Rule: IF (AND AND AND = VentralMargin Absent != LowerSymphysialExtremity NotDefined = DorsalPlaeau Present = DorsalPlaeau Present ) THEN (ToddPhase = Ph05-27-30)
-Rule: ELSE IF (= DorsalPlaeau Present ) THEN (ToddPhase = Ph10-50-)
-Rule: ELSE IF (NOT AND AND AND AND = UpperSymphysialExtremity Defined != DorsalPlaeau Present = UpperSymphysialExtremity NotDefined = UpperSymphysialExtremity NotDefined = IrregularPorosity Much ) THEN (ToddPhase = Ph09-45-49)
-Rule: ELSE IF (NOT AND AND AND AND AND = ArticularFace NoGrooves = ArticularFace NoGrooves != UpperSymphysialExtremity NotDefined != UpperSymphysialExtremity Defined != UpperSymphysialExtremity Defined = ArticularFace RidgesAndGrooves ) THEN (ToddPhase = Ph08-40-44)
-Rule: ELSE IF (NOT AND AND AND != UpperSymphysialExtremity Defined != IrregularPorosity Absence = ArticularFace GroovesRest = VentralBevel InProcess ) THEN (ToddPhase = Ph07-35-39)
-Rule: ELSE IF (NOT AND AND NOT = UpperSymphysialExtremity Defined = VentralMargin FormedWithLotRecessesAndProtrusions = BonyNodule Present ) THEN (ToddPhase = Ph06-31-34)
-Rule: ELSE IF (AND AND NOT = ArticularFace RegularPorosity = DorsalPlaeau Absent ) THEN (ToddPhase = Ph04-25-26)
-Rule: ELSE IF (NOT AND AND AND AND != VentralMargin PartiallyFormed = VentralMargin FormedWitFewRarefactions = DorsalPlaeau Absent != BonyNodule Present != VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph02-20-21)
-Rule: ELSE IF (NOT AND NOT AND AND = UpperSymphysialExtremity Defined = BonyNodule Absent = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph01-19)
-Rule: ELSE IF (NOT AND NOT AND AND = UpperSymphysialExtremity Defined = BonyNodule Absent = BonyNodule Absent != VentralMargin Absent ) THEN (ToddPhase = Ph01-19)
-Rule: ELSE (ToddPhase = Ph01-19)
-\end{lstlisting}
 
 
 \subsubsection{Algoritmo de Tan con OMAE como función de ajuste}
