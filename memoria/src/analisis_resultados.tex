@@ -374,15 +374,39 @@ De cara a realizar una comparación con las técnicas del estado del arte se ha 
 	\item TAN-ROS-OMAE.
 \end{itemize}
 
-Se utilizarán los resultados de \cite{NSLVOrdAge}, ya que se tratan de los mejores resultados hasta el momento para el problema, también utilizando un enfoque de clasificación en las diez fases propuestas por Todd. En su propuesta se utilizan los siguientes algoritmos:
+Los mejores resultados del estado del arte son propuestos en \cite{NSLVOrdAge}, sin embargo, debido a que la validación de experimentos es distinta y utilizan un conjunto de datos distinto al solo contar con instancias de hasta sesenta años, mientras que nosotros contamos con más instancias y con un rango de edad mayor, por lo que los resultados no son comparables. De cara a poder comparar los resultados, en este trabajo se han replicado la experimentación que proponen, pero con nuestros conjuntos de datos, estos algoritmos son:
 
 \begin{itemize}
-	\item NSLVOrd\cite{NSLVOrd}: Descubrimiento de reglas para clasificación ordinal utilizando algoritmos evolutivos y la estrategia de cubrimiento secuencial de las observaciones.
-	\item RandomForest: RF100 en la tabla de resultados, al contar con 100 árboles de forma interna.
-	\item Redes neuronales profundas: DNN en la tabla comparativa.
+	\item RandomForest con diez árboles: RF10 en la tabla de resultados.
+	\item RandomForest con cien árboles: RF100 en la tabla de resultados.
+	\item Redes neuronales profundas: DNN en la tabla comparativa. Red neuronal con dos capas ocultas de 64 neuronas cada capa, utilizando una activación ReLu y como optimizador Adam, con una tasa de aprendizaje de $0.003$, $\beta_1 = 0.9$ y $\beta_2 = 0.999$.
 \end{itemize}
 
-Además, también utilizan tanto sobremuestreo aleatorio como BL-SMOTE en sus resultados.
+De cara a no alargar esta sección, ya que se buscan los resultados de estos algoritmos como comparación con los resultados obtenidos, se usará directamente los resultados obtenidos en media de los cinco folds. Los resultados son los siguientes:
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|cccccccc|}
+\hline
+\multicolumn{8}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Resultados obtenidos por las técnicas del estado del arte\\ con nuestros conjuntos de datos\end{tabular}}}                                                                                                                                                                             \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{}}} & \multicolumn{3}{c|}{\textbf{OMAE}}                                                                                        & \multicolumn{3}{c|}{\textbf{Accuracy}}                                                                                    & \multirow{2}{*}{\textbf{N. reglas}} \\ \cline{2-7}
+\multicolumn{1}{|c|}{}                           & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}    & \multicolumn{1}{c|}{\textbf{Training}} & \multicolumn{1}{c|}{\textbf{Validacion}} & \multicolumn{1}{c|}{\textbf{Test}}    &                                     \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF10-ROS}}          & \multicolumn{1}{c|}{1,2965}            & \multicolumn{1}{c|}{1,4465}             & \multicolumn{1}{c|}{\textbf{1,3520}} & \multicolumn{1}{c|}{0,4752}           & \multicolumn{1}{c|}{0,3893}              & \multicolumn{1}{c|}{0,3916}          & \textbf{610,6}                      \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF100-ROS}}         & \multicolumn{1}{c|}{1,2825}            & \multicolumn{1}{c|}{1,4336}             & \multicolumn{1}{c|}{1,3541}          & \multicolumn{1}{c|}{0,4768}           & \multicolumn{1}{c|}{0,3853}             & \multicolumn{1}{c|}{0,3937}           & 6088,2                              \\ \hline
+\multicolumn{1}{|c|}{\textbf{DNN-ROS}}           & \multicolumn{1}{c|}{1,3352}           & \multicolumn{1}{c|}{1,4636}              & \multicolumn{1}{c|}{1,3801}          & \multicolumn{1}{c|}{0,4638}           & \multicolumn{1}{c|}{0,3970}             & \multicolumn{1}{c|}{\textbf{0,3999}} & -                                   \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF10-SMOTE}}        & \multicolumn{1}{c|}{1,1150}           & \multicolumn{1}{c|}{1,1521}              & \multicolumn{1}{c|}{2,0760}          & \multicolumn{1}{c|}{0,4988}           & \multicolumn{1}{c|}{0,4798}             & \multicolumn{1}{c|}{0,2562}          & 666,2                               \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF100-SMOTE}}       & \multicolumn{1}{c|}{1,1148}           & \multicolumn{1}{c|}{1,1470}             & \multicolumn{1}{c|}{2,1374}          & \multicolumn{1}{c|}{0,5000}           & \multicolumn{1}{c|}{0,4816}             & \multicolumn{1}{c|}{0,2478}          & 6655,4                              \\ \hline
+\multicolumn{1}{|c|}{\textbf{DNN-SMOTE}}         & \multicolumn{1}{c|}{1,1161}           & \multicolumn{1}{c|}{1,1661}             & \multicolumn{1}{c|}{2,0520}          & \multicolumn{1}{c|}{0,4922}           & \multicolumn{1}{c|}{0,4618}             & \multicolumn{1}{c|}{0,2572}          & -                                   \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF10-BLSMOTE}}      & \multicolumn{1}{c|}{1,1078}           & \multicolumn{1}{c|}{1,1729}             & \multicolumn{1}{c|}{2,3343}          & \multicolumn{1}{c|}{0,4864}           & \multicolumn{1}{c|}{0,4542}             & \multicolumn{1}{c|}{0,1718}          & 767,4                               \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF100-BLSMOTE}}     & \multicolumn{1}{c|}{1,1041}            & \multicolumn{1}{c|}{1,1604}              & \multicolumn{1}{c|}{2,3374}          & \multicolumn{1}{c|}{0,4884}           & \multicolumn{1}{c|}{0,4604}              & \multicolumn{1}{c|}{0,1739}          & 7726,8                              \\ \hline
+\multicolumn{1}{|c|}{\textbf{DNN-BLSMOTE}}       & \multicolumn{1}{c|}{1,0842}            & \multicolumn{1}{c|}{1,1416}             & \multicolumn{1}{c|}{2,2197}          & \multicolumn{1}{c|}{0,4818}            & \multicolumn{1}{c|}{0,4524}             & \multicolumn{1}{c|}{0,1853}          & -                                   \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+Como podemos ver en esta tabla de resultados, con estas técnicas si utilizamos un sobremuestreo que introduzca instancias sintéticas, como ocurre en SMOTE y BorderlineSMOTE, los algoritmos tienen un gran sobreajuste y los resultados obtenidos en el conjunto de test, donde no hay instancias sintéticas, empeora mucho. Por este motivo para la comparación con nuestros algoritmos utilizaremos los resultados con sobremuestreo aleatorio, ya que son los que mejor se comportan tanto en OMAE como en tasa de acierto:
 
 
 % Please add the following required packages to your document preamble:
@@ -391,24 +415,21 @@ Además, también utilizan tanto sobremuestreo aleatorio como BL-SMOTE en sus re
 \centering
 \begin{tabular}{|cccc|}
 \hline
-\multicolumn{4}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Tabla comparativa de nuestros resultados\\  con el estado del arte\end{tabular}}}          \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}                & \multicolumn{1}{c|}{\textbf{OMAE}}  & \multicolumn{1}{c|}{\textbf{Accuracy}} & \textbf{N. reglas} \\ \hline
-\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}} & \multicolumn{1}{c|}{1,7972}        & \multicolumn{1}{c|}{0,0968}           & \textbf{11}        \\ \hline
-\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}  & \multicolumn{1}{c|}{1,7541}        & \multicolumn{1}{c|}{0,2218}           & \textbf{11}        \\ \hline
-\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}    & \multicolumn{1}{c|}{1,5856}        & \multicolumn{1}{c|}{0,1896}            & 39                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{NSLVOrd-ROS}}     & \multicolumn{1}{c|}{1,337}          & \multicolumn{1}{c|}{0,373}             & 39                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{RF100-ROS}}       & \multicolumn{1}{c|}{1,27}           & \multicolumn{1}{c|}{0,432}             & 11593              \\ \hline
-\multicolumn{1}{|c|}{\textbf{DNN-ROS}}         & \multicolumn{1}{c|}{1,148}          & \multicolumn{1}{c|}{0,34}              & -                  \\ \hline
-\multicolumn{1}{|c|}{\textbf{NSLVOrd-BLSMOTE}} & \multicolumn{1}{c|}{1,285}          & \multicolumn{1}{c|}{0,398}             & 35                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{RF100-BLSMOTE}}   & \multicolumn{1}{c|}{1,146}          & \multicolumn{1}{c|}{\textbf{0,439}}    & 9433               \\ \hline
-\multicolumn{1}{|c|}{\textbf{DNN-BLSMOTE}}     & \multicolumn{1}{c|}{\textbf{1,063}} & \multicolumn{1}{c|}{0,363}             & -                  \\ \hline
+\multicolumn{4}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Comparación de nuestros resultados con las\\ técnicas del estado del arte.\end{tabular}}}    \\ \hline
+\multicolumn{1}{|c|}{\textbf{}}                & \multicolumn{1}{c|}{\textbf{OMAE}}    & \multicolumn{1}{c|}{\textbf{Accuracy}} & \textbf{N. reglas} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}} & \multicolumn{1}{c|}{1,79724}          & \multicolumn{1}{c|}{0,09688}           & \textbf{11}        \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}  & \multicolumn{1}{c|}{1,75414}          & \multicolumn{1}{c|}{0,22186}           & \textbf{11}        \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}    & \multicolumn{1}{c|}{1,58562}          & \multicolumn{1}{c|}{0,1896}            & 39                 \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF10-ROS}}        & \multicolumn{1}{c|}{\textbf{1,35202}} & \multicolumn{1}{c|}{0,39162}           & 610,6              \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF100-ROS}}       & \multicolumn{1}{c|}{1,35412}          & \multicolumn{1}{c|}{0,3937}            & 6088,2             \\ \hline
+\multicolumn{1}{|c|}{\textbf{DNN-ROS}}         & \multicolumn{1}{c|}{1,38016}          & \multicolumn{1}{c|}{\textbf{0,39994}}  & -                  \\ \hline
 \end{tabular}%
 \end{table}
 
 
-Aunque las técnicas utilizadas en este trabajo no llegan a alcanzar los resultados del estado del arte en precisión y OMAE, nuestra propuesta es una solución mucho más sencilla e interpretable, ya que contamos con solo una regla por clase y la regla por defecto, siendo un sistema mucho más simple. Por otro lado, en comparación con el estado del arte, en este caso los resultados del algoritmo de Tan ya no son tan interesantes, ya que vemos como NSLVOrd cuenta con un conjunto de reglas de un tamaño similar, y obtiene unos resultados bastante mejores, y aunque los resultados del algoritmo de Bjorczuk y de Falco son peores, siguen contando con el valor añadido de ser soluciones lo más simples posibles para resolver el problema, lo que en este ámbito donde buscamos un método de aprendizaje automático explicable es de gran interés.
+Aunque las técnicas utilizadas en este trabajo no llegan a alcanzar los resultados del estado del arte en precisión y OMAE, nuestra propuesta es una solución mucho más sencilla e interpretable, ya que contamos con solo una regla por clase y la regla por defecto, siendo un sistema mucho más simple.
 
-Además de los resultados de NSLVOrd, también contamos con los resultados de Random Forest y redes neuronales profundas, que como vemos son los que mejores métricas obtienen tanto en OMAE como en tasa de acierto, sin embargo, como suele ocurrir en la gran mayoría de ocasiones, estos modelos con resultados muy buenos no son nada interpretables. Random Forest ha obtenido un conjunto de $9.433$ reglas, algo que no es viable analizar por un experto y poder obtener conocimiento de dichos resultados, mientras que el modelo de red neuronal profunda, aunque existen formas de analizarlos y explicar el modelo a posteriori como se comenta en \cite{XAI}, sigue siendo un modelo de caja negra.
+Es cierto que los resultados de Random Forest y redes neuronales profundas son los que mejores métricas obtienen tanto en OMAE como en tasa de acierto, sin embargo, como suele ocurrir en la gran mayoría de ocasiones, estos modelos con resultados muy buenos no son nada interpretables. Random Forest ha obtenido un total de $610$ reglas en media, algo que no es viable analizar por un experto y poder obtener conocimiento de dichos resultados, mientras que el modelo de red neuronal profunda, aunque existen formas de analizarlos y explicar el modelo a posteriori como se comenta en \cite{XAI}, sigue siendo un modelo de caja negra.
 
 Con esta comparación podemos ver que, aunque no conseguimos unos resultados competitivos con el estado del arte en OMAE y tasa de acierto, nuestra propuesta es la más competitiva con respecto a la complejidad del modelo final, manteniendo un OMAE bastante bueno, lo que puede ser de gran ayuda en ámbitos donde se busca que estos modelos sean una ayuda a la toma de decisiones y una fuente donde extraer conocimiento, como es el caso de este problema, en lugar de reemplazar al experto.
 
