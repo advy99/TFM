@@ -1,0 +1,50 @@
+File name: ../datos/ROS/fold4.Test.arff
+Runtime (s): 174.734
+Number of different attributes: 9
+Number of rules: 10
+Number of conditions: 32
+Average number of conditions per rule: 3.2
+Accuracy: 0,2145
+OMAE mean: 2,1127
+Geometric mean: 0,0000
+Cohen's Kappa rate: 0,1273
+AUC: 0,7758
+
+#Percentage of correct predictions per class
+ Class Ph01-19: 49,09%
+ Class Ph02-20-21: 50,91%
+ Class Ph03-22-24: 5,45%
+ Class Ph04-25-26: 18,18%
+ Class Ph05-27-30: 9,09%
+ Class Ph06-31-34: 23,64%
+ Class Ph07-35-39: 34,55%
+ Class Ph08-40-44: 0,00%
+ Class Ph09-45-49: 3,64%
+ Class Ph10-50-: 20,00%
+#End percentage of correct predictions per class
+
+#Classifier
+ 1 Rule: IF (AND = DorsalMargin Absent AND = DorsalPlaeau Absent AND = DorsalPlaeau Present AND = DorsalPlaeau Present AND = LowerSymphysialExtremity NotDefined AND = ArticularFace RidgesFormation = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph01-19)
+ 2 Rule: ELSE IF (AND = VentralBevel Present AND != BonyNodule Present != DorsalPlaeau Absent ) THEN (ToddPhase = Ph09-45-49)
+ 3 Rule: ELSE IF (AND = VentralBevel InProcess AND != DorsalMargin Absent AND != ArticularFace RidgesFormation = LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph03-22-24)
+ 4 Rule: ELSE IF (AND = DorsalPlaeau Present = VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph05-27-30)
+ 5 Rule: ELSE IF (AND != DorsalPlaeau Absent = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26)
+ 6 Rule: ELSE IF (OR = VentralMargin FormedWitFewRarefactions AND != DorsalPlaeau Absent AND != ArticularFace RegularPorosity AND = BonyNodule Present AND != LowerSymphysialExtremity NotDefined AND = DorsalMargin Absent = BonyNodule Absent ) THEN (ToddPhase = Ph10-50-)
+ 7 Rule: ELSE IF (OR != DorsalMargin Present OR != BonyNodule Absent = ArticularFace RidgesFormation ) THEN (ToddPhase = Ph02-20-21)
+ 8 Rule: ELSE IF (= VentralBevel InProcess ) THEN (ToddPhase = Ph07-35-39)
+ 9 Rule: ELSE IF (OR != VentralBevel Absent AND = ArticularFace RidgesFormation != IrregularPorosity Absence ) THEN (ToddPhase = Ph06-31-34)
+ 10 Rule: ELSE (ToddPhase = Ph01-19)
+
+#Validation Classification Confusion Matrix
+			Predicted
+			C0	C1	C2	C3	C4	C5	C6	C7	C8	C9	|
+Actual	C0	27	28	0	0	0	0	0	0	0	0	|	C0 = Ph01-19
+		C1	25	28	0	2	0	0	0	0	0	0	|	C1 = Ph02-20-21
+		C2	3	44	3	3	0	0	2	0	0	0	|	C2 = Ph03-22-24
+		C3	21	0	0	10	0	0	24	0	0	0	|	C3 = Ph04-25-26
+		C4	9	0	0	5	5	18	17	0	0	1	|	C4 = Ph05-27-30
+		C5	10	0	0	0	0	13	29	0	0	3	|	C5 = Ph06-31-34
+		C6	14	0	0	1	0	15	19	0	0	6	|	C6 = Ph07-35-39
+		C7	20	0	0	2	0	13	13	0	0	7	|	C7 = Ph08-40-44
+		C8	12	0	0	0	0	21	13	0	2	7	|	C8 = Ph09-45-49
+		C9	9	0	0	0	0	21	14	0	0	11	|	C9 = Ph10-50-
