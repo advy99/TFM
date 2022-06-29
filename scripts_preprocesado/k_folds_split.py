@@ -30,8 +30,6 @@ else:
 
 csv_header = ""
 
-csv_header = ""
-
 with open(conjunto) as archivo_csv:
     # leemos del csv
 	reader = csv.reader(archivo_csv,  delimiter = ',')
@@ -72,7 +70,7 @@ def escribir_datos(salida, X, y):
 X = np.array(X)
 y = np.array(y)
 
-stratified_k_fold = skl.model_selection.StratifiedKFold(n_splits = 5)
+stratified_k_fold = skl.model_selection.StratifiedKFold(n_splits = 5, shuffle = True, random_state = 12345)
 
 base_name = os.path.basename(conjunto)
 
