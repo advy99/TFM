@@ -364,9 +364,9 @@ Este estudio, además de poder comparar los resultados obtenidos, nos deja claro
 
 \newpage
 
-\subsection{Comparación con las técnicas del estado del arte}
+\subsection{Comparación con otras técnicas de aprendizaje automático avanzadas}
 
-De cara a realizar una comparación con las técnicas del estado del arte se ha escogido la ejecución con mejores resultados de cada uno de los algoritmos utilizados:
+En esta sección vamos a realizar una comparación con otras técnicas de aprendizaje automático avanzadas, también utilizadas en otros trabajos del estado del arte. Para esta comparación se ha escogido la ejecución con mejores resultados de cada uno de los algoritmos utilizados:
 
 \begin{itemize}
 	\item BJOR-SMOTE-OMAE.
@@ -374,7 +374,7 @@ De cara a realizar una comparación con las técnicas del estado del arte se ha 
 	\item TAN-ROS-OMAE.
 \end{itemize}
 
-Los mejores resultados del estado del arte son propuestos en \cite{NSLVOrdAge}, sin embargo, debido a que la validación de experimentos es distinta y utilizan un conjunto de datos distinto al solo contar con instancias de hasta sesenta años, mientras que nosotros contamos con más instancias y con un rango de edad mayor, por lo que los resultados no son comparables. De cara a poder comparar los resultados, en este trabajo se han replicado la experimentación que proponen, pero con nuestros conjuntos de datos, estos algoritmos son:
+Se ha decidido realizar esta comparación ya que en otros trabajos del estado del arte, como \cite{NSLVOrdAge}, hay diversos métodos que funcionan bastante bien y obtienen unos buenos resultados, sin embargo, debido a que la validación de experimentos es distinta y utilizan un conjunto de datos distinto, los resultados no son comparables. De cara a poder comparar los resultados obtenidos por estas técnicas, en este trabajo se ha replicado la experimentación que realizamos, pero usando estos algoritmos. En concreto son:
 
 \begin{itemize}
 	\item RandomForest con diez árboles: RF10 en la tabla de resultados.
@@ -383,7 +383,6 @@ Los mejores resultados del estado del arte son propuestos en \cite{NSLVOrdAge}, 
 \end{itemize}
 
 De cara a no alargar esta sección, ya que se buscan los resultados de estos algoritmos como comparación con los resultados obtenidos, se usará directamente los resultados obtenidos en media de los cinco folds. Los resultados son los siguientes:
-
 
 \begin{table}[H]
 \centering
@@ -427,13 +426,21 @@ Como podemos ver en esta tabla de resultados, con estas técnicas si utilizamos 
 \end{table}
 
 
-Aunque las técnicas utilizadas en este trabajo no llegan a alcanzar los resultados del estado del arte en precisión y OMAE, nuestra propuesta es una solución mucho más sencilla e interpretable, ya que contamos con solo una regla por clase y la regla por defecto, siendo un sistema mucho más simple.
+Aunque las técnicas utilizadas en este trabajo no llegan a alcanzar los resultados de técnicas más avanzadas en precisión y OMAE, nuestra propuesta es una solución mucho más sencilla e interpretable, ya que contamos con solo una regla por clase y la regla por defecto, siendo un sistema mucho más simple.
 
 Es cierto que los resultados de Random Forest y redes neuronales profundas son los que mejores métricas obtienen tanto en OMAE como en tasa de acierto, sin embargo, como suele ocurrir en la gran mayoría de ocasiones, estos modelos con resultados muy buenos no son nada interpretables. Random Forest ha obtenido un total de $610$ reglas en media, algo que no es viable analizar por un experto y poder obtener conocimiento de dichos resultados, mientras que el modelo de red neuronal profunda, aunque existen formas de analizarlos y explicar el modelo a posteriori como se comenta en \cite{XAI}, sigue siendo un modelo de caja negra.
 
-Con esta comparación podemos ver que, aunque no conseguimos unos resultados competitivos con el estado del arte en OMAE y tasa de acierto, nuestra propuesta es la más competitiva con respecto a la complejidad del modelo final, manteniendo un OMAE bastante bueno, lo que puede ser de gran ayuda en ámbitos donde se busca que estos modelos sean una ayuda a la toma de decisiones y una fuente donde extraer conocimiento, como es el caso de este problema, en lugar de reemplazar al experto.
+Con esta comparación podemos ver que, aunque no conseguimos unos resultados competitivos con respecto a modelos avanzados a nivel de OMAE y tasa de acierto, nuestra propuesta es la más competitiva con respecto a la complejidad del modelo final, manteniendo un OMAE bastante bueno, lo que puede ser de gran ayuda en ámbitos donde se busca que estos modelos sean una ayuda a la toma de decisiones y una fuente donde extraer conocimiento, como es el caso de este problema, en lugar de reemplazar al experto.
 
 \newpage
+
+\subsection{Comparación con el estado del arte}
+
+
+
+
+\newpage
+
 
 \subsection{Análisis de uso de características}
 
