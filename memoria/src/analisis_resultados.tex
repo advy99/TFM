@@ -416,12 +416,12 @@ Como podemos ver en esta tabla de resultados, con estas técnicas si utilizamos 
 \hline
 \multicolumn{4}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Comparación de nuestros resultados con las\\ técnicas del estado del arte. Resultados en el conjunto de test.\end{tabular}}}    \\ \hline
 \multicolumn{1}{|c|}{\textbf{}}                & \multicolumn{1}{c|}{\textbf{OMAE}}    & \multicolumn{1}{c|}{\textbf{Accuracy}} & \textbf{N. reglas} \\ \hline
-\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}} & \multicolumn{1}{c|}{1,79724}          & \multicolumn{1}{c|}{0,09688}           & \textbf{11}        \\ \hline
-\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}  & \multicolumn{1}{c|}{1,75414}          & \multicolumn{1}{c|}{0,22186}           & \textbf{11}        \\ \hline
-\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}    & \multicolumn{1}{c|}{1,58562}          & \multicolumn{1}{c|}{0,1896}            & 39                 \\ \hline
-\multicolumn{1}{|c|}{\textbf{RF10-ROS}}        & \multicolumn{1}{c|}{\textbf{1,35202}} & \multicolumn{1}{c|}{0,39162}           & 610,6              \\ \hline
-\multicolumn{1}{|c|}{\textbf{RF100-ROS}}       & \multicolumn{1}{c|}{1,35412}          & \multicolumn{1}{c|}{0,3937}            & 6088,2             \\ \hline
-\multicolumn{1}{|c|}{\textbf{DNN-ROS}}         & \multicolumn{1}{c|}{1,38016}          & \multicolumn{1}{c|}{\textbf{0,39994}}  & -                  \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}} & \multicolumn{1}{c|}{1,7972}          & \multicolumn{1}{c|}{0,0968}           & \textbf{11}        \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}  & \multicolumn{1}{c|}{1,7541}          & \multicolumn{1}{c|}{0,2218}           & \textbf{11}        \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}    & \multicolumn{1}{c|}{1,5856}          & \multicolumn{1}{c|}{0,1896}            & 39                 \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF10-ROS}}        & \multicolumn{1}{c|}{\textbf{1,3520}} & \multicolumn{1}{c|}{0,3916}           & 610,6              \\ \hline
+\multicolumn{1}{|c|}{\textbf{RF100-ROS}}       & \multicolumn{1}{c|}{1,3541}          & \multicolumn{1}{c|}{0,3937}            & 6088,2             \\ \hline
+\multicolumn{1}{|c|}{\textbf{DNN-ROS}}         & \multicolumn{1}{c|}{1,3801}          & \multicolumn{1}{c|}{\textbf{0,3999}}  & -                  \\ \hline
 \end{tabular}%
 \end{table}
 
@@ -436,7 +436,261 @@ Con esta comparación podemos ver que, aunque no conseguimos unos resultados com
 
 \subsection{Comparación con el estado del arte}
 
+En esta sección compararemos nuestros resultados con los resultados de \cite{NSLVOrdAge}, ya que se tratan de los mejores resultados del estado del arte tanto en OMAE y tasa de acierto como en interpretabilidad, además de permitirnos comparar las reglas obtenidas ya que también se trata de un conjunto de reglas para clasificación. En este trabajo, utilizando el algoritmo NSLVOrd para obtener un conjunto de reglas, obtienen unos buenos resultados con un conjunto de reglas pequeño, lo que permite que sea interpretable y se pueda extraer conocimiento de la solución propuesta.
 
+Hay que tener en cuenta que esta comparación será aproximada debido a que las condiciones de la experimentación son distintas. En nuestro trabajo se ha dividido el conjunto de datos en entrenamiento y test, y sobre el entrenamiento se ha aplicado una validación cruzada de cinco folds, mientras que en \cite{NSLVOrdAge} se ha entrenado aplicado un 5x2-cv sobre las instancias de la lateralidad izquierda, y se ha usado como conjunto de test las instancias de la lateralidad derecha:
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|cccc|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Comparación de nuestros resultados con NSLVOrd.}}    \\ \hline
+\multicolumn{1}{|c|}{\textbf{}}                & \multicolumn{1}{c|}{\textbf{OMAE}}    & \multicolumn{1}{c|}{\textbf{Accuracy}} & \textbf{N. reglas} \\ \hline
+\multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}} & \multicolumn{1}{c|}{1,7972}          & \multicolumn{1}{c|}{0,0968}           & \textbf{11}        \\ \hline
+\multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}  & \multicolumn{1}{c|}{1,7541}          & \multicolumn{1}{c|}{0,2218}           & \textbf{11}        \\ \hline
+\multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}    & \multicolumn{1}{c|}{\textbf{1,5856}}          & \multicolumn{1}{c|}{0,1896}            & 39                 \\ \hline
+\multicolumn{1}{|c|}{\textbf{NSLVOrd}}        & \multicolumn{1}{c|}{1,754} & \multicolumn{1}{c|}{\textbf{0,298}}           & 34              \\ \hline
+\end{tabular}%
+\end{table}
+
+En este caso, una solución muy parecida en el número de reglas final como es la del algoritmo de Tan obtiene mejores resultados en OMAE, mientras que conseguimos soluciones igual de competitivas a NSLVOrd pero con tan solo once reglas usando los algoritmos de Bjorczuk y de Tan, por lo que el uso de Programación Genética en este problema parece de gran interés.
+
+
+La matriz de confusión de NSLVOrd sobre el conjunto de la lateralidad derecha es el siguiente:
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|ccccccccccccc|}
+\hline
+\multicolumn{13}{|c|}{\textbf{Matriz de confusión obtenida en NSLVOrd. Obtenida de \cite{NSLVOrdAge}}}                                                                                                                                                                                                                                                                                          \\ \hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                      & \multicolumn{10}{c|}{\textbf{Clase predicha}}                                                                                                                                                                                                                     & \multirow{2}{*}{} \\ \cline{3-12}
+\multicolumn{2}{|c|}{}                                                                & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{C9} &                   \\ \hline
+\multicolumn{1}{|c|}{\multirow{10}{*}{\textbf{Clase real}}} & \multicolumn{1}{c|}{C0} & \multicolumn{1}{c|}{\textbf{10}} & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C0 = Ph01-19      \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C1} & \multicolumn{1}{c|}{\textbf{3}}  & \multicolumn{1}{c|}{\textbf{7}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C1 = Ph02-20-21   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C2} & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{\textbf{8}}  & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C2 = Ph03-22-24   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C3} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & C3 = Ph04-25-26   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C4} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{\textbf{26}} & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{\textbf{1}}  & C4 = Ph05-27-30   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C5} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{3}}  & \multicolumn{1}{c|}{\textbf{19}} & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{\textbf{1}}  & C5 = Ph06-31-34   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C6} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{13}} & \multicolumn{1}{c|}{\textbf{28}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{\textbf{2}}  & \multicolumn{1}{c|}{\textbf{24}} & \multicolumn{1}{c|}{\textbf{6}}  & C6 = Ph07-35-39   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C7} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{3}}  & \multicolumn{1}{c|}{\textbf{28}} & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{3}}  & \multicolumn{1}{c|}{\textbf{17}} & \multicolumn{1}{c|}{\textbf{5}}  & C7 = Ph08-40-44   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C8} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{27}} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{39}} & \multicolumn{1}{c|}{\textbf{3}}  & C8 = Ph09-45-49   \\ \cline{2-13}
+\multicolumn{1}{|c|}{}                                      & \multicolumn{1}{c|}{C9} & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{4}}  & \multicolumn{1}{c|}{\textbf{54}} & \multicolumn{1}{c|}{\textbf{1}}  & \multicolumn{1}{c|}{0}  & \multicolumn{1}{c|}{\textbf{5}}  & \multicolumn{1}{c|}{\textbf{70}} & \multicolumn{1}{c|}{\textbf{41}} & C9 = Ph10-50-     \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+Utilizaremos esta matriz de confusión y la obtenida por Tan para comentar y comparar algunos comportamientos a lo largo de la comparación de las reglas.
+
+Tras ver los resultados, vamos a comparar las reglas obtenidas por NSLVOrd y Tan, de cara a comparar las reglas del estado del arte con las de la mejor ejecución.
+
+Las reglas obtenidas por NSLVOrd son:
+
+\begin{lstlisting}
+Phase 01
+
+R0: IF "BonyNodule" IS 'Absent' AND "LowerSymphysialExtremity" IS 'NotDefined' AND "VentralMargin" IS 'Absent'
+	THEN Phase IS Ph01-18-19 with Weight = 0,506
+R5: IF "UpperSymphysialExtremity" IS 'Defined' AND "BonyNodule" IS 'Absent' AND "LowerSymphysialExtremity" IS 'NotDefined' AND "VentralMargin" IS 'Absent'
+	THEN Phase IS Ph01-18-19 with Weight = 0,632
+R6: IF "ArticularFace" IS 'RidgesAndGrooves' AND "UpperSymphysialExtremity" IS 'NotDefined'
+	THEN Phase IS Ph01-18-19 with Weight = 0,580
+R25: IF "ArticularFace" IS 'RidgesAndGrooves' AND "UpperSymphysialExtremity" IS 'NotDefined' AND "DorsalPlateau" IS 'Present'
+	THEN Phase IS Ph01-18-19 with Weight = 1,000
+
+Phase02
+
+R1: IF "ArticularFace" IS ('RidgesAndGrooves' OR 'GroovesShallow') AND "UpperSymphysialExtremity" IS 'Defined' AND "LowerSymphysialExtremity" IS 'NotDefined'
+	THEN Phase IS Ph02-20-21 with Weight = 0,629
+R3: IF "ArticularFace" IS 'GroovesShallow' AND "LowerSymphysialExtremity" IS 'NotDefined'
+	THEN Phase IS Ph02-20-21 with Weight = 0,731
+R4: IF "ArticularFace" IS 'RidgesFormation' AND "DorsalPlateau" IS 'Absent'
+	THEN Phase IS Ph02-20-21 with Weight = 0,700
+R7: IF "ArticularFace" IS ('RegularPorosity' OR 'RidgesFormation' OR 'RidgesAndGrooves' OR 'GroovesShallow') AND "BonyNodule" IS 'Present' AND "DorsalPlateau" IS 'Absent'
+	THEN Phase IS Ph02-20-21 with Weight = 0,718
+R11: IF "ArticularFace" IS ('RidgesAndGrooves' OR 'GroovesShallow') AND "BonyNodule" IS 'Absent' AND "LowerSymphysialExtremity" IS 'NotDefined' AND "DorsalPlateau" IS 'Present'
+	THEN Phase IS Ph02-20-21 with Weight = 0,707
+
+Phase03
+
+R2: IF "BonyNodule" IS 'Present' THEN Phase IS Ph03-22-24 with Weight = 0,674
+R8: IF "ArticularFace" IS ('RidgesFormation' OR 'RidgesAndGrooves' OR 'GroovesRemains') AND "LowerSymphysialExtremity" IS 'Defined' AND "VentralMargin" IS 'Absent'
+	THEN Phase IS Ph03-22-24 with Weight = 1,000
+
+Phase04
+
+R10 : IF "LowerSymphysialExtremity" IS 'NotDefined' AND "VentralBevel" IS 'Absent' AND "VentralMargin" IS 'PartiallyFormed'
+	THEN Phase IS Ph04-25-26 with Weight = 1,000
+R12: IF "ArticularFace" IS ('GroovesShallow' OR 'NoGrooves') AND "UpperSymphysialExtremity" IS 'Defined' AND "BonyNodule" IS 'Absent' AND "DorsalPlateau" IS 'Present'
+	THEN Phase IS Ph04-25-26 with Weight = 0,412
+R17: IF "ArticularFace" IS ('GroovesShallow' OR 'GroovesRemains') AND "VentralBevel" IS ('Absent' OR 'InProcess') AND "VentralMargin" IS ('Absent' OR 'PartiallyFormed')
+	THEN Phase IS Ph04-25-26 with Weight = 0,149
+R21: IF "ArticularFace" IS ('GroovesShallow' OR 'NoGrooves') AND "UpperSymphysialExtremity" IS 'Defined' AND "VentralBevel" IS 'Absent' AND "VentralMargin" IS ('Absent' OR 'PartiallyFormed')
+	THEN Phase IS Ph04-25-26 with Weight = 0,118
+
+Phase05
+
+R16: IF "IrregularPorosity" IS 'Absence' AND "LowerSymphysialExtremity" IS 'Defined' AND "VentralMargin" IS ('PartiallyFormed' OR 'FormedWithoutBonyOutgrowths')
+	THEN Phase IS Ph05-27-30 with Weight = 0,103
+R31: IF "IrregularPorosity" IS 'Medium' AND "VentralBevel" IS ('Absent' OR 'InProcess') AND "VentralMargin" IS ('Absent' OR 'PartiallyFormed')
+	THEN Phase IS Ph05-27-30 with Weight = 0,364
+R34 : IF
+	THEN Phase IS Ph05-27-30 with Weight = 0,038
+
+Phase06
+
+R13: IF "ArticularFace" IS 'NoGrooves' AND "DorsalPlateau" IS 'Present' AND "VentralBevel" IS ('InProcess' OR 'Present')
+	THEN Phase IS Ph06-31-34 with Weight = 0,556
+R18: IF "ArticularFace" IS 'GroovesRemains' AND "IrregularPorosity" IS 'Absence' AND "VentralBevel" IS 'Present' AND "VentralMargin" IS ('Absent' OR 'PartiallyFormed')
+	THEN Phase IS Ph06-31-34 with Weight = 0,556
+R20: IF "IrregularPorosity" IS 'Medium' AND "VentralBevel" IS 'Absent' AND "VentralMargin" IS 'PartiallyFormed'
+	THEN Phase IS Ph06-31-34 with Weight = 0,692
+
+Phase07
+
+R26: IF "IrregularPorosity" IS 'Much' AND "VentralMargin" IS ('Absent' OR 'PartiallyFormed')
+	THEN Phase IS Ph07-35-39 with Weight = 1,000
+R29 : IF "ArticularFace" IS 'NoGrooves' AND "VentralBevel" IS ('InProcess' OR 'Present') AND "VentralMargin" IS 'Absent'
+	THEN Phase IS Ph07-35-39 with Weight = 1,000
+
+Phase08
+
+R15: IF "ArticularFace" IS 'GroovesRemains' AND "VentralBevel" IS ('InProcess' OR 'Present') AND "VentralMargin" IS 'FormedWithFewBonyOutgrowths'
+	THEN Phase IS Ph08-40-44 with Weight = 0,263
+R19: IF "IrregularPorosity" IS 'Medium' AND "VentralBevel" IS 'Absent' AND "VentralMargin" IS ('PartiallyFormed' OR 'FormedWithFewBonyOutgrowths')
+	THEN Phase IS Ph08-40-44 with Weight = 0,235
+R28: IF "IrregularPorosity" IS 'Medium' AND "VentralBevel" IS 'Present' AND "VentralMargin" IS 'PartiallyFormed'
+	THEN Phase IS Ph08-40-44 with Weight = 1,000
+
+Phase09
+
+R9: IF "IrregularPorosity" IS 'Medium' AND "VentralMargin" IS ('FormedWithoutBonyOutgrowths' OR 'FormedWithFewBonyOutgrowths')
+	THEN Phase IS Ph09-45-49 with Weight = 0,200
+R14 : IF "ArticularFace" IS 'NoGrooves' AND "DorsalPlateau" IS 'Present' AND "VentralBevel" IS ('Absent' OR 'InProcess')
+	THEN Phase IS Ph09-45-49 with Weight = 0,667
+R24 : IF "ArticularFace" IS ('GroovesShallow' OR 'GroovesRemains') AND "DorsalPlateau" IS 'Present' AND "VentralBevel" IS 'Present'
+	THEN Phase IS Ph09-45-49 with Weight = 0,667
+R30: IF "ArticularFace" IS 'GroovesRemains' AND "VentralBevel" IS 'Absent' AND " VentralMargin" IS 'FormedWithFewBonyOutgrowths'
+	THEN Phase IS Ph09-45-49 with Weight = 1,000
+
+Phase10
+
+R22: IF "IrregularPorosity" IS 'Much'
+	THEN Phase IS Ph10-50+ with Weight = 0,228
+R23: IF "VentralBevel" IS 'Absent' AND "VentralMargin" IS 'FormedWithFewBonyOutgrowths'
+	THEN Phase IS Ph10-50+ with Weight = 0,714
+R27: IF "IrregularPorosity" IS ('Absence' OR 'Medium') AND "VentralMargin" IS ' FormedWithRecessesAndProtrusions'
+	THEN Phase IS Ph10-50+ with Weight = 1,000
+R32: IF "DorsalPlateau" IS 'Absent' AND "VentralMargin" IS ('FormedWithFewBonyOutgrowths' OR 'FormedWithRecessesAndProtrusions')
+	THEN Phase IS Ph10-50+ with Weight = 0,198
+\end{lstlisting}
+
+Por otro lado, las reglas obtenidas por Tan son:
+
+\begin{lstlisting}
+Rule: IF (NOT != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph01-19)
+Rule: ELSE IF (AND NOT AND AND AND = LowerSymphysialExtremity Defined != IrregularPorosity Much != DorsalPlaeau Present = DorsalPlaeau Absent = VentralBevel Absent ) THEN (ToddPhase = Ph02-20-21)
+Rule: ELSE IF (AND NOT AND NOT = DorsalPlaeau Present = VentralBevel Present != LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph03-22-24)
+Rule: ELSE IF (AND AND AND = LowerSymphysialExtremity Defined != UpperSymphysialExtremity NotDefined = IrregularPorosity Medium != LowerSymphysialExtremity NotDefined ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (AND AND AND NOT AND AND != LowerSymphysialExtremity Defined = LowerSymphysialExtremity Defined = UpperSymphysialExtremity NotDefined = VentralMargin FormedWitFewRarefactions = LowerSymphysialExtremity Defined = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (!= IrregularPorosity Absence ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND AND = UpperSymphysialExtremity Defined != ArticularFace GroovesShallow = IrregularPorosity Medium ) THEN (ToddPhase = Ph08-40-44)
+Rule: ELSE IF (AND AND NOT AND AND != VentralMargin FormedWithLotRecessesAndProtrusions = ArticularFace GroovesRest != LowerSymphysialExtremity NotDefined != LowerSymphysialExtremity NotDefined = VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND NOT AND AND AND NOT != BonyNodule Present = VentralBevel InProcess = UpperSymphysialExtremity NotDefined = VentralBevel Present ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (AND AND AND AND NOT AND AND = BonyNodule Present = UpperSymphysialExtremity Defined != ArticularFace RidgesAndGrooves != BonyNodule Present = IrregularPorosity Absence = VentralMargin Absent = UpperSymphysialExtremity Defined ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (AND  AND AND NOT AND NOT = BonyNodule Absent = IrregularPorosity Much != IrregularPorosity Much = ArticularFace GroovesRest = VentralBevel Present ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (= VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE IF (AND AND AND AND != IrregularPorosity Much != DorsalPlaeau Absent = ArticularFace NoGrooves = DorsalPlaeau Present != ArticularFace RidgesFormation ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (AND AND AND AND AND AND NOT != DorsalPlaeau Present = DorsalPlaeau Present != IrregularPorosity Medium != ArticularFace GroovesRest = UpperSymphysialExtremity Defined != BonyNodule Present != VentralBevel Absent ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE IF (AND AND AND AND AND AND NOT = VentralBevel Absent = UpperSymphysialExtremity Defined != IrregularPorosity Medium != VentralBevel Absent = VentralMargin FormedWithoutRarefactions != VentralBevel InProcess != DorsalPlaeau Present ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE IF (NOT AND NOT AND AND NOT AND = DorsalPlaeau Present = VentralMargin FormedWithLotRecessesAndProtrusions = UpperSymphysialExtremity NotDefined = LowerSymphysialExtremity Defined != VentralMargin PartiallyFormed ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (AND AND AND AND AND = BonyNodule Absent != VentralMargin FormedWithLotRecessesAndProtrusions = VentralBevel InProcess = IrregularPorosity Much = VentralBevel InProcess ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (AND AND AND AND = ArticularFace NoGrooves = VentralBevel Present != BonyNodule Present = BonyNodule Absent = VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (AND AND AND AND AND != BonyNodule Present = VentralBevel InProcess != IrregularPorosity Much != IrregularPorosity Medium != IrregularPorosity Much ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE IF (AND AND AND NOT AND AND AND = UpperSymphysialExtremity Defined != IrregularPorosity Medium = ArticularFace NoGrooves != BonyNodule Absent = VentralMargin PartiallyFormed = UpperSymphysialExtremity Defined != IrregularPorosity Much ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (AND AND NOT AND AND AND AND NOT = DorsalPlaeau Present = UpperSymphysialExtremity Defined != BonyNodule Absent != VentralBevel Absent != UpperSymphysialExtremity Defined = VentralBevel InProcess != VentralMargin FormedWitFewRarefactions ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (AND AND AND != DorsalPlaeau Absent != LowerSymphysialExtremity NotDefined != DorsalPlaeau Absent = LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph08-40-44)
+Rule: ELSE IF (AND AND AND = ArticularFace NoGrooves != DorsalPlaeau Present != VentralBevel InProcess ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (AND AND AND AND NOT AND AND != IrregularPorosity Much = VentralMargin PartiallyFormed != UpperSymphysialExtremity Defined = BonyNodule Absent != VentralMargin FormedWithoutRarefactions = VentralBevel InProcess = BonyNodule Absent ) THEN (ToddPhase = Ph03-22-24)
+Rule: ELSE IF (AND AND AND AND = LowerSymphysialExtremity Defined = VentralMargin PartiallyFormed = IrregularPorosity Absence != DorsalPlaeau Present = DorsalPlaeau Absent ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (AND AND NOT = IrregularPorosity Much != VentralMargin FormedWithLotRecessesAndProtrusions = VentralMargin FormedWithoutRarefactions ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE IF (AND AND AND != IrregularPorosity Much != IrregularPorosity Much != LowerSymphysialExtremity NotDefined != ArticularFace RegularPorosity ) THEN (ToddPhase = Ph06-31-34)
+Rule: ELSE IF (= LowerSymphysialExtremity Defined ) THEN (ToddPhase = Ph08-40-44)
+Rule: ELSE IF (AND AND AND AND NOT != VentralBevel Absent != IrregularPorosity Much = UpperSymphysialExtremity Defined = DorsalPlaeau Absent != IrregularPorosity Much ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND AND AND NOT AND = ArticularFace GroovesShallow = LowerSymphysialExtremity Defined != VentralBevel InProcess = LowerSymphysialExtremity Defined != DorsalPlaeau Present ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND AND NOT AND != IrregularPorosity Much != VentralMargin FormedWithoutRarefactions != IrregularPorosity Medium != VentralMargin FormedWithLotRecessesAndProtrusions ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (NOT AND NOT AND != VentralMargin Absent = UpperSymphysialExtremity NotDefined != IrregularPorosity Medium ) THEN (ToddPhase = Ph05-27-30)
+Rule: ELSE IF (AND AND AND != VentralBevel Absent = LowerSymphysialExtremity Defined != IrregularPorosity Much = VentralBevel InProcess ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND AND NOT AND AND = UpperSymphysialExtremity Defined = ArticularFace RidgesFormation != IrregularPorosity Medium = IrregularPorosity Absence = IrregularPorosity Absence ) THEN (ToddPhase = Ph04-25-26)
+Rule: ELSE IF (AND AND NOT = UpperSymphysialExtremity NotDefined = DorsalPlaeau Present != DorsalPlaeau Absent ) THEN (ToddPhase = Ph10-50-)
+Rule: ELSE IF (AND AND AND != VentralBevel InProcess = BonyNodule Absent != VentralMargin FormedWithoutRarefactions = IrregularPorosity Absence ) THEN (ToddPhase = Ph09-45-49)
+Rule: ELSE IF (NOT AND AND NOT != BonyNodule Present != UpperSymphysialExtremity NotDefined != BonyNodule Absent ) THEN (ToddPhase = Ph07-35-39)
+Rule: ELSE (ToddPhase = Ph01-19)
+\end{lstlisting}
+
+La principal diferencia que vemos es en el motor de inferencia. En el resultado dado por el algoritmo de Tan son reglas ordenadas, que se han de resolver en orden. Si la primera regla no se dispara con un ejemplo, se pasa a la segunda, y así hasta que encontremos una regla que se dispare, devolviendo como resultado la clase del consecuente, hasta llegar a la última regla, la regla por defecto. Por otro lado, NSLVOrd devuelve un conjunto de reglas en el que, para una instancia, el antecedente puede ser verdadero para múltiples reglas, pero en lugar de resolver este caso escogiendo las reglas de forma ordenada se escogerá la regla con un mayor peso asociado.
+
+Sabiendo como funcionan cada solución obtenida, vamos a analizar las reglas ordenadas por mayor peso de cada clase de NSLVOrd, y ver si vemos comportamientos similares con las reglas obtenidas por Tan.
+
+Comenzando por las reglas de la primera clase, Ph01-18-19, existe una regla con un peso de $1.0$, esa regla utiliza los atributos \texttt{ArticularFace}, \texttt{UpperSymphysialExtremity} y \texttt{DorsalPlaeau}, con las condiciones de que estos atributos tengan los valores \texttt{RidgesAndGrooves}, \texttt{NotDefined} y \texttt{Present} respectivamente. Por otro lado, vemos que en las reglas de Tan solo existen dos reglas para la primera fase, la primera regla de todas, cuyo único antecedente es que \texttt{LowerSymphysialExtremity} sea \texttt{NotDefined} y la regla por defecto, al final del conjunto de reglas, aunque sin embargo es capaz de clasificar bastante bien las instancias de la primera fase. En esta fase también podemos observar que las reglas de NSLVOrd si hay ocasiones donde utilizan \texttt{LowerSymphysialExtremity}, y al igual que el algoritmo de Tan, con el valor \texttt{NotDefined}. Ambos algoritmos llegan a la conclusión de que este valor es relevante para la primera fase.
+
+Para la segunda clase, Ph02-20-21, el algoritmo de Tan devuelve tan solo una única regla, la segunda de la lista. Esta regla se lanza si:
+
+\begin{enumerate}
+	\item No se cumple que:
+		\begin{enumerate}
+			\item \texttt{LowerSymphysialExtremity} sea \texttt{Defined}
+			\item \texttt{IrregularPorosity} no sea \texttt{Much}
+			\item \texttt{DorsalPlateau} no sea \texttt{Present}
+			\item \texttt{DorsalPlateau} sea \texttt{Absent}
+		\end{enumerate}
+	\item Y además \texttt{VentralBevel} sea \texttt{Absent}.
+\end{enumerate}
+
+Podemos ver que aunque \texttt{IrregularPorosity} y \texttt{VentralBevel} no son usados por NSLVOrd en esta fase, tanto \texttt{LowerSymphysialExtremity} y \texttt{DorsalPlateau} se usan con los mismos valores, cuando toman el valor de \texttt{NotDefined} y \texttt{Present} respectivamente. Otro detalle que también podemos observar con esta regla, es que las reglas obtenidas por Tan podrían reducirse, ya que sabemos que \texttt{DorsalPlateau} solo tiene dos valores, \texttt{Absent} y \texttt{Present}, luego es redundante decir que sea \texttt{Present} y a la vez que no sea \texttt{Absent}.
+
+También podemos ver que NSLVOrd en todos los casos utiliza \texttt{ArticularFace}, pidiendo que cuente principalmente con los valores \texttt{RidgesAndGrooves} o bien \texttt{GroovesShallow}. Con el análisis de fases de más adelante veremos si Tan utiliza estos valores para fases más avanzadas, o bien no lo tiene en cuenta.
+
+Para la tercera clase, Ph03-22-24, tanto nuestra propuesta como NSLVOrd obtienen dos reglas. La regla con más peso de NSLVOrd, la regla R8 con un peso de $1.0$, utiliza \texttt{ArticularFace} con tres de sus valores, \texttt{RidgesFormation}, \texttt{RidgesAndGrooves} o \texttt{GroovesRemains}, también usa la variable \texttt{LowerSymphysialExtremity} con el valor \texttt{Defined} y por último \texttt{VentralMargin} con el valor \texttt{Absent}. En este caso ya podemos encontrar algunas diferencias más claras con el algoritmo de Tan, comenzando por la ausencia tanto de \texttt{ArticularFace} y \texttt{VentralMargin}. Además, el único atributo en común, \texttt{LowerSymphysialExtremity}, lo utilizan con valores contrarios, mientras que NSLVOrd pide el valor \texttt{Defined}, la regla obtenida por el algoritmo de Tan pide que no tome dicho valor. Si miramos la matriz de confusión obtenida en los resultados de Tan, vemos que esto seguramente sea un problema del algoritmo de Tan, ya que esta clase no parece clasificar de forma correcta ninguna instancia del conjunto de test.
+
+Con respecto a la otra regla tanto de NSLVOrd como de Tan, en el caso de NSLVOrd tan solo utiliza \texttt{BonyNodule} con el valor \texttt{Present}, mientras que el algoritmo de Tan se utilizan más atributos y valores similares a los comentados, pero también \texttt{BonyNodule} con el valor \texttt{Present}, por lo que podemos pensar que si \texttt{BonyNodule} toma este valor, es bastante probable que sea de esta clase, sin embargo tenemos que tomar esta asunción con precaución, ya que el peso de la regla en NSLVOrd es de un $0.6$, y en el caso del algoritmo de Tan esta regla es la número 24 de 38, luego esto no ocurrirá en todas las instancias y no será un atributo que discrimine muy bien las clases.
+
+En la cuarta clase, Ph04-25-26, de nuevo tanto Tan como NSLVOrd obtienen el mismo número de reglas, cuatro, aunque es cierto que muchas de las reglas de NSLVOrd tienen pesos muy bajos (tres de las cuatro reglas tienen un peso menor a $0.41$), mientras que únicamente una regla tiene un peso muy alto, de $1.0$.
+
+La regla con mayor peso de NSLVOrd es bastante simple, teniendo como antecedente únicamente los atributos \texttt{LowerSymphysialExtremity}, \texttt{VentralBevel} y \texttt{VentralMargin} con los valores \texttt{NotDefined}, \texttt{Absent} y \texttt{PartiallyFormed} respectivamente. Si comparamos estos valores con las reglas de Tan, vemos como la primera regla de esta clase que aparece no tiene en común ningún atributo, a excepción de \texttt{VentralMargin}, que aparece con un valor distinto, \texttt{Absent}, aunque cercano dentro de los posibles valores de este atributo. En el resto de reglas ocurre lo mismo, y no llegan a tener atributos similares. Estas diferencias que observamos también pueden explicar las diferencias que vemos en la matriz de confusión de ambos algoritmos, donde el algoritmo de Tan apenas clasifica instancias en esta clase, mientras que NSLVOrd si que incluye muchas más instancias, incluso equivocándose bastante.
+
+Para la quinta clase, Ph05-27-30, en NSLVOrd nos encontramos con tres reglas, siendo una de ellas la regla por defecto, y las otras dos reglas con muy poco peso, un $0.103$ y $0.364$. Por otro lado el algoritmo de Tan devuelve cinco reglas para esta fase. La regla con más prioridad en los resultados de Tan regla número doce en el sistema de reglas completo, y se trata de una regla muy simple, que \texttt{VentralMargin} tome el valor de \texttt{PartiallyFormed}. Esto concuerda con las reglas de NSLVOrd, donde en todos los casos este atributo puede tomar este valor, aunque NSLVOrd es más permisivo y permite también \texttt{PartiallyFormed} en la segunda regla y \texttt{FormedWithoutBonyOutgrowths} en la primera. Con respecto al resto de reglas, la única similitud que llama más la atención es que también aparece \texttt{VentralBevel} con el valor \texttt{InProcess} en el algoritmo de Tan, como en la regla con mayor peso de NSLVOrd, y que el algoritmo de Tan solo utiliza \texttt{IrregularPorosity} para identificar que las instancias de esta fase no toman el valor de \texttt{Medium}, mientras que en las dos reglas de NSLVOrd toman el valor de \texttt{Absent} en la regla con menor peso y \texttt{Medium} en la regla con mayor peso.
+
+Si observamos la matriz de confusión para ambos algoritmos en esta clase, vemos que es una clase en la que ambos confunden muchas instancias de otras clases como si fueran de esta fase. Con la propuesta de NSLVOrd puede ser que se deba a la regla por defecto, y que muchas instancias no se vean cubiertas por el resto de reglas, sin embargo con el algoritmo de Tan son fallos que tiene al cubrir instancias que no debería. Habría que estudiar más en profundidad si con NSLVOrd es el mismo comportamiento que el del algoritmo de Tan, o por el contrario es la regla por defecto.
+
+
+En la sexta clase, Ph06-31-34, vemos como NSLVOrd obtiene tres reglas, donde principalmente se usan los atributos \texttt{ArticularFace}, \texttt{IrregularPorosity} y \texttt{VentralBevel}. El algoritmo de Tan obtiene seis reglas para dicha clase, en las que vemos que tiene bastantes cosas en común con los resultados de NSLVOrd, por ejemplo en \texttt{IrregularPorosity}, donde el algoritmo de Tan suele tener la condición de que su valor no sea \texttt{Much}, y NSLVOrd aparecen las condiciones de que sea \texttt{Absence} o \texttt{Medium}, los otros posibles valores. También ocurre con \texttt{VentralBevel}, que ambos coinciden en que tiene que ser \texttt{Present} o \texttt{PartiallyFormed}.
+
+Aunque encontremos estas similitudes también encontramos algunas diferencias, principalmente que el algoritmo de Tan también utiliza en la mayor parte de las reglas el atributo \texttt{BonyNodule}, en concreto con el valor \texttt{Absent}.
+
+En la séptima clase, Ph07-35-39, NSLVOrd solo encuentra dos reglas, pero con un peso de $1.0$ en ambos casos, por lo que si encuentra instancias que disparen esta regla, tiene muy claro que se trata de esta clase. El algoritmo de Tan tan solo encuentra una regla, y es la última de todas, sin contar la regla por defecto.
+
+La regla obtenida por Tan necesita que \texttt{BonyNodule} sea \texttt{Present}, y \texttt{UpperSymphysialExtremity} sea \texttt{NotDefined}. Estas condiciones no tienen nada que ver con las reglas obtenidas por NSLVOrd, donde se comprueba el atributo \texttt{VentralMargin} en ambas reglas, \texttt{IrregularPorosity} en la primera y \texttt{ArticularFace} junto a \texttt{VentralBevel} en la segunda.
+
+Aunque puede parecer un comportamiento un poco raro, al comprobar la matriz de confusión de ambos resultados observamos que el algoritmo de Tan no clasifica ninguna instancia como de la séptima clase, algo esperable al tener unas condiciones tan simples y estar al final de la lista de reglas, mientras que NSLVOrd clasifica muy pocas instancias, tan solo dos, fallando la mayoría, motivo por el que las reglas tenían un peso tan alto, no son capaces de generalizar las instancias de esta clase. Es normal que no encontremos muchas semejanzas en estas reglas, ya que ningún algoritmo ha sido capaz de manejar correctamente las instancias de esta clase.
+
+Con la octava clase, Ph08-40-44, ocurre algo muy similar que en la clase anterior. Para empezar, rápidamente podemos ver que de las tres reglas de NSLVOrd, dos de ellas, R19 y R28, son muy similares y sin embargo la diferencia de peso es muy distinta, con un peso de $0.235$ la primera regla y $1.0$ la segunda. Las diferencias son en \texttt{VentralBevel}, donde toma el valor contrario en la primera regla, y en \texttt{VentralMargin}, donde en la primera regla además de permitir el valor \texttt{PartiallyFormed} también permite \texttt{FormedWithFewBonyOutgrowths}. Esta generalización tan pequeña afecta bastante al peso de la regla, sumado a los valores de la matriz de confusión, donde la mayoría de las pocas predicciones de esta clase son errores, podemos concluir que esta clase es también muy difícil de clasificar para NSLVOrd.
+
+Los resultados de Tan para esta clase son muy claros, obtiene tres reglas, sin embargo no llega a cubrir ninguna instancia del conjunto de test con estas reglas, por lo que también llegamos a la conclusión de que para el algoritmo de Tan es muy difícil manejar esta clase. Aun con estos resultados, las reglas no tienen atributos comunes con las reglas de NSLVOrd, y en este caso el algoritmo de Tan se centra en todas las reglas en que el atributo \texttt{LowerSymphysialExtremity} sea \texttt{Defined}.
+
+
+En la clase Ph09-45-49 podemos ver que tanto el algoritmo de Tan como NSLVOrd cubren muchas instancias, sin embargo la mayoría son errores con otras clases cercanas. Si analizamos las reglas de NSLVOrd vemos que la mayoría son contradictorias, en algunas nos encontramos el atributo \texttt{VentralBevel} con valor \texttt{Absent} y en otras \texttt{Present}, el atributo \texttt{VentralMargin} también con varios valores, o \texttt{ArticularFace} con \texttt{GroovesShallow}, \texttt{GroovesRemains} o \texttt{NoGrooves}. El que estas reglas sean tan generales puede estar causando que tantas observaciones sean predichas como estas clases, y, aunque a priori pueda parecer algo malo, si sumamos esto a las pocas instancias clasificadas por las anteriores clases, en realidad estas reglas nos están describiendo las clases de fases altas, aunque no están distinguiendo como tal dentro de las clases altas, así que si podemos extraer algo de información de estas reglas. Con el algoritmo de Tan esto también ocurre, nos encontramos con reglas en las que se utilizan varias veces los mismos atributos con valores cercanos, pero diferentes, lo que hace que sean reglas que cubren muchas instancias de las clases altas.
+
+
+Por último, para la clase final, Ph10-50-, ocurre exactamente al igual que con la anterior en ambos casos, tanto en Tan como en NSLVOrd son reglas demasiado generales que cubren demasiadas instancias, aunque todas ellas de clases altas. Es más, podemos ver que incluso muchas de las reglas son muy similares a las de la novena clase, mostrando aún más el solapamiento que existe entre las clases de fases altas, y lo difícil que es tomar una decisión con estas instancias.
+
+
+Con esta comparación con el estado del arte podemos ver que los algoritmos propuestos tienen, en principio y aunque habría que realizar más experimentaciones en igualdad de condiciones, un mejor comportamiento al esperado por otras técnicas similares. Además también nos ha ayudado a ver que los problemas de clasificar clases altas no son exclusivos de utilizar Programación Genética para aprender las reglas, si no que en este problema distinguir las fases más altas es muy complicado, mientras que las fases bajas son más fáciles de clasificar, y ambos algoritmos proponen reglas similares para estos casos.
 
 
 \newpage
