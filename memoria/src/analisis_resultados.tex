@@ -708,7 +708,7 @@ Otro de los estudios de interés dentro de este problema es si realmente las die
 \begin{tabular}{|ccccccccccc|}
 \hline
 \multicolumn{11}{|c|}{\textbf{Uso de características de las mejores ejecuciones escogidas}}                                                                                                                                                                                                                                                                                                                                                     \\ \hline
-\multicolumn{1}{|c|}{\textbf{}}                     & \multicolumn{1}{c|}{\textbf{$x_0$}} & \multicolumn{1}{c|}{\textbf{$x_1$}} & \multicolumn{1}{c|}{\textbf{$x_2$}} & \multicolumn{1}{c|}{\textbf{$x_3$}} & \multicolumn{1}{c|}{\textbf{$x_4$}} & \multicolumn{1}{c|}{\textbf{$x_5$*}} & \multicolumn{1}{c|}{\textbf{$x_6$}} & \multicolumn{1}{c|}{\textbf{$x_7$}} & \multicolumn{1}{c|}{\textbf{$x_8$}} & \textbf{N. total de caraterísticas} \\ \hline
+\multicolumn{1}{|c|}{\textbf{}}                     & \multicolumn{1}{c|}{\textbf{$x_0$}} & \multicolumn{1}{c|}{\textbf{$x_1$}} & \multicolumn{1}{c|}{\textbf{$x_2$}} & \multicolumn{1}{c|}{\textbf{$x_3$}} & \multicolumn{1}{c|}{\textbf{$x_4$}} & \multicolumn{1}{c|}{\textbf{$x_5$*}} & \multicolumn{1}{c|}{\textbf{$x_6$}} & \multicolumn{1}{c|}{\textbf{$x_7$}} & \multicolumn{1}{c|}{\textbf{$x_8$}} & \textbf{Total} \\ \hline
 \multicolumn{1}{|c|}{\textbf{BJOR-SMOTE-OMAE}}      & \multicolumn{1}{c|}{4}              & \multicolumn{1}{c|}{5}              & \multicolumn{1}{c|}{2}              & \multicolumn{1}{c|}{3}              & \multicolumn{1}{c|}{3}              & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{4}              & \multicolumn{1}{c|}{3}              & 24                                  \\ \hline
 \multicolumn{1}{|c|}{\textbf{FALCO-ROS-OMAE}}       & \multicolumn{1}{c|}{12}             & \multicolumn{1}{c|}{8}              & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{2}              & \multicolumn{1}{c|}{7}              & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{1}              & \multicolumn{1}{c|}{8}              & \multicolumn{1}{c|}{13}             & 51                                  \\ \hline
 \multicolumn{1}{|c|}{\textbf{TAN-ROS-OMAE}}         & \multicolumn{1}{c|}{13}             & \multicolumn{1}{c|}{31}             & \multicolumn{1}{c|}{19}             & \multicolumn{1}{c|}{16}             & \multicolumn{1}{c|}{20}             & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{19}             & \multicolumn{1}{c|}{22}             & \multicolumn{1}{c|}{21}             & 161                                 \\ \hline
@@ -716,12 +716,15 @@ Otro de los estudios de interés dentro de este problema es si realmente las die
 \multicolumn{1}{|c|}{\textbf{\% respecto al total}} & \multicolumn{1}{c|}{12,29\%}        & \multicolumn{1}{c|}{18,64\%}        & \multicolumn{1}{c|}{8,90\%}         & \multicolumn{1}{c|}{8,90\%}         & \multicolumn{1}{c|}{12,71\%}        & \multicolumn{1}{c|}{0,00\%}         & \multicolumn{1}{c|}{8,47\%}         & \multicolumn{1}{c|}{14,41\%}        & \multicolumn{1}{c|}{15,68\%}        &                                     \\ \hline
 \end{tabular}%
 }
-\caption{Uso de características de los clasificadores de las mejores ejecuciones.\\ \textbf{*} La variable $x_5$, \texttt{DorsalMargin}, fue eliminada en el preprocesamiento ya que solamente tomaba un valor.} \label{tablaUsoCaracteristicas}
+\caption{Uso de características de los clasificadores de las mejores ejecuciones.\\ \textbf{*} La variable $x_5$, \texttt{DorsalMargin}, se eliminó en el preprocesamiento pues sólo tomaba un valor.} \label{tablaUsoCaracteristicas}
 \end{table}
+
+\vspace{-0.75cm}
 
 Donde:
 
 \begin{itemize}
+	\setlength\itemsep{-0.1cm}
 	\item $x_0$ es la característica \texttt{ArticularFace}.
 	\item $x_1$ es la característica \texttt{IrregularPorosity}.
 	\item $x_2$ es la característica \texttt{UpperSymphysialExtremity}.
@@ -735,7 +738,7 @@ Donde:
 
 Lo primero que podemos observar en la tabla \ref{tablaUsoCaracteristicas} es que el algoritmo de Bjorczuk es el que menos veces utiliza las características en las reglas, tan solo 24 veces, mientras que el algoritmo de Falco duplica ese valor con 51 apariciones, y el algoritmo de Tan triplica el uso de Falco, con 161 apariciones. Era de esperar que el algoritmo de Tan usara más característica al contar con un conjunto de reglas mucho más grande.
 
-En nuestros resultados la variable más usada es \texttt{IrregularPorosity}, seguida por \texttt{VentralMargin}, con porcentajes de aparición de más de un $15\%$ con respecto al total. Claramente podemos distinguir en dos grupos los predictores más y menos utilizados, ya que contamos con cuatro variables con menos de un $9\%$ de uso con respecto al total de características, un total del $26,27\%$, mientras que las otras cinco características cuentan con un uso de más del $12\$$, si contamos el total, un $73,73\%$. Es decir, solo la mitad de características son utilizadas son utilizadas casi tres de cada cuatro veces que se usa una característica.
+En nuestros resultados la variable más usada es \texttt{IrregularPorosity}, seguida por \texttt{VentralMargin}, con porcentajes de aparición de más de un $15\%$ con respecto al total. Claramente podemos distinguir en dos grupos los predictores más y menos utilizados, ya que contamos con cuatro variables con menos de un $9\%$ de uso con respecto al total de características, un total del $26,27\%$, mientras que las otras cinco características cuentan con un uso de más del $12\$$, si contamos el total, un $73,73\%$. Es decir, solo la mitad de características se usan casi tres de cada cuatro veces.
 
 Claramente en este problema hay características que son utilizadas con una mayor frecuencia, y que seguramente tengan una mayor relevancia en la toma de decisiones. Esto concuerda con lo discutido en el estado del arte, donde varias propuestas reducían el número de predictores utilizados de nueve a cinco, como en \cite{componentBased}.
 
