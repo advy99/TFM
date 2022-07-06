@@ -1,0 +1,3 @@
+[submodule "jclec4-classification"]
+	path = jclec4-classification
+	url = https://github.com/advy99/jclec-classification
