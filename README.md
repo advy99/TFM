@@ -1,6 +1,6 @@
 # TFM
 
-Repositorio con la memoria de mi Trabajo de Fin de Máster en Ciencia de Datos e Ingeniería de Computadores en la UGR: **Aprendizaje automático de un sistema interpretable de ayuda a la decisión para la estimación de la edad a partir de los huesos del pubis.**
+Repositorio con la memoria de mi Trabajo de Fin de Máster en Ciencia de Datos e Ingeniería de Computadores en la UGR: **Diseño de un sistema basado en reglas para la estimación de la edad a partir de los huesos del pubis mediante machine learning explicable.**
 
 ## Estructura de carpetas
 
